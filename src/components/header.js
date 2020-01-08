@@ -78,11 +78,7 @@ export default class Header extends React.Component {
                   variant={this.props.theme === "light" ? "dark" : "light"}
                   onClick={() => console.log("shalom")}
                 >
-                  <img
-                    width={"25px"}
-                    height={"25px"}
-                    src={require("./bars-solid.svg")}
-                  />
+                  Text
                 </Button>
               </div>
             )}
