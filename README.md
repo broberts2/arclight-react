@@ -1,99 +1,189 @@
-# Project Title
+# Arclight-React
 
-A collection of commonly used react components using redux and bootstrap.
+My personal collection of commonly used react components using material-ui
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them
+## Installing
 
 ```
-Give examples
+npm install arclight-react
 ```
 
-### Installing
+## Components API
 
-A step by step series of examples that tell you how to get a development env running
+### Header
 
-Say what the step will be
+Basic website header/nav-bar
 
-```
-Give the example
-```
+```javascript
+import { Header } from "arclight-react";
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-### Components
-
-<Header />
-
-Props
-
-bounds (int)
-
-search (object) - width (string) - onChange (callback) - onSubmit (callback)
-
-theme (string)
-
-title (string)
-
-logo (object) - width (string) - height (string) - src (image)
-
-links (array)
-element (object) - text (string) - cb (callback)
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
+<Header
+  data={{
+    title: "Some Title",
+    links: [
+      {
+        cnt: <Component />,
+        cb: () => console.log("Click")
+      }
+    ],
+    logo: { src: require("./logo.png"), height: "50px" }
+  }}
+/>;
 ```
 
-### And coding style tests
+### Drawer
 
-Explain what these tests test and why
+Slider menu that opens from the left, top, right, or bottom
+
+```javascript
+import { Drawer } from "arclight-react";
+
+<Drawer
+  direction={"left"}
+  buttonText={"Open"}
+  items={[
+    {
+      text: "Thing",
+      icon: <Component />
+    }
+  ]}
+/>;
+```
+
+### Video Loop
+
+Responsive background video loop
+
+```javascript
+import { VideoLoop } from "arclight-react";
+
+<div style={{ height: "500px" }}>
+  <VideoLoop
+    duration={12000}
+    videos={require("./videos/videos.js")}
+  ></VideoLoop>
+</div>;
+```
+
+Video object export example (used for the 'videos' prop)
+
+```javascript
+module.exports = [
+  {
+    src: require("./waves.mp4"),
+    type: "video/mp4"
+  }
+];
+```
+
+### Loader
+
+Responsive background video loop
+
+```javascript
+import { Loader } from "arclight-react";
+
+<div style={{ height: "500px" }}>
+  <VideoLoop
+    duration={12000}
+    videos={require("./videos/videos.js")}
+  ></VideoLoop>
+</div>;
+```
+
+### Modal
+
+Responsive background video loop
+
+```javascript
+import { Modal } from "arclight-react";
+
+<div style={{ height: "500px" }}>
+  <VideoLoop
+    duration={12000}
+    videos={require("./videos/videos.js")}
+  ></VideoLoop>
+</div>;
+```
+
+### HCard
+
+Responsive background video loop
+
+```javascript
+import { HCard } from "arclight-react";
+
+<HCard
+  style={"a"}
+  data={{
+    content: [<Component />, <Component />, <Component />]
+  }}
+/>;
+```
+
+### FontAwesomeIcon
+
+Responsive background video loop
+
+```javascript
+import { FontAwesomeIcon } from "arclight-react";
+
+<FontAwesomeIcon
+  style={"b"}
+  data={{ img: "accusoft", type: "brands", size: "50%" }}
+/>;
+```
+
+### Border
+
+Responsive background video loop
+
+```javascript
+import { Border } from "arclight-react";
+
+### TO BE COMPLETED ###
 
 ```
-Give an example
+
+### Alert
+
+Responsive background video loop
+
+```javascript
+import { Alert } from "arclight-react";
+
+<Alert
+  cb={() => console.log("Hello!")}
+  style={"a"}
+  type={"error"}
+  data={{ text: "Check out this stuff!", title: "Yolo!" }}
+/>;
 ```
 
-## Deployment
+### SpeedDial
 
-Add additional notes about how to deploy this on a live system
+Responsive background video loop
 
-## Built With
+```javascript
+import { SpeedDial } from "arclight-react";
 
-- [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-- [Maven](https://maven.apache.org/) - Dependency Management
-- [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+<SpeedDial
+  style={"a"}
+  direction={"right"}
+  hidden={false}
+  data={[
+    { icon: <Component />, name: "Copy" },
+    { icon: <Component />, name: "Save" },
+    { icon: <Component />, name: "Print" },
+    { icon: <Component />, name: "Share" },
+    { icon: <Component />, name: "Like" }
+  ]}
+/>;
+```
 
 ## Authors
 
-- **Billie Thompson** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+- **Broc Roberts** - [broberts2](https://github.com/broberts2)
 
 ## License
 
@@ -101,6 +191,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Material-UI [Material-UI](https://material-ui.com/)
