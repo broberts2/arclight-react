@@ -3,7 +3,7 @@ import Styles from "./styles";
 import { Alert, AlertTitle } from "@material-ui/lab";
 
 export default function CAlert(props) {
-  const style = Styles[props.style]();
+  const style = Styles[props.style];
   const alertType = (() => {
     switch (props.type) {
       case "success":
@@ -45,7 +45,7 @@ export default function CAlert(props) {
     }
   })();
   return (
-    <div className={style.root}>
+    <div className={`alert ${props.palette}`}>
       <div
         onClick={() => (props.cb ? props.cb() : null)}
         style={props.cb ? { cursor: "pointer" } : {}}

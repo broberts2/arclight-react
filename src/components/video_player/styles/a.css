@@ -1,0 +1,93 @@
+.video_player {
+  padding: 5px;
+  --borderRadius: 5px;
+}
+.video_player .container {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+.video_player .container .screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 3px);
+  border-radius: var(--borderRadius);
+  background-color: black;
+  pointer-events: none;
+  transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+}
+.video_player .container .play-bttn {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+}
+.video_player .slider {
+  width: 100%;
+  position: absolute;
+  bottom: 50px;
+}
+.video_player .controls {
+  width: 100%;
+  position: absolute;
+  bottom: 45px;
+}
+.video_player .controls .time-display {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-top: 5px;
+  white-space: nowrap;
+  margin-left: 20px;
+  pointer-events: none;
+}
+.video_player .controls .volume-slider {
+  display: inline-flex;
+  transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+}
+.video_player .container .title {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font-size: 24px;
+  font-style: italic;
+  color: white;
+  pointer-events: none;
+}
+.video_player .container .border {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
+  background-color: transparent;
+  border-radius: 5px;
+  border: 3px solid black;
+  pointer-events: none;
+}
+.video_player .container video {
+  width: 100%;
+  border-radius: var(--borderRadius);
+}
+@media only screen and (max-width: 750px) {
+  .video_player .container {
+    width: 100%;
+  }
+}

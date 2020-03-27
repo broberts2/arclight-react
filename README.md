@@ -78,37 +78,21 @@ module.exports = [
 
 ### Loader
 
-Responsive background video loop
+Standard web spinner when waiting for async requests
 
 ```javascript
-import { Loader } from "arclight-react";
-
-<div style={{ height: "500px" }}>
-  <VideoLoop
-    duration={12000}
-    videos={require("./videos/videos.js")}
-  ></VideoLoop>
-</div>;
 ```
 
 ### Modal
 
-Responsive background video loop
+Responsive modal popup
 
 ```javascript
-import { Modal } from "arclight-react";
-
-<div style={{ height: "500px" }}>
-  <VideoLoop
-    duration={12000}
-    videos={require("./videos/videos.js")}
-  ></VideoLoop>
-</div>;
 ```
 
 ### HCard
 
-Responsive background video loop
+Responsive horizontal grid layout for components
 
 ```javascript
 import { HCard } from "arclight-react";
@@ -123,7 +107,7 @@ import { HCard } from "arclight-react";
 
 ### FontAwesomeIcon
 
-Responsive background video loop
+JSX wrapper for Font Awesome Icons
 
 ```javascript
 import { FontAwesomeIcon } from "arclight-react";
@@ -136,7 +120,7 @@ import { FontAwesomeIcon } from "arclight-react";
 
 ### Border
 
-Responsive background video loop
+A stylistic border component (in-progress)
 
 ```javascript
 import { Border } from "arclight-react";
@@ -147,7 +131,7 @@ import { Border } from "arclight-react";
 
 ### Alert
 
-Responsive background video loop
+Standard alert messages
 
 ```javascript
 import { Alert } from "arclight-react";
@@ -162,7 +146,7 @@ import { Alert } from "arclight-react";
 
 ### SpeedDial
 
-Responsive background video loop
+An accordion-like menu button that expands and contracts
 
 ```javascript
 import { SpeedDial } from "arclight-react";
@@ -178,6 +162,142 @@ import { SpeedDial } from "arclight-react";
     { icon: <Component />, name: "Share" },
     { icon: <Component />, name: "Like" }
   ]}
+/>;
+```
+
+### VideoButton
+
+Responsive button with video background
+
+```javascript
+import { VideoButton } from "arclight-react";
+
+<VideoButton
+  style={"a"}
+  data={{
+    src: require("./abstract_blue.mp4"),
+    type: "video/webm",
+    cnt: (
+      <FontAwesomeIcon
+        style={"a"}
+        color={"white"}
+        data={{ img: "accusoft", type: "brands", size: "50%" }}
+      />
+    )
+  }}
+/>;
+```
+
+### Table
+
+Responsive table
+
+```javascript
+import { Table } from "arclight-react";
+
+<Table
+  style={"a"}
+  title={"Market Analysis"}
+  headCells={[
+    {
+      id: "item",
+      numeric: false,
+      label: "Stock"
+    },
+    {
+      id: "openingPrice",
+      numeric: true,
+      label: "Opening Price USD",
+      format: "usd"
+    },
+    {
+      id: "closingPrice",
+      numeric: true,
+      label: "Closing Price USD",
+      format: "usd"
+    },
+    {
+      id: "profitLoss",
+      numeric: true,
+      label: "Profit / Loss",
+      format: "usd"
+    },
+    {
+      id: "profitLossPercentage",
+      numeric: true,
+      label: "Profit / Loss",
+      format: "percentage"
+    }
+  ]}
+  data={[
+    {
+      item: "Microsoft (MSFT)",
+      openingPrice: 305,
+      closingPrice: 3.7,
+      profitLoss: -1 * (305 - 3.7),
+      profitLossPercentage: (1 - 3.7 / 305) * -1
+    },
+    {
+      item: "Ford (F)",
+      openingPrice: 25,
+      closingPrice: 452,
+      profitLoss: -1 * (25 - 452),
+      profitLossPercentage: 452 / 25
+    },
+    {
+      item: "AT&T (T)",
+      openingPrice: 262,
+      closingPrice: 260,
+      profitLoss: -1 * (262 - 260),
+      profitLossPercentage: (1 - 260 / 262) * -1
+    }
+  ]}
+  dial={
+    <SpeedDial
+      style={"a"}
+      direction={"left"}
+      hidden={false}
+      data={[
+        {
+          icon: <FileCopyIcon onClick={data => console.log(data)} />,
+          name: "Copy"
+        },
+        {
+          icon: <SaveIcon onClick={data => console.log(data)} />,
+          name: "Save"
+        },
+        {
+          icon: <PrintIcon onClick={data => console.log(data)} />,
+          name: "Print"
+        },
+        {
+          icon: <ShareIcon onClick={data => console.log(data)} />,
+          name: "Share"
+        },
+        {
+          icon: <FavoriteIcon onClick={data => console.log(data)} />,
+          name: "Like"
+        }
+      ]}
+    />
+  }
+  selectionDial={
+    <SpeedDial
+      style={"a"}
+      direction={"left"}
+      hidden={false}
+      data={[
+        {
+          icon: <FileCopyIcon onClick={data => console.log(data)} />,
+          name: "Copy"
+        },
+        {
+          icon: <SaveIcon onClick={data => console.log(data)} />,
+          name: "Save"
+        }
+      ]}
+    />
+  }
 />;
 ```
 

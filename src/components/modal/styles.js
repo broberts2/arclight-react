@@ -1,4 +1,4 @@
-import a from "./styles/a";
+import a from "./styles/a.css";
 
 export default {
   a

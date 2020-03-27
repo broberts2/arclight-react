@@ -34,14 +34,21 @@ export default function SpeedDials(props) {
           color: "inherit"
         }}
       >
-        {props.data.map(action => (
-          <SpeedDialAction
-            key={action.name}
-            icon={action.icon}
-            tooltipTitle={action.name}
-            onClick={handleClose}
-          />
-        ))}
+        {props.data.map(action => {
+          return (
+            <SpeedDialAction
+              key={action.name}
+              icon={React.cloneElement(action.icon, {
+                onClick: () =>
+                  action.icon.props.onClick
+                    ? action.icon.props.onClick(props.inheritedData)
+                    : null
+              })}
+              tooltipTitle={action.name}
+              onClick={handleClose}
+            />
+          );
+        })}
       </SpeedDial>
     </div>
   );

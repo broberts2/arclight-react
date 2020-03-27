@@ -8,7 +8,6 @@
 .video_loop video {
   object-fit: cover;
   width: 100%;
-  height: 100%;
 }
 .video_loop .video1 {
   position: absolute;

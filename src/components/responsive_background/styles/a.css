@@ -1,0 +1,16 @@
+.responsive-background {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background-color: gray;
+}
+.responsive-background .background {
+  width: 350px;
+  height: 350px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

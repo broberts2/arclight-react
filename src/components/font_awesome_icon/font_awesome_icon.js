@@ -2,9 +2,9 @@ import React from "react";
 import Styles from "./styles";
 
 export default function FontAwesomeIcon(props) {
-  const style = Styles[props.style]();
+  const style = Styles[props.style](props.color)();
   return (
-    <div>
+    <div onClick={() => (props.onClick ? props.onClick() : null)}>
       <img
         className={style.img}
         style={

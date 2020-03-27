@@ -9,24 +9,66 @@ import Styles from "./styles";
 
 export default function Header(props) {
   const style = Styles[props.style]();
-  return (
-    <div className={style.root}>
-      <AppBar className={style.appBar} position="static">
-        <Toolbar>
-          <img
-            alt={""}
-            src={props.data.logo.src}
-            className={style.logo}
-            style={{ height: props.data.logo.height }}
-          />
-          <h2 className={style.title}>{props.data.title}</h2>
-          {props.data.links.map(el => (
-            <div onClick={() => el.cb()} color="inherit">
-              {el.cnt}
-            </div>
-          ))}
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+  const header = () => {
+    switch (props.style) {
+      case "a":
+        return (
+          <div className={style.root}>
+            <AppBar className={style.appBar} position="static">
+              <Toolbar>
+                <img
+                  alt={""}
+                  src={props.data.logo.src}
+                  className={style.logo}
+                  style={{ height: props.data.logo.height }}
+                />
+                <h2 className={style.title}>{props.data.title}</h2>
+                {props.data.links.map(el => (
+                  <div onClick={() => el.cb()} color="inherit">
+                    {el.cnt}
+                  </div>
+                ))}
+              </Toolbar>
+            </AppBar>
+          </div>
+        );
+      case "b":
+        return (
+          <div className={style.root}>
+            <AppBar className={style.appBar} position="static">
+              <Toolbar>
+                <img
+                  alt={""}
+                  src={props.data.logo.src}
+                  className={style.logo}
+                  style={{ height: props.data.logo.height }}
+                />
+                <h2 className={style.title}>{props.data.title}</h2>
+                {props.data.links.map(el => (
+                  <div onClick={() => el.cb()} color="inherit">
+                    {el.cnt}
+                  </div>
+                ))}
+              </Toolbar>
+            </AppBar>
+          </div>
+        );
+      case "c":
+        return (
+          <div className={style.root}>
+            <AppBar className={style.appBar} position="static">
+              <Toolbar>
+                <h1 className={style.title}>{props.data.title}</h1>
+                {props.data.links.map(el => (
+                  <div onClick={() => el.cb()} color="inherit">
+                    {el.cnt}
+                  </div>
+                ))}
+              </Toolbar>
+            </AppBar>
+          </div>
+        );
+    }
+  };
+  return header();
 }

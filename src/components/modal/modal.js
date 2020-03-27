@@ -1,45 +1,72 @@
-import React from "react";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
+import React, { Component } from "react";
+import CustomModal from "react-awesome-modal";
+import FontAwesomeIcon from "../font_awesome_icon/font_awesome_icon";
 import Styles from "./styles";
 
-export default function TransitionsModal(props) {
-  const style = Styles[props.style]();
-  const [open, setOpen] = React.useState(false);
+export default class Modal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      size: "standard"
+    };
+  }
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  closeModal() {
+    this.props.close();
+  }
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  componentDidMount() {
+    const style = Styles[this.props.style];
+    const resize = () =>
+      this.setState({
+        size: window.innerWidth > 800 ? "standard" : "mobile"
+      });
+    window.addEventListener("resize", () => resize());
+    resize();
+  }
 
-  return (
-    <div>
-      <div onClick={handleOpen}>{props.data.button}</div>
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={style.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500
-        }}
+  size() {
+    switch (this.props.style) {
+      case "a":
+        return this.state.size === "standard"
+          ? {
+              width: "50%",
+              height: "75%"
+            }
+          : {
+              width: "95%",
+              height: "75%"
+            };
+    }
+  }
+
+  render() {
+    return (
+      <CustomModal
+        visible={this.props.visible}
+        width={this.size().width}
+        height={this.size().height}
+        effect={this.props.animation}
+        onClickAway={() => this.closeModal()}
       >
-        <Fade in={open}>
-          <div className={style.paper}>
-            <h2 id="transition-modal-title">Transition modal</h2>
-            <p id="transition-modal-description">
-              react-transition-group animates me.
-            </p>
+        <div className={"modal"}>
+          <div className={"header"}>
+            <div className={"cancel"} onClick={() => this.closeModal()}>
+              <FontAwesomeIcon
+                style={"a"}
+                color={"gray-black"}
+                data={{ img: "window-close", size: "25px" }}
+              />
+            </div>
+            <div className={"content"}>{this.props.header}</div>
           </div>
-        </Fade>
-      </Modal>
-    </div>
-  );
+          <div className={"body"}>
+            <div className={"content"}>
+              <div className={"position"}>{this.props.content}</div>
+            </div>
+          </div>
+        </div>
+      </CustomModal>
+    );
+  }
 }
