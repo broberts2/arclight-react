@@ -4,7 +4,7 @@ import { Dropdown } from "../components/index";
 export default {
   Component: (
     <Dropdown
-      id={"Components"}
+      id={"Example"}
       onChange={(e) => alert(e.target.value)}
       items={[{ component: <div>thing</div>, value: 10 }]}
     />
@@ -13,7 +13,7 @@ export default {
   import { Dropdown } from "arclight-react";
 
   <Dropdown
-    id={"Components"}
+    id={"Example"}
     onChange={(e) => alert(e.target.value)}
     items={[{ component: <div>thing</div>, value: 10 }]}
   />

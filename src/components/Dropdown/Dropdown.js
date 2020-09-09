@@ -10,8 +10,6 @@ import theme from "../themes";
 
 const Dropdown = styled.div``;
 
-const DropdownItem = styled.div``;
-
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -25,17 +23,10 @@ export default React.memo((props) => {
     <ThemeProvider theme={theme}>
       <Dropdown>
         <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-label">{props.id}</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={"age"}
-            onChange={props.onChange}
-          >
+          <InputLabel>{props.id}</InputLabel>
+          <Select onChange={props.onChange}>
             {props.items.map((el, i) => (
-              <MenuItem value={el.value}>
-                <DropdownItem>{el.component}</DropdownItem>
-              </MenuItem>
+              <MenuItem value={el.value}>{el.component}</MenuItem>
             ))}
           </Select>
         </FormControl>

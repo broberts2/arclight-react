@@ -7,13 +7,13 @@ import DoughnutChart from "./DoughnutChart/DoughnutChart";
 import LineChart from "./LineChart/LineChart";
 import Checkbox from "./Checkbox/Checkbox";
 import MaterialIcon from "./MaterialIcon/MaterialIcon";
-import ParticleContainer from "./ParticleContainer/ParticleContainer";
 import Button from "./Button/Button";
 import Loader from "./Loader/Loader";
 import Img from "./Img/Img";
 import Modal from "./Modal/Modal";
 import Timer from "./Timer/Timer";
 import Dropdown from "./Dropdown/Dropdown";
+import Particles from "./Particles/Particles";
 import imgColorFilter from "./imgColorFilter/imgColorFilter";
 import _DataTable_ from "./_DataTable_/_DataTable_";
 import _SeriesSelection_ from "./_SeriesSelection_/_SeriesSelection_";
@@ -30,13 +30,13 @@ export {
   LineChart,
   Checkbox,
   MaterialIcon,
-  ParticleContainer,
   Button,
   Loader,
   Img,
   Modal,
   Timer,
   Dropdown,
+  Particles,
   imgColorFilter,
   _SeriesSelection_,
   _DataTable_,

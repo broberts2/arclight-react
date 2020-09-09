@@ -49,7 +49,8 @@ export default {
   Example: `
   import { LineChart } from "arclight-react";
 
-  // _dummydatagen_.linear = [...{ x: m, y: n}]
+  // For demonstration purposes a random generation function supplies the object array here.
+  // Typical series formatting will be: [{ x: <num>, y: <num>}] in place of '_dummydatagen_.linear(60)'.
 
   <LineChart
     theme={"dark"}
