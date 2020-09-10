@@ -15,6 +15,7 @@ const Filter = styled.div`
     height: 40px;
     border-radius: 50%;
   }
+  cursor: pointer;
 `;
 
 export default class SearchBar extends React.Component {
@@ -26,14 +27,16 @@ export default class SearchBar extends React.Component {
       <td width={"100%"} style={{ minWidth: "200px" }}>
         <form
           noValidate
-          autoComplete="off"
-          style={{ width: "100%", maxWidth: "500px" }}
+          autoComplete="on"
+          style={{ width: "100%", maxWidth: "500px", color: "white" }}
         >
           <TextField
-            id="standard-basic"
+            value={this.props.value ? this.props.value : null}
             label={this.props.placeholder}
-            onChange={(e) => this.props.onChange(e)}
-            style={{ width: "100%" }}
+            onChange={(e) =>
+              this.props.onChange ? this.props.onChange(e) : null
+            }
+            style={{ width: "100%", color: "white" }}
           />
         </form>
       </td>

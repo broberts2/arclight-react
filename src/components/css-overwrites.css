@@ -10,3 +10,15 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+@font-face {
+  font-family: "Kufam";
+  src: url("__fonts__/Kufam/Kufam-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Caveat";
+  src: url("__fonts__/Caveat/Caveat-Regular.ttf");
+}
+html {
+  font-size: 1em;
+  font-family: Kufam;
+}

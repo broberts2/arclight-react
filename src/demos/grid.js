@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { Grid, Img, HoverCard } from "../components/index";
+import theme from "../components/themes";
 
-const DEMO_ARRAY = (() => {
+const DEMO_ARRAY = (THEME) => {
   let hoverId = -1;
   let arr = [];
-  for (let i = 0; i < 130; i++) {
+  for (let i = 0; i < 70; i++) {
     arr.push(
       <HoverCard
-        onClick={() => console.log("shalom")}
+        onClick={(boolean) => console.log(boolean)}
         onHover={() => console.log("hovered")}
         onExit={() => console.log("exited")}
-        theme={"dark"}
+        theme={theme[THEME].complement}
         showBorder={false}
-        size={{ width: "100%", height: "175px" }}
+        size={{ width: "100%", height: "12.5vw" }}
         front={
           <Img
             src={require("../Azir_4.jpg")}
@@ -25,7 +26,7 @@ const DEMO_ARRAY = (() => {
         }
         back={
           <Img
-            src={require("../Azir_4.jpg")}
+            src={require("../Azir_Loading.jpg")}
             width={"100%"}
             height={"100%"}
             style={{
@@ -37,29 +38,39 @@ const DEMO_ARRAY = (() => {
     );
   }
   return arr;
-})();
+};
 
-export default {
+export default (THEME) => ({
   Component: (
     <Grid
-      theme={"dark"}
-      search={true}
-      itemsPerRow={6}
+      theme={theme[THEME].complement}
+      search={false}
+      itemsPerRow={8}
       height={"600px"}
       filtersRight
       filters={[
         {
-          display: <Img src={require("../fire.png")} />,
+          display: <Img src={require("../Position_Gold-Top.png")} />,
           active: true,
           onClick: (filter) => console.log(filter.active),
         },
         {
-          display: <Img src={require("../fire.png")} />,
+          display: <Img src={require("../Position_Gold-Jungle.png")} />,
           active: true,
           onClick: (filter) => console.log(filter.active),
         },
         {
-          display: <Img src={require("../fire.png")} />,
+          display: <Img src={require("../Position_Gold-Mid.png")} />,
+          active: true,
+          onClick: (filter) => console.log(filter.active),
+        },
+        {
+          display: <Img src={require("../Position_Gold-Bot.png")} />,
+          active: true,
+          onClick: (filter) => console.log(filter.active),
+        },
+        {
+          display: <Img src={require("../Position_Gold-Support.png")} />,
           active: true,
           onClick: (filter) => console.log(filter.active),
         },
@@ -68,11 +79,11 @@ export default {
         <Img
           src={require("../Azir_4.jpg")}
           width={"100%"}
-          height={"500px"}
+          height={"600px"}
           style={{ borderRadius: "4px" }}
         />
       }
-      items={DEMO_ARRAY}
+      items={DEMO_ARRAY(THEME)}
     />
   ),
   Example: `
@@ -150,4 +161,4 @@ export default {
     items={DEMO_ARRAY}
   />
   `,
-};
+});

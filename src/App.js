@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Table from "./demos/table";
 import Grid from "./demos/grid";
 import DoughnutChart from "./demos/doughnutchart";
@@ -8,8 +8,11 @@ import Modal from "./demos/modal";
 import HoverCard from "./demos/hovercard";
 import CheckBox from "./demos/checkbox";
 import Particles from "./demos/particles";
+import TextField from "./demos/textfield";
+import _TextArea from "./demos/textarea";
 import _Dropdown from "./demos/dropdown";
-import { Dropdown } from "./components/index";
+import { Dropdown, TextArea } from "./components/index";
+import theme from "./components/themes";
 
 const __Object__ = {
   Table,
@@ -22,42 +25,67 @@ const __Object__ = {
   CheckBox,
   Modal,
   Particles,
+  TextField,
+  TextArea: _TextArea,
 };
 
-const picker = (id) => __Object__[id];
+const picker = (id, THEME) => __Object__[id](THEME);
 
-function App() {
-  const [item, setItem] = React.useState(null);
-  return (
-    <div
-      className="App"
-      style={{
-        padding: "50px",
-        minHeight: "100vh",
-      }}
-    >
-      <h1>Select a Component</h1>
-      <Dropdown
-        id={"Components"}
-        onChange={(e) => setItem(e.target.value)}
-        items={Object.keys(__Object__).map((el) => ({
-          component: <div>{el}</div>,
-          value: el,
-        }))}
-      />
-      {item ? (
-        <div>
-          {picker(item).Component}
-          <h2>Code Example</h2>
-          <textarea
-            readonly
-            style={{ width: "100%", height: "600px", resize: "none" }}
-            value={picker(item).Example}
+export default class App extends React.Component {
+  state = { item: null, theme: "dark" };
+  render() {
+    return (
+      <div
+        className="App"
+        style={{
+          padding: "50px",
+          minHeight: "100vh",
+          backgroundColor: theme[this.state.theme].backgroundColor,
+        }}
+      >
+        <div style={{ width: "350px" }}>
+          <h1 style={{ color: theme[this.state.theme].textColor }}>
+            Select a Theme
+          </h1>
+          <Dropdown
+            theme={this.state.theme}
+            onChange={(e) =>
+              this.setState({ theme: e.target.value, item: this.state.item })
+            }
+            items={Object.keys(theme).map((el) => ({
+              component: <div>{el}</div>,
+              value: el,
+            }))}
+          />
+          <h1 style={{ color: theme[this.state.theme].textColor }}>
+            Select a Component
+          </h1>
+          <Dropdown
+            theme={this.state.theme}
+            onChange={(e) =>
+              this.setState({ item: e.target.value, theme: this.state.theme })
+            }
+            items={Object.keys(__Object__).map((el) => ({
+              component: <div>{el}</div>,
+              value: el,
+            }))}
           />
         </div>
-      ) : null}
-    </div>
-  );
+        {this.state.item ? (
+          <div style={{ marginTop: "10px" }}>
+            {picker(this.state.item, this.state.theme).Component}
+            <h2 style={{ color: theme[this.state.theme].textColor }}>
+              Code Example
+            </h2>
+            <TextArea
+              readonly
+              value={picker(this.state.item, this.state.theme).Example}
+              height={"600px"}
+              theme={theme[this.state.theme].complement}
+            />
+          </div>
+        ) : null}
+      </div>
+    );
+  }
 }
-
-export default App;

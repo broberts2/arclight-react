@@ -28,6 +28,7 @@ import Grow from "@material-ui/core/Grow";
 import styled, { ThemeProvider } from "styled-components";
 import { _SearchBar_ } from "../../components/index";
 import theme from "../themes";
+import "../css-overwrites.css";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -162,7 +163,7 @@ const EnhancedTableToolbar = (props) => {
         id="tableTitle"
         component="div"
       >
-        Nutrition
+        {props.title}
       </Typography>
       <_SearchBar_
         placeholder={"Search"}
@@ -384,6 +385,7 @@ const EnhancedTable = (props) => {
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <EnhancedTableToolbar
+          title={props.title}
           filters={props.filters}
           filtersRight={props.filtersRight}
           numSelected={selected.length}
@@ -470,6 +472,7 @@ const EnhancedTable = (props) => {
 export default React.memo((props) => (
   <ThemeProvider theme={theme}>
     <EnhancedTable
+      title={props.title}
       filters={props.filters}
       filtersRight={props.filtersRight}
       headCells={props.headCells}

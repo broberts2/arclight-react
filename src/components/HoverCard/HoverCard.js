@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from "styled-components";
 import theme from "../themes";
 
 const HoverCard = styled.div`
+  ${(props) => (props.onClick ? "cursor: pointer;" : null)}
   background-color: transparent;
   width: ${(props) => props.size.width};
   height: ${(props) => props.size.height};
@@ -11,15 +12,13 @@ const HoverCard = styled.div`
 `;
 
 const FlipCardInner = styled.div`
+  background-color: transparent;
   position: relative;
   width: 100%;
   height: 100%;
   text-align: center;
   transform-style: preserve-3d;
   transition: transform 0.5s;
-  &:hover {
-    transform: rotateY(180deg);
-  }
   & img {
     max-width: 100%;
     max-height: 100%;
@@ -27,6 +26,7 @@ const FlipCardInner = styled.div`
 `;
 
 const FlipCardFront = styled.div`
+  background-color: transparent;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -37,6 +37,7 @@ const FlipCardFront = styled.div`
 `;
 
 const FlipCardBack = styled.div`
+  background-color: transparent;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -48,6 +49,7 @@ const FlipCardBack = styled.div`
 `;
 
 const FlipCardBackBorder = styled.div`
+  background-color: transparent;
   position: absolute;
   top: 5px;
   right: 5px;
@@ -59,18 +61,32 @@ const FlipCardBackBorder = styled.div`
   z-index: 0;
 `;
 
-export default React.memo((props) => (
-  <ThemeProvider theme={theme}>
-    <HoverCard size={props.size}>
-      <FlipCardInner
-        onClick={() => (props.onClick ? props.onClick() : null)}
-        onMouseOver={() => (props.onHover ? props.onHover() : null)}
-        onMouseLeave={() => (props.onExit ? props.onExit() : null)}
+export default React.memo((props) => {
+  const [state, setState] = React.useState({
+    hovering: false,
+  });
+  return (
+    <ThemeProvider theme={theme}>
+      <HoverCard
+        size={props.size}
+        onClick={() => (props.onClick ? props.onClick(state.hovering) : null)}
+        onMouseOver={() => {
+          setState({ hovering: true });
+          if (props.onHover) props.onHover();
+        }}
+        onMouseLeave={() => {
+          setState({ hovering: false });
+          if (props.onExit) props.onExit();
+        }}
       >
-        <FlipCardFront theme={props.theme}>{props.front}</FlipCardFront>
-        {props.showBorder ? <FlipCardBackBorder theme={props.theme} /> : null}
-        <FlipCardBack theme={props.theme}>{props.back}</FlipCardBack>
-      </FlipCardInner>
-    </HoverCard>
-  </ThemeProvider>
-));
+        <FlipCardInner
+          style={state.hovering ? { transform: "rotateY(180deg)" } : {}}
+        >
+          <FlipCardFront theme={props.theme}>{props.front}</FlipCardFront>
+          {props.showBorder ? <FlipCardBackBorder theme={props.theme} /> : null}
+          <FlipCardBack theme={props.theme}>{props.back}</FlipCardBack>
+        </FlipCardInner>
+      </HoverCard>
+    </ThemeProvider>
+  );
+});

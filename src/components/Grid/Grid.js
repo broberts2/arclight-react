@@ -30,6 +30,7 @@ const InnerTable = styled.div`
 
 const PreviewItem = styled.div`
   padding: 0px;
+  height: 100%;
 `;
 
 const Item = styled.div`
@@ -72,7 +73,7 @@ export default React.memo((props) => {
             <table width={"100%"}>
               <tbody>
                 <tr>
-                  {props.previewItem ? (
+                  {props.previewItem && rows.length > 0 ? (
                     <td width={"25%"}>
                       <PreviewItem>{props.previewItem}</PreviewItem>
                     </td>
@@ -93,9 +94,21 @@ export default React.memo((props) => {
                           : {}
                       }
                     >
-                      <table width={"100%"}>
-                        <tbody>{rows}</tbody>
-                      </table>
+                      {rows.length > 0 ? (
+                        <table width={"100%"}>
+                          <tbody>{rows}</tbody>
+                        </table>
+                      ) : (
+                        <table height={"100%"}>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <h1>Set is Empty</h1>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      )}
                     </InnerTable>
                   </td>
                 </tr>

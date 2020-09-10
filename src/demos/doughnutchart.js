@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { DoughnutChart } from "../components/index";
+import theme from "../components/themes";
 
-export default {
+export default (THEME) => ({
   Component: (
     <DoughnutChart
       hideSeriesSelection={false}
-      theme={"dark"}
+      theme={THEME}
       defaultUnit={"cspm"}
       data={{
         "Masterful Jetgorilla": {
@@ -52,4 +53,4 @@ export default {
     padAngle={2} // Space between wedges.
   />
   `,
-};
+});

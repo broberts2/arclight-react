@@ -1,80 +1,43 @@
 import React, { useState } from "react";
 import { HoverCard, Img } from "../components/index";
+import theme from "../components/themes";
 
-export default {
+export default (THEME) => ({
   Component: (
-    <table>
-      <tbody>
-        <tr>
-          <td>
-            <HoverCard
-              onClick={() => console.log("hello")}
-              onHover={() => console.log("hovered")}
-              onExit={() => console.log("exited")}
-              theme={"dark"}
-              showBorder={false}
-              size={{ width: "250px", height: "400px" }}
-              front={
-                <Img
-                  src={require("../Azir_4.jpg")}
-                  width={"100%"}
-                  height={"100%"}
-                  style={{
-                    borderRadius: "4px",
-                  }}
-                />
-              }
-              back={
-                <Img
-                  src={require("../Azir_Loading.jpg")}
-                  width={"100%"}
-                  height={"100%"}
-                  style={{
-                    borderRadius: "4px",
-                  }}
-                />
-              }
-            />
-          </td>
-          <td>
-            <HoverCard
-              onClick={() => console.log("hello")}
-              onHover={() => console.log("hovered")}
-              onExit={() => console.log("exited")}
-              theme={"crimson"}
-              showBorder={true}
-              size={{ width: "250px", height: "400px" }}
-              front={
-                <Img
-                  src={require("../Azir_4.jpg")}
-                  width={"100%"}
-                  height={"100%"}
-                  style={{
-                    borderRadius: "4px",
-                  }}
-                />
-              }
-              back={
-                <Img
-                  src={require("../Azir_Loading.jpg")}
-                  width={"100%"}
-                  height={"100%"}
-                  style={{
-                    borderRadius: "4px",
-                  }}
-                />
-              }
-            />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <HoverCard
+      onClick={(boolean) => console.log(`Hovering: ${boolean}`)}
+      onHover={() => console.log("hovered")}
+      onExit={() => console.log("exited")}
+      theme={theme[THEME].complement}
+      showBorder={false}
+      size={{ width: "250px", height: "400px" }}
+      front={
+        <Img
+          src={require("../Azir_4.jpg")}
+          width={"100%"}
+          height={"100%"}
+          style={{
+            borderRadius: "4px",
+          }}
+        />
+      }
+      back={
+        <Img
+          src={require("../Azir_Loading.jpg")}
+          width={"100%"}
+          height={"100%"}
+          style={{
+            borderRadius: "4px",
+          }}
+        />
+      }
+    />
   ),
   Example: `
   import { HoverCard } from "arclight-react";
 
   <HoverCard
-    onClick={() => console.log("hello")}
+    onClick={(boolean) => console.log("Hovering: boolean")}
     onHover={() => console.log("hovered")}
     onExit={() => console.log("exited")}
     theme={"dark"}
@@ -102,4 +65,4 @@ export default {
     }
   />
   `,
-};
+});

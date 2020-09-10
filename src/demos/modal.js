@@ -1,28 +1,112 @@
 import React, { useState } from "react";
-import { Modal, Button } from "../components/index";
+import { Modal, Button, Particles, TextArea } from "../components/index";
+import theme from "../components/themes";
+import story from "../_story_";
 
-const _Modal_ = () => {
-  const [mod, showMod] = React.useState(false);
+const _Modal_ = (props) => {
+  const [modal, showModal] = React.useState(false);
   return (
     <div>
-      <Button pop onClick={() => showMod(!mod)}>
+      <Button
+        pop
+        theme={theme[props.THEME].complement}
+        onClick={() => showModal(!modal)}
+      >
         Click Me!
       </Button>
-      <Modal visible={mod} setVisible={(a) => showMod(a)}>
-        <h1>Component</h1>
+      <Modal
+        theme={props.THEME}
+        visible={modal}
+        disableClickAway
+        crown={{
+          position: "right",
+          constrain: false,
+          content: (
+            <div>
+              <img src={require("../spirit-flower.png")} />
+              <div style={{ position: "absolute", top: -55, left: -55 }}>
+                <Particles
+                  width={300}
+                  height={300}
+                  animations={[
+                    {
+                      name: "spiritual",
+                      particleColor: "#00fff0",
+                      x: 50,
+                      y: 50,
+                    },
+                  ]}
+                  invoke={false}
+                />
+              </div>
+            </div>
+          ),
+        }}
+        setVisible={(a) => showModal(a)}
+      >
+        <h1 style={{ color: theme[props.THEME].textColor }}>
+          <i>Azir, Emperor of Shurima</i>
+        </h1>
+        <TextArea
+          readonly={true}
+          value={story}
+          height={"300px"}
+          theme={theme[props.THEME].complement}
+          placeholder={"Some sample text goes in here."}
+          onChange={(e) => console.log(e.target.value)}
+        />
       </Modal>
     </div>
   );
 };
 
-export default {
-  Component: <_Modal_ />,
+export default (THEME) => ({
+  Component: <_Modal_ THEME={THEME} />,
   Example: `
   import { Modal } from "arclight-react";
 
-  // const [mod, showMod] = React.useState(false);
-  <Modal visible={mod} setVisible={(a) => showMod(a)}>
-    <h1>Component</h1>
+  // const [modal, showModal] = React.useState(false);
+  <Modal
+    theme={"dark"}
+    visible={modal}
+    disableClickAway
+    crown={{
+      position: "right",
+      constrain: false,
+      content: (
+        <div>
+          <img src={require("../spirit-flower.png")} />
+          <div style={{ position: "absolute", top: -55, left: -55 }}>
+            <Particles
+              width={300}
+              height={300}
+              animations={[
+                {
+                  name: "spiritual",
+                  particleColor: "#00fff0",
+                  x: 50,
+                  y: 50,
+                },
+              ]}
+              invoke={false}
+            />
+          </div>
+        </div>
+      ),
+    }}
+    setVisible={(a) => showModal(a)}
+  >
+    <h1 style={{ color: theme[__theme__].textColor }}>
+      <i>Azir, Emperor of Shurima</i>
+    </h1>
+    <TextArea
+      readonly={true}
+      value={<string>}
+      height={"300px"}
+      theme={theme[__theme__].complement}
+      placeholder={"Some sample text goes in here."}
+      onChange={(e) => console.log(e.target.value)}
+    />
   </Modal>
   `,
-};
+});

@@ -14,12 +14,14 @@ import Modal from "./Modal/Modal";
 import Timer from "./Timer/Timer";
 import Dropdown from "./Dropdown/Dropdown";
 import Particles from "./Particles/Particles";
+import TextField from "./TextField/TextField";
+import TextArea from "./TextArea/TextArea";
 import imgColorFilter from "./imgColorFilter/imgColorFilter";
 import _DataTable_ from "./_DataTable_/_DataTable_";
 import _SeriesSelection_ from "./_SeriesSelection_/_SeriesSelection_";
 import _SearchBar_ from "./_SearchBar_/_SearchBar_";
-// import Spine from "./Spine/Spine";
 import "react-vis/dist/style.css";
+import "./css-overwrites.css";
 
 export {
   Template,
@@ -37,6 +39,8 @@ export {
   Timer,
   Dropdown,
   Particles,
+  TextField,
+  TextArea,
   imgColorFilter,
   _SeriesSelection_,
   _DataTable_,

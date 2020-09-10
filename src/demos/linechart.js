@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { LineChart } from "../components/index";
 import _dummydatagen_ from "../_dummydatagen_";
+import theme from "../components/themes";
 
-export default {
+export default (THEME) => ({
   Component: (
     <LineChart
-      theme={"dark"}
+      theme={theme[THEME].complement}
       hideSeriesSelection={false}
       decimal={1}
       showAxis={true}
@@ -94,4 +95,4 @@ export default {
     }}
   />
   `,
-};
+});
