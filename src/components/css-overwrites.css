@@ -22,3 +22,6 @@ html {
   font-size: 1em;
   font-family: Kufam;
 }
+body {
+  overflow-x: hidden;
+}

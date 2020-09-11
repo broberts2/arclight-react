@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { Button } from "../index";
+import { Button, Transition } from "../index";
 import theme from "../themes";
 
 const _TextArea = styled.div`
@@ -30,37 +30,41 @@ const _TextArea = styled.div`
 export default class TextArea extends React.Component {
   render() {
     return (
-      <ThemeProvider theme={theme}>
-        <_TextArea props={this.props}>
-          <textarea
-            value={this.props.value ? this.props.value : null}
-            placeholder={this.props.placeholder ? this.props.placeholder : null}
-            readonly={this.props.readonly}
-            onChange={(e) =>
-              this.props.onChange ? this.props.onChange(e) : null
-            }
-          />
-        </_TextArea>
-        {this.props.controls ? (
-          <table dir={"rtl"} style={{ float: "right", marginTop: "8px" }}>
-            <tbody>
-              <tr>
-                {this.props.controls.map((el) => (
-                  <td>
-                    <Button
-                      pop
-                      theme={theme[this.props.theme].complement}
-                      onClick={() => el.operation()}
-                    >
-                      {el.name}
-                    </Button>
-                  </td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
-        ) : null}
-      </ThemeProvider>
+      <Transition trans={this.props.trans}>
+        <ThemeProvider theme={theme}>
+          <_TextArea props={this.props}>
+            <textarea
+              value={this.props.value ? this.props.value : null}
+              placeholder={
+                this.props.placeholder ? this.props.placeholder : null
+              }
+              readonly={this.props.readonly}
+              onChange={(e) =>
+                this.props.onChange ? this.props.onChange(e) : null
+              }
+            />
+          </_TextArea>
+          {this.props.controls ? (
+            <table dir={"rtl"} style={{ float: "right", marginTop: "8px" }}>
+              <tbody>
+                <tr>
+                  {this.props.controls.map((el) => (
+                    <td>
+                      <Button
+                        pop
+                        theme={theme[this.props.theme].complement}
+                        onClick={() => el.operation()}
+                      >
+                        {el.name}
+                      </Button>
+                    </td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
+          ) : null}
+        </ThemeProvider>
+      </Transition>
     );
   }
 }

@@ -6,6 +6,7 @@ import theme from "../components/themes";
 export default (THEME) => ({
   Component: (
     <Table
+      animation={"fadeInLeft"}
       theme={theme[THEME].complement}
       title={"Game Statistics"}
       filtersRight={false}
@@ -84,7 +85,7 @@ export default (THEME) => ({
                   <td>
                     <DoughnutChart
                       hideSeriesSelection={false}
-                      theme={THEME}
+                      theme={theme[THEME].complement}
                       defaultUnit={"cspm"}
                       data={{
                         "Masterful Jetgorilla": {

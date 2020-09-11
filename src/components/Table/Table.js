@@ -26,7 +26,7 @@ import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Grow from "@material-ui/core/Grow";
 import styled, { ThemeProvider } from "styled-components";
-import { _SearchBar_ } from "../../components/index";
+import { _SearchBar_, Transition } from "../../components/index";
 import theme from "../themes";
 import "../css-overwrites.css";
 
@@ -238,14 +238,22 @@ const CustomRow = (props) => {
               : theme[props.info.theme].textColor,
           }}
         >
-          <Checkbox
-            onClick={(event) =>
-              props.info.handleClick(event, props.info.row.name)
+          <Transition
+            trans={
+              props.animation
+                ? { animation: props.animation, delay: props.index * 0.25 }
+                : null
             }
-            checked={props.info.isItemSelected}
-            inputProps={{ "aria-labelledby": props.info.labelId }}
-            style={{ color: theme[props.info.theme].textColor }}
-          />
+          >
+            <Checkbox
+              onClick={(event) =>
+                props.info.handleClick(event, props.info.row.name)
+              }
+              checked={props.info.isItemSelected}
+              inputProps={{ "aria-labelledby": props.info.labelId }}
+              style={{ color: theme[props.info.theme].textColor }}
+            />
+          </Transition>
         </TableCell>
         <TableCell
           component="th"
@@ -259,11 +267,19 @@ const CustomRow = (props) => {
               : theme[props.info.theme].textColor,
           }}
         >
-          {props.info.row.name}
+          <Transition
+            trans={
+              props.animation
+                ? { animation: props.animation, delay: props.index * 0.25 }
+                : null
+            }
+          >
+            {props.info.row.name}
+          </Transition>
         </TableCell>
         {Object.keys(props.info.row)
           .filter((el) => (el !== "name" && el !== "__collapse__" ? el : null))
-          .map((value) => (
+          .map((value, i) => (
             <TableCell
               align="right"
               style={{
@@ -273,7 +289,18 @@ const CustomRow = (props) => {
                   : theme[props.info.theme].textColor,
               }}
             >
-              {props.info.row[value]}
+              <Transition
+                trans={
+                  props.animation
+                    ? {
+                        animation: props.animation,
+                        delay: props.index * 0.25,
+                      }
+                    : null
+                }
+              >
+                {props.info.row[value]}
+              </Transition>
             </TableCell>
           ))}
         <TableCell
@@ -417,6 +444,8 @@ const EnhancedTable = (props) => {
                   const labelId = `enhanced-table-checkbox-${index}`;
                   return (
                     <CustomRow
+                      animation={props.animation}
+                      index={index}
                       info={{
                         row,
                         labelId,
@@ -470,15 +499,18 @@ const EnhancedTable = (props) => {
 };
 
 export default React.memo((props) => (
-  <ThemeProvider theme={theme}>
-    <EnhancedTable
-      title={props.title}
-      filters={props.filters}
-      filtersRight={props.filtersRight}
-      headCells={props.headCells}
-      rows={props.rows}
-      theme={props.theme}
-      themes={theme}
-    />
-  </ThemeProvider>
+  <Transition trans={props.trans}>
+    <ThemeProvider theme={theme}>
+      <EnhancedTable
+        title={props.title}
+        filters={props.filters}
+        filtersRight={props.filtersRight}
+        headCells={props.headCells}
+        rows={props.rows}
+        theme={props.theme}
+        themes={theme}
+        animation={props.animation}
+      />
+    </ThemeProvider>
+  </Transition>
 ));

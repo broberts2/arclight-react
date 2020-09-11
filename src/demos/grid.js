@@ -13,7 +13,7 @@ const DEMO_ARRAY = (THEME) => {
         onExit={() => console.log("exited")}
         theme={theme[THEME].complement}
         showBorder={false}
-        size={{ width: "100%", height: "12.5vw" }}
+        size={{ width: "100%", height: "200px" }}
         front={
           <Img
             src={require("../Azir_4.jpg")}
@@ -44,7 +44,7 @@ export default (THEME) => ({
   Component: (
     <Grid
       theme={theme[THEME].complement}
-      search={false}
+      search={true}
       itemsPerRow={8}
       height={"600px"}
       filtersRight

@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
+import { Transition } from "../index";
 import theme from "../themes";
 
 const HoverCard = styled.div`
@@ -12,10 +13,7 @@ const HoverCard = styled.div`
 `;
 
 const FlipCardInner = styled.div`
-  background-color: transparent;
   position: relative;
-  width: 100%;
-  height: 100%;
   text-align: center;
   transform-style: preserve-3d;
   transition: transform 0.5s;
@@ -23,6 +21,7 @@ const FlipCardInner = styled.div`
     max-width: 100%;
     max-height: 100%;
   }
+  background-color: transparent;
 `;
 
 const FlipCardFront = styled.div`
@@ -66,27 +65,31 @@ export default React.memo((props) => {
     hovering: false,
   });
   return (
-    <ThemeProvider theme={theme}>
-      <HoverCard
-        size={props.size}
-        onClick={() => (props.onClick ? props.onClick(state.hovering) : null)}
-        onMouseOver={() => {
-          setState({ hovering: true });
-          if (props.onHover) props.onHover();
-        }}
-        onMouseLeave={() => {
-          setState({ hovering: false });
-          if (props.onExit) props.onExit();
-        }}
-      >
-        <FlipCardInner
-          style={state.hovering ? { transform: "rotateY(180deg)" } : {}}
+    <Transition trans={props.trans}>
+      <ThemeProvider theme={theme}>
+        <HoverCard
+          size={props.size}
+          onClick={() => (props.onClick ? props.onClick(state.hovering) : null)}
+          onMouseOver={() => {
+            setState({ hovering: true });
+            if (props.onHover) props.onHover();
+          }}
+          onMouseLeave={() => {
+            setState({ hovering: false });
+            if (props.onExit) props.onExit();
+          }}
         >
-          <FlipCardFront theme={props.theme}>{props.front}</FlipCardFront>
-          {props.showBorder ? <FlipCardBackBorder theme={props.theme} /> : null}
-          <FlipCardBack theme={props.theme}>{props.back}</FlipCardBack>
-        </FlipCardInner>
-      </HoverCard>
-    </ThemeProvider>
+          <FlipCardInner
+            style={state.hovering ? { transform: "rotateY(180deg)" } : {}}
+          >
+            <FlipCardFront theme={props.theme}>{props.front}</FlipCardFront>
+            {props.showBorder ? (
+              <FlipCardBackBorder theme={props.theme} />
+            ) : null}
+            <FlipCardBack theme={props.theme}>{props.back}</FlipCardBack>
+          </FlipCardInner>
+        </HoverCard>
+      </ThemeProvider>
+    </Transition>
   );
 });

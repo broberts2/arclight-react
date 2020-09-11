@@ -1,8 +1,11 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
+import { Transition } from "../index";
 import theme from "../themes";
 
-const _DataTable_ = styled.div``;
+const _DataTable_ = styled.div`
+  color: ${(props) => theme[props.theme].textColor};
+`;
 
 const InfoBar = styled.div`
   width: 100%;
@@ -134,20 +137,22 @@ const CalculateTable = (data, dec, rowCount, crosshairValue) => {
 };
 
 export default (props) => (
-  <ThemeProvider theme={theme}>
-    <_DataTable_>
-      <InfoBar>
-        <table>
-          <tbody>
-            {CalculateTable(
-              props.data,
-              props.decimal,
-              props.dataTableColumns,
-              props.crosshairValue
-            )}
-          </tbody>
-        </table>
-      </InfoBar>
-    </_DataTable_>
-  </ThemeProvider>
+  <Transition trans={props.trans}>
+    <ThemeProvider theme={theme}>
+      <_DataTable_ theme={props.theme}>
+        <InfoBar>
+          <table>
+            <tbody>
+              {CalculateTable(
+                props.data,
+                props.decimal,
+                props.dataTableColumns,
+                props.crosshairValue
+              )}
+            </tbody>
+          </table>
+        </InfoBar>
+      </_DataTable_>
+    </ThemeProvider>
+  </Transition>
 );

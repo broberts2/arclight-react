@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { _SearchBar_, Loader } from "../../components/index";
+import { _SearchBar_, Loader, Transition } from "../../components/index";
 import theme from "../themes";
 
 const Grid = styled.div``;
@@ -56,67 +56,69 @@ export default React.memo((props) => {
     setRow(row);
   }
   return (
-    <ThemeProvider theme={theme}>
-      <Loader>
-        <Grid>
-          {props.search ? (
-            <div style={{ marginBottom: "10px" }}>
-              <_SearchBar_
-                placeholder={"Search"}
-                filters={props.filters}
-                filtersRight={props.filtersRight}
-                width={"50%"}
-              />
-            </div>
-          ) : null}
-          <Container>
-            <table width={"100%"}>
-              <tbody>
-                <tr>
-                  {props.previewItem && rows.length > 0 ? (
-                    <td width={"25%"}>
-                      <PreviewItem>{props.previewItem}</PreviewItem>
+    <Transition trans={props.trans}>
+      <ThemeProvider theme={theme}>
+        <Loader>
+          <Grid>
+            {props.search ? (
+              <div style={{ marginBottom: "10px" }}>
+                <_SearchBar_
+                  placeholder={"Search"}
+                  filters={props.filters}
+                  filtersRight={props.filtersRight}
+                  width={"50%"}
+                />
+              </div>
+            ) : null}
+            <Container>
+              <table width={"100%"}>
+                <tbody>
+                  <tr>
+                    {props.previewItem && rows.length > 0 ? (
+                      <td width={"25%"}>
+                        <PreviewItem>{props.previewItem}</PreviewItem>
+                      </td>
+                    ) : null}
+                    <td>
+                      <InnerTable
+                        theme={props.theme}
+                        style={
+                          props.previewItem
+                            ? {
+                                height:
+                                  props.previewItem.props.height ||
+                                  props.previewItem.props.style.height,
+                                overflowY: "scroll",
+                              }
+                            : props.height
+                            ? { height: props.height, overflowY: "scroll" }
+                            : {}
+                        }
+                      >
+                        {rows.length > 0 ? (
+                          <table width={"100%"}>
+                            <tbody>{rows}</tbody>
+                          </table>
+                        ) : (
+                          <table height={"100%"}>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <h1>Set is Empty</h1>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        )}
+                      </InnerTable>
                     </td>
-                  ) : null}
-                  <td>
-                    <InnerTable
-                      theme={props.theme}
-                      style={
-                        props.previewItem
-                          ? {
-                              height:
-                                props.previewItem.props.height ||
-                                props.previewItem.props.style.height,
-                              overflowY: "scroll",
-                            }
-                          : props.height
-                          ? { height: props.height, overflowY: "scroll" }
-                          : {}
-                      }
-                    >
-                      {rows.length > 0 ? (
-                        <table width={"100%"}>
-                          <tbody>{rows}</tbody>
-                        </table>
-                      ) : (
-                        <table height={"100%"}>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <h1>Set is Empty</h1>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      )}
-                    </InnerTable>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </Container>
-        </Grid>
-      </Loader>
-    </ThemeProvider>
+                  </tr>
+                </tbody>
+              </table>
+            </Container>
+          </Grid>
+        </Loader>
+      </ThemeProvider>
+    </Transition>
   );
 });

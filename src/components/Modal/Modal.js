@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import Modal from "react-awesome-modal";
-import { Button, MaterialIcon } from "../index";
+import { Button, FontAwesomeIcon, Transition } from "../index";
 import theme from "../themes";
 
 const _calcPos = (pos) => {
@@ -84,33 +84,39 @@ const Children = styled.div`
 
 export default React.memo((props) => {
   return (
-    <ThemeProvider theme={theme}>
-      <Modal
-        visible={props.visible}
-        width={"75%"}
-        height={"75%"}
-        effect="fadeInUp"
-        onClickAway={() =>
-          !props.disableClickAway ? props.setVisible(false) : null
-        }
-      >
-        <_Modal props={props}>
-          {props.crown ? (
-            <Crown props={props}>
-              <CrownChild props={props}>{props.crown.content}</CrownChild>
-            </Crown>
-          ) : null}
-          <Children>{props.children}</Children>
-        </_Modal>
-        <CloseButton>
-          <Button
-            theme={theme[props.theme].complement}
-            onClick={() => props.setVisible(false)}
-          >
-            <MaterialIcon icon={"exit"} size={24} />
-          </Button>
-        </CloseButton>
-      </Modal>
-    </ThemeProvider>
+    <Transition trans={props.trans}>
+      <ThemeProvider theme={theme}>
+        <Modal
+          visible={props.visible}
+          width={"75%"}
+          height={"75%"}
+          effect="fadeInUp"
+          onClickAway={() =>
+            !props.disableClickAway ? props.setVisible(false) : null
+          }
+        >
+          <_Modal props={props}>
+            {props.crown ? (
+              <Crown props={props}>
+                <CrownChild props={props}>{props.crown.content}</CrownChild>
+              </Crown>
+            ) : null}
+            <Children>{props.children}</Children>
+          </_Modal>
+          <CloseButton>
+            <Button
+              pop
+              theme={theme[props.theme].complement}
+              onClick={() => props.setVisible(false)}
+            >
+              <FontAwesomeIcon
+                theme={theme[props.theme].complement}
+                icon={"signOut"}
+              />
+            </Button>
+          </CloseButton>
+        </Modal>
+      </ThemeProvider>
+    </Transition>
   );
 });

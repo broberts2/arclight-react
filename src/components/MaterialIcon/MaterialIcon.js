@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import LockIcon from "@material-ui/icons/Lock";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import ExitToApp from "@material-ui/icons/ExitToApp";
+import { Transition } from "../index";
 import theme from "../themes";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,10 +32,12 @@ const filter = (str, classes) => {
 export default React.memo((props) => {
   const classes = useStyles();
   return (
-    <ThemeProvider theme={theme}>
-      <MaterialIcon size={props.size}>
-        {filter(props.icon, classes)}
-      </MaterialIcon>
-    </ThemeProvider>
+    <Transition trans={props.trans}>
+      <ThemeProvider theme={theme}>
+        <MaterialIcon size={props.size}>
+          {filter(props.icon, classes)}
+        </MaterialIcon>
+      </ThemeProvider>
+    </Transition>
   );
 });

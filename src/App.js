@@ -9,6 +9,10 @@ import HoverCard from "./demos/hovercard";
 import CheckBox from "./demos/checkbox";
 import Particles from "./demos/particles";
 import TextField from "./demos/textfield";
+import HeaderStylishCenter from "./demos/header-stylish-center";
+import HeaderStylishLeft from "./demos/header-stylish-left";
+import Transition from "./demos/transition";
+import Timer from "./demos/timer";
 import _TextArea from "./demos/textarea";
 import _Dropdown from "./demos/dropdown";
 import { Dropdown, TextArea } from "./components/index";
@@ -26,13 +30,17 @@ const __Object__ = {
   Modal,
   Particles,
   TextField,
+  ["Header - Stylish Center"]: HeaderStylishCenter,
+  ["Header - Stylish Left"]: HeaderStylishLeft,
+  Transition,
+  Timer,
   TextArea: _TextArea,
 };
 
 const picker = (id, THEME) => __Object__[id](THEME);
 
 export default class App extends React.Component {
-  state = { item: null, theme: "dark" };
+  state = { item: "Timer", theme: "dark" };
   render() {
     return (
       <div

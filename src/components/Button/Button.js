@@ -2,6 +2,7 @@ import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import { Transition } from "../index";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import theme from "../themes";
@@ -9,7 +10,6 @@ import theme from "../themes";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "0px",
-    paddingTop: "5px",
   },
 }));
 
@@ -41,32 +41,39 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-const ClickWrapper = styled.div`
-  display: inline-flex;
-`;
+const ClickWrapper = styled.div``;
 
 export default React.memo((props) => {
   const classes = useStyles();
+  const textOffset = 6;
+  const Children =
+    typeof props.children === "object" && props.children.length > 0
+      ? Object.values(props.children).map((el, i) =>
+          i > 0 ? <div style={{ marginLeft: `${textOffset}px` }}>{el}</div> : el
+        )
+      : props.children;
   return (
-    <ThemeProvider theme={theme}>
-      <ButtonWrapper props={props}>
-        <ClickWrapper onClick={() => props.onClick()}>
-          {props.pop ? (
-            <AwesomeButton type="primary">{props.children}</AwesomeButton>
-          ) : (
-            <Button
-              className={classes.root}
-              style={{
-                color: theme[props.theme].textColor,
-                backgroundColor: theme[props.theme].backgroundColor,
-              }}
-              variant="contained"
-            >
-              {props.children}
-            </Button>
-          )}
-        </ClickWrapper>
-      </ButtonWrapper>
-    </ThemeProvider>
+    <Transition trans={props.trans}>
+      <ThemeProvider theme={theme}>
+        <ButtonWrapper props={props}>
+          <ClickWrapper onClick={() => props.onClick()}>
+            {props.pop ? (
+              <AwesomeButton type="primary">{Children}</AwesomeButton>
+            ) : (
+              <Button
+                className={classes.root}
+                style={{
+                  color: theme[props.theme].textColor,
+                  backgroundColor: theme[props.theme].backgroundColor,
+                }}
+                variant="contained"
+              >
+                {Children}
+              </Button>
+            )}
+          </ClickWrapper>
+        </ButtonWrapper>
+      </ThemeProvider>
+    </Transition>
   );
 });

@@ -7,6 +7,7 @@ import DoughnutChart from "./DoughnutChart/DoughnutChart";
 import LineChart from "./LineChart/LineChart";
 import Checkbox from "./Checkbox/Checkbox";
 import MaterialIcon from "./MaterialIcon/MaterialIcon";
+import FontAwesomeIcon from "./FontAwesomeIcon/FontAwesomeIcon";
 import Button from "./Button/Button";
 import Loader from "./Loader/Loader";
 import Img from "./Img/Img";
@@ -16,6 +17,8 @@ import Dropdown from "./Dropdown/Dropdown";
 import Particles from "./Particles/Particles";
 import TextField from "./TextField/TextField";
 import TextArea from "./TextArea/TextArea";
+import Header from "./Header/Header";
+import Transition from "./Transition/Transition";
 import imgColorFilter from "./imgColorFilter/imgColorFilter";
 import _DataTable_ from "./_DataTable_/_DataTable_";
 import _SeriesSelection_ from "./_SeriesSelection_/_SeriesSelection_";
@@ -41,6 +44,9 @@ export {
   Particles,
   TextField,
   TextArea,
+  Header,
+  FontAwesomeIcon,
+  Transition,
   imgColorFilter,
   _SeriesSelection_,
   _DataTable_,

@@ -9,6 +9,12 @@ const dark = {
   secondaryActiveColor: "#c1c1c1",
   primaryHoverColor: "#53184a",
   lineSeries: ["#47005c", "#006b87", "#a72e49", "#376cc6", "#00ffd9"],
+  timerSeries: [
+    ["#00c394", 0.25],
+    ["#016bf7", 0.25],
+    ["#640066", 0.25],
+    ["#950000", 0.5],
+  ],
   scrollbar: `::-webkit-scrollbar {
     width: 10px;
   }
@@ -35,6 +41,12 @@ const light = {
   secondaryActiveColor: "#c1c1c1",
   primaryHoverColor: "#53184a",
   lineSeries: ["#47005c", "#006b87", "#a72e49", "#376cc6", "#00ffd9"],
+  timerSeries: [
+    ["#00c394", 0.25],
+    ["#016bf7", 0.25],
+    ["#640066", 0.25],
+    ["#950000", 0.5],
+  ],
   scrollbar: `::-webkit-scrollbar {
     width: 10px;
   }

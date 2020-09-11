@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
+import { Transition } from "../index";
 import TextField from "@material-ui/core/TextField";
 import theme from "../themes";
 
@@ -67,27 +68,29 @@ export default class SearchBar extends React.Component {
       </td>
     ) : null;
     return (
-      <ThemeProvider theme={theme}>
-        <_SearchBar_ width={this.props.width}>
-          <table width={"100%"}>
-            <tbody>
-              <tr>
-                {this.props.filtersRight ? (
-                  <React.Fragment>
-                    {search}
-                    {_filters}
-                  </React.Fragment>
-                ) : (
-                  <React.Fragment>
-                    {_filters}
-                    {search}
-                  </React.Fragment>
-                )}
-              </tr>
-            </tbody>
-          </table>
-        </_SearchBar_>
-      </ThemeProvider>
+      <Transition trans={this.props.trans}>
+        <ThemeProvider theme={theme}>
+          <_SearchBar_ width={this.props.width}>
+            <table width={"100%"}>
+              <tbody>
+                <tr>
+                  {this.props.filtersRight ? (
+                    <React.Fragment>
+                      {search}
+                      {_filters}
+                    </React.Fragment>
+                  ) : (
+                    <React.Fragment>
+                      {_filters}
+                      {search}
+                    </React.Fragment>
+                  )}
+                </tr>
+              </tbody>
+            </table>
+          </_SearchBar_>
+        </ThemeProvider>
+      </Transition>
     );
   }
 }

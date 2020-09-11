@@ -9,7 +9,6 @@ export default (canvasWidth, canvasHeight) => (
   let interval = 0;
 
   const spawn = (n) => {
-    console.log(Origin);
     if (!_[n]) {
       const size = Math.random() * 2 + 0.5;
       _[n] = Builders.sphere(

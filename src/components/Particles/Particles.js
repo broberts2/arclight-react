@@ -3,23 +3,36 @@ import styled, { ThemeProvider } from "styled-components";
 import theme from "../themes";
 import builders from "./builders/builders";
 import animations from "./animations/index";
+import { Transition } from "../index";
 
-const Particles = styled.div``;
+const Particles = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 
 export default class Canvas extends React.Component {
   constructor(props) {
     super(props);
+    this.sizeRef = React.createRef();
     this.canvasRef = React.createRef();
-    this.state = {};
-    this.state.animationsList = {};
   }
 
   componentDidMount() {
+    this.state = {
+      suspendClear: false,
+      animationsList: {},
+      width: this.props.width
+        ? this.props.width
+        : this.sizeRef.current.clientWidth,
+      height: this.props.height
+        ? this.props.height
+        : this.sizeRef.current.clientHeight,
+    };
     this.Plane = this.canvasRef.current;
-    this.Plane.width = this.props.width;
-    this.Plane.height = this.props.height;
+    this.Plane.width = this.state.width;
+    this.Plane.height = this.state.height;
     this.Canvas = this.Plane.getContext("2d");
-    this.Animations = animations(this.props.width, this.props.height);
+    this.Animations = animations(this.state.width, this.state.height);
     this.Builders = builders(this.Canvas);
     this.Offset = this.Plane.getBoundingClientRect();
     if (this.props.animations) {
@@ -27,8 +40,8 @@ export default class Canvas extends React.Component {
         this.addAnimation(
           anim.name,
           {
-            x: (this.props.width * anim.x) / 100,
-            y: (this.props.height * anim.y) / 100,
+            x: (this.state.width * anim.x) / 100,
+            y: (this.state.height * anim.y) / 100,
           },
           anim.particleColor
         )
@@ -53,7 +66,8 @@ export default class Canvas extends React.Component {
   }
 
   play() {
-    this.Canvas.clearRect(0, 0, this.props.width, this.props.height);
+    if (!this.state.suspendClear)
+      this.Canvas.clearRect(0, 0, this.state.width, this.state.height);
     for (let key in this.state.animationsList) {
       this.state.animationsList[key](this.state.animationsList, key);
     }
@@ -62,30 +76,33 @@ export default class Canvas extends React.Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
-        <Particles>
-          <canvas
-            ref={this.canvasRef}
-            onClick={(e) => {
-              if (this.props.onClickAnimation) {
-                this.addAnimation(
-                  this.props.onClickAnimation.name,
-                  {
-                    x: this.props.onClickAnimation.x
-                      ? this.props.width * (this.props.onClickAnimation.x / 100)
-                      : e.clientX - this.Offset.left,
-                    y: this.props.onClickAnimation.y
-                      ? this.props.height *
-                        (this.props.onClickAnimation.y / 100)
-                      : e.clientY - this.Offset.top,
-                  },
-                  this.props.onClickAnimation.particleColor
-                );
-              }
-            }}
-          />
-        </Particles>
-      </ThemeProvider>
+      <Transition trans={this.props.trans}>
+        <ThemeProvider theme={theme}>
+          <Particles ref={this.sizeRef}>
+            <canvas
+              ref={this.canvasRef}
+              onClick={(e) => {
+                if (this.props.onClickAnimation) {
+                  this.addAnimation(
+                    this.props.onClickAnimation.name,
+                    {
+                      x: this.props.onClickAnimation.x
+                        ? this.state.width *
+                          (this.props.onClickAnimation.x / 100)
+                        : e.clientX - this.Offset.left,
+                      y: this.props.onClickAnimation.y
+                        ? this.state.height *
+                          (this.props.onClickAnimation.y / 100)
+                        : e.clientY - this.Offset.top,
+                    },
+                    this.props.onClickAnimation.particleColor
+                  );
+                }
+              }}
+            />
+          </Particles>
+        </ThemeProvider>
+      </Transition>
     );
   }
 }

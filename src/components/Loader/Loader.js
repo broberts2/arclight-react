@@ -2,6 +2,7 @@ import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
+import { Transition } from "../index";
 import theme from "../themes";
 
 const Loader = styled.div`
@@ -18,14 +19,16 @@ export default React.memo((props) => {
     setLoaded(true);
   });
   return (
-    <ThemeProvider theme={theme}>
-      {loaded ? (
-        props.children
-      ) : (
-        <Loader>
-          <ClipLoader />
-        </Loader>
-      )}
-    </ThemeProvider>
+    <Transition trans={props.trans}>
+      <ThemeProvider theme={theme}>
+        {loaded ? (
+          props.children
+        ) : (
+          <Loader>
+            <ClipLoader />
+          </Loader>
+        )}
+      </ThemeProvider>
+    </Transition>
   );
 });
