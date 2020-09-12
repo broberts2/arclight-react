@@ -67,7 +67,7 @@ export default (THEME) => ({
 
   // const [modal, showModal] = React.useState(false);
   <Modal
-    theme={"dark"}
+    theme={props.THEME}
     visible={modal}
     disableClickAway
     crown={{
@@ -96,14 +96,14 @@ export default (THEME) => ({
     }}
     setVisible={(a) => showModal(a)}
   >
-    <h1 style={{ color: theme[__theme__].textColor }}>
+    <h1 style={{ color: theme[props.THEME].textColor }}>
       <i>Azir, Emperor of Shurima</i>
     </h1>
     <TextArea
       readonly={true}
-      value={<string>}
+      value={story}
       height={"300px"}
-      theme={theme[__theme__].complement}
+      theme={theme[props.THEME].complement}
       placeholder={"Some sample text goes in here."}
       onChange={(e) => console.log(e.target.value)}
     />

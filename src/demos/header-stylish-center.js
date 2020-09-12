@@ -26,9 +26,7 @@ export default (THEME) => ({
           center: null,
           right: (
             <Transition trans={{ animation: "fadeInRight", delay: 2 }}>
-              <h3>
-                <b>Divinity</b>
-              </h3>
+              <img src={require("../divinity.png")} height={"45px"} />
             </Transition>
           ),
         }}
@@ -46,12 +44,12 @@ export default (THEME) => ({
                 }}
               >
                 <img
-                  src={require("../spirit-flower.png")}
+                  src={require("../logo-divinity.png")}
                   style={{
                     height: "150px",
                   }}
                 />
-                <div style={{ position: "absolute", top: -85, left: -55 }}>
+                <div style={{ position: "absolute", top: -20, left: -55 }}>
                   <Particles
                     width={300}
                     height={200}
@@ -159,6 +157,23 @@ export default (THEME) => ({
 
   <Header
     name={"StylishCenter"}
+    textDisplay={{
+      left: (
+        <Transition trans={{ animation: "fadeInLeft", delay: 2 }}>
+          <h1>
+            <b>
+              <i>Titan eSports</i>
+            </b>
+          </h1>
+        </Transition>
+      ),
+      center: null,
+      right: (
+        <Transition trans={{ animation: "fadeInRight", delay: 2 }}>
+          <img src={require("../divinity.png")} height={"45px"} />
+        </Transition>
+      ),
+    }}
     theme={THEME}
     info={{
       width: "100%",
@@ -173,10 +188,12 @@ export default (THEME) => ({
             }}
           >
             <img
-              src={require("../spirit-flower.png")}
-              style={{ height: "150px" }}
+              src={require("../logo-divinity.png")}
+              style={{
+                height: "150px",
+              }}
             />
-            <div style={{ position: "absolute", top: -85, left: -55 }}>
+            <div style={{ position: "absolute", top: -20, left: -55 }}>
               <Particles
                 width={300}
                 height={200}
@@ -247,7 +264,6 @@ export default (THEME) => ({
       </Button>,
       <div />,
       <Button
-      size={6}
         trans={{ animation: "fadeInRight", delay: 0.5 }}
         theme={theme[THEME].complement}
         pop

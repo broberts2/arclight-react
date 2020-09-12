@@ -25,6 +25,12 @@ const _TextArea = styled.div`
   & textarea:focus {
     outline: none;
   }
+  & textarea::selection {
+    background: ${(props) => theme[props.props.theme].primaryColor};
+  }
+  & textarea::-moz-selection {
+    background: ${(props) => theme[props.props.theme].primaryColor};
+  }
 `;
 
 export default class TextArea extends React.Component {

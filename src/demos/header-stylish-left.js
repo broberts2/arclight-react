@@ -85,6 +85,7 @@ export default (THEME) => ({
 
   <Header
     name={"StylishLeft"}
+    textDisplay={{ left: null, center: null, right: null }}
     theme={THEME}
     info={{
       width: "100%",
@@ -132,75 +133,20 @@ export default (THEME) => ({
         Sign Out
       </Button>,
       <Button
-        trans={{ animation: "fadeInRight", delay: 0.75 }}
+        trans={{ animation: "fadeInLeft", delay: 1 }}
         theme={theme[THEME].complement}
         pop
         onClick={() => console.log("I've been clicked!")}
       >
-        <FontAwesomeIcon theme={theme[THEME].complement} icon={"twitch"} />
+        News
       </Button>,
       <Button
-        trans={{ animation: "fadeInLeft", delay: 0.75 }}
+        trans={{ animation: "fadeInLeft", delay: 1 }}
         theme={theme[THEME].complement}
         pop
         onClick={() => console.log("I've been clicked!")}
       >
-        Click Me 2!
-      </Button>,
-      <Button
-        trans={{ animation: "fadeInRight", delay: 0.5 }}
-        theme={theme[THEME].complement}
-        pop
-        onClick={() => console.log("I've been clicked!")}
-      >
-        <FontAwesomeIcon theme={theme[THEME].complement} icon={"discord"} />
-      </Button>,
-      <Button
-        trans={{ animation: "fadeInLeft", delay: 0.5 }}
-        theme={theme[THEME].complement}
-        pop
-        onClick={() => console.log("I've been clicked!")}
-      >
-        Click Me 4!
-      </Button>,
-      <Button
-        trans={{ animation: "fadeInRight", delay: 0.5 }}
-        theme={theme[THEME].complement}
-        pop
-        onClick={() => console.log("I've been clicked!")}
-      >
-        <FontAwesomeIcon theme={theme[THEME].complement} icon={"reddit"} />
-      </Button>,
-      <div />,
-      <Button
-      size={6}
-        trans={{ animation: "fadeInRight", delay: 0.5 }}
-        theme={theme[THEME].complement}
-        pop
-        onClick={() => console.log("I've been clicked!")}
-      >
-        <FontAwesomeIcon theme={theme[THEME].complement} icon={"youtube"} />
-      </Button>,
-      <div />,
-      <Button
-        trans={{ animation: "fadeInRight", delay: 0.5 }}
-        theme={theme[THEME].complement}
-        pop
-        onClick={() => console.log("I've been clicked!")}
-      >
-        <FontAwesomeIcon theme={theme[THEME].complement} icon={"twitter"} />
-      </Button>,
-      <div />,
-      <Button
-        trans={{ animation: "fadeInRight", delay: 0.5 }}
-        theme={theme[THEME].complement}
-        pop
-        onClick={() => console.log("I've been clicked!")}
-      >
-        <FontAwesomeIcon
-          theme={theme[THEME].complement}
-          icon={"facebook"}
-        />
+        Home
       </Button>,
     ]}
   />

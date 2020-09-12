@@ -16,8 +16,19 @@ export default (THEME) => ({
   Example: `
   import { Transition } from "arclight-react";
 
-  <Transition>
-    <h1>Words</h1>
+  // Example usage as an element container
+  <Transition trans={{ animation: "fadeInUpBig", delay: 1 }}>
+    <h1>Hey There!</h1>
   </Transition>
+
+  // Example usage inside a arclight-react component
+  <Button
+    trans={{ animation: "fadeInUpBig", delay: 1 }}
+    theme={theme[THEME].complement}
+    pop
+    onClick={() => console.log("I've been clicked!")}
+  >
+    Click Me!
+  </Button>
   `,
 });

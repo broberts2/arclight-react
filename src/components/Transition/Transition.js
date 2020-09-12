@@ -13,6 +13,8 @@ import {
   fadeInUpBig,
   fadeInLeft,
   fadeInRight,
+  zoomIn,
+  zoomOut,
 } from "react-animations";
 import theme from "../themes";
 
@@ -75,6 +77,14 @@ const styles = (obj) => {
       custom: {
         opacity: 0,
       },
+    },
+    zoomIn: {
+      anim: zoomIn,
+      custom: {},
+    },
+    zoomOut: {
+      anim: zoomOut,
+      custom: {},
     },
   };
   for (let key in animations) {
@@ -215,8 +225,6 @@ export default (props) => (
 //
 // wobble
 //
-// zoomIn
-//
 // zoomInDown
 //
 // zoomInLeft
@@ -224,8 +232,6 @@ export default (props) => (
 // zoomInRight
 //
 // zoomInUp
-//
-// zoomOut
 //
 // zoomOutDown
 //

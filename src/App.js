@@ -13,6 +13,7 @@ import HeaderStylishCenter from "./demos/header-stylish-center";
 import HeaderStylishLeft from "./demos/header-stylish-left";
 import Transition from "./demos/transition";
 import Timer from "./demos/timer";
+import MediaCycler from "./demos/mediacycler";
 import _TextArea from "./demos/textarea";
 import _Dropdown from "./demos/dropdown";
 import { Dropdown, TextArea } from "./components/index";
@@ -30,6 +31,7 @@ const __Object__ = {
   Modal,
   Particles,
   TextField,
+  MediaCycler,
   ["Header - Stylish Center"]: HeaderStylishCenter,
   ["Header - Stylish Left"]: HeaderStylishLeft,
   Transition,
@@ -40,7 +42,7 @@ const __Object__ = {
 const picker = (id, THEME) => __Object__[id](THEME);
 
 export default class App extends React.Component {
-  state = { item: "Timer", theme: "dark" };
+  state = { item: "MediaCycler", theme: "Dark" };
   render() {
     return (
       <div

@@ -18,6 +18,7 @@ const useDropDownStyles = makeStyles(() => ({
 }));
 
 export default React.memo((props) => {
+  const [value, setValue] = React.useState(props.items[0].value);
   return (
     <Transition trans={props.trans}>
       <ThemeProvider theme={theme}>
@@ -25,7 +26,11 @@ export default React.memo((props) => {
           <FormControl style={{ width: "100%" }} classes={useDropDownStyles}>
             <InputLabel>{props.id}</InputLabel>
             <Select
-              onChange={props.onChange}
+              value={value}
+              onChange={(e) => {
+                setValue(e.target.value);
+                return props.onChange(e);
+              }}
               style={{
                 backgroundColor: "white",
                 borderRadius: "4px",

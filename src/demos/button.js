@@ -23,7 +23,11 @@ export default (THEME) => ({
   Example: `
   import { Button } from "arclight-react";
 
-  <Button pop onClick={() => console.log("I've been clicked!")}>
+  <Button
+    theme={theme[THEME].complement}
+    pop
+    onClick={() => console.log("I've been clicked!")}
+  >
     Click Me!
   </Button>
   `,

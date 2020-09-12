@@ -37,10 +37,10 @@ export default (THEME) => ({
   import { HoverCard } from "arclight-react";
 
   <HoverCard
-    onClick={(boolean) => console.log("Hovering: boolean")}
+    onClick={(boolean) => console.log(boolean)}
     onHover={() => console.log("hovered")}
     onExit={() => console.log("exited")}
-    theme={"dark"}
+    theme={theme[THEME].complement}
     showBorder={false}
     size={{ width: "250px", height: "400px" }}
     front={

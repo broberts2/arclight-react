@@ -19,6 +19,7 @@ import TextField from "./TextField/TextField";
 import TextArea from "./TextArea/TextArea";
 import Header from "./Header/Header";
 import Transition from "./Transition/Transition";
+import MediaCycler from "./MediaCycler/MediaCycler";
 import imgColorFilter from "./imgColorFilter/imgColorFilter";
 import _DataTable_ from "./_DataTable_/_DataTable_";
 import _SeriesSelection_ from "./_SeriesSelection_/_SeriesSelection_";
@@ -47,6 +48,7 @@ export {
   Header,
   FontAwesomeIcon,
   Transition,
+  MediaCycler,
   imgColorFilter,
   _SeriesSelection_,
   _DataTable_,

@@ -54,7 +54,7 @@ export default (THEME) => ({
   // Typical series formatting will be: [{ x: <num>, y: <num>}] in place of '_dummydatagen_.linear(60)'.
 
   <LineChart
-    theme={"dark"}
+    theme={theme[THEME].complement}
     hideSeriesSelection={false}
     decimal={1}
     showAxis={true}
@@ -63,31 +63,31 @@ export default (THEME) => ({
     dataTableColumns={4}
     data={{
       Jetgorilla: {
-        img: require("../Azir.png"), // optional
+        img: require("../Azir.png"),
         yAxis: "Creep Score",
         xAxis: "Minutes",
         data: _dummydatagen_.linear(60),
       },
       Phortwenty: {
-        img: require("../JarvanIV.png"), // optional
+        img: require("../JarvanIV.png"),
         yAxis: "Creep Score",
         xAxis: "Minutes",
         data: _dummydatagen_.linear(60),
       },
       Major: {
-        img: require("../Malzahar.png"), // optional
+        img: require("../Malzahar.png"),
         yAxis: "Creep Score",
         xAxis: "Minutes",
         data: _dummydatagen_.linear(60),
       },
       Braer: {
-        img: require("../Yorick.png"), // optional
+        img: require("../Yorick.png"),
         yAxis: "Creep Score",
         xAxis: "Minutes",
         data: _dummydatagen_.linear(60),
       },
       Khyroe: {
-        img: require("../Blitzcrank.png"), // optional
+        img: require("../Blitzcrank.png"),
         yAxis: "Creep Score",
         xAxis: "Minutes",
         data: _dummydatagen_.linear(60),

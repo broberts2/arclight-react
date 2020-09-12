@@ -14,11 +14,11 @@ export default (THEME) => ({
   Example: `
   import { TextField } from "arclight-react";
 
-  <React.Fragment>
-    <TextField
-      placeholder={"Input Field"}
-      onChange={(e) => console.log(e.target.value)}
-    />
-  </React.Fragment>
+  <TextField
+    readonly={false}
+    value={null}
+    placeholder={"Input Field"}
+    onChange={(e) => console.log(e.target.value)}
+  />
   `,
 });

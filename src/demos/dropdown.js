@@ -16,7 +16,7 @@ export default (THEME) => ({
   import { Dropdown } from "arclight-react";
 
   <Dropdown
-    theme={theme[__theme__].complement}
+    theme={THEME}
     onChange={(e) => alert(e.target.value)}
     items={[{ component: <div>thing</div>, value: 10 }]}
   />

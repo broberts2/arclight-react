@@ -1,5 +1,5 @@
-const dark = {
-  complement: "light",
+const Dark = {
+  complement: "Light",
   backgroundColor: "#2e2e2e",
   textColor: "#e0e0e0",
   secondaryTextColor: "#e0e0e0",
@@ -30,8 +30,8 @@ const dark = {
   }`,
 };
 
-const light = {
-  complement: "dark",
+const Light = {
+  complement: "Dark",
   backgroundColor: "#d7d7d7",
   textColor: "#121212",
   secondaryTextColor: "#212121",
@@ -62,4 +62,4 @@ const light = {
   }`,
 };
 
-export default { dark, light };
+export default { Dark, Light };
