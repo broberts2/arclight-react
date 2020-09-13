@@ -1,6 +1,6 @@
 {
   "name": "arclight-react",
-  "version": "1.3.11",
+  "version": "1.3.12",
   "private": false,
   "main": "dist/index.js",
   "dependencies": {
@@ -42,7 +42,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "publish": "git add .; git commit -am 'new publish'; git push origin master; rm -rf dist && mkdir dist && babel src -d dist --copy-files; npm publish"
+    "publish": "git add .; git commit -am 'new publish'; git push origin master; rm -rf dist && mkdir dist && babel src/components -d dist --copy-files;"
   },
   "eslintConfig": {
     "extends": "react-app"
