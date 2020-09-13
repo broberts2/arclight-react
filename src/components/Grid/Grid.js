@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { _SearchBar_, Loader, Transition } from "../../components/index";
+import { _SearchBar_, Loader, Transition } from "../index";
 import theme from "../themes";
 
 const Grid = styled.div``;

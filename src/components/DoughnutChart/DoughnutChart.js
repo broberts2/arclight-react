@@ -3,7 +3,7 @@ import { RadialChart, Hint } from "react-vis";
 import styled, { ThemeProvider } from "styled-components";
 import theme from "../themes";
 import Zoom from "@material-ui/core/Zoom";
-import { _SeriesSelection_, Img, Transition } from "../../components/index";
+import { _SeriesSelection_, Img, Transition } from "../index";
 import "./DoughnutChart.css";
 
 const DoughnutChart = styled.div`

@@ -26,7 +26,7 @@ import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Grow from "@material-ui/core/Grow";
 import styled, { ThemeProvider } from "styled-components";
-import { _SearchBar_, Transition } from "../../components/index";
+import { _SearchBar_, Transition } from "../index";
 import theme from "../themes";
 import "../css-overwrites.css";
 

@@ -19,7 +19,7 @@ import {
   _SeriesSelection_,
   Img,
   Transition,
-} from "../../components/index";
+} from "../index";
 
 const LineChart = styled.div`
   margin: 20px;

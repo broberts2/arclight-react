@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { Checkbox, Img, Transition } from "../../components/index";
+import { Checkbox, Img, Transition } from "../index";
 import theme from "../themes";
 
 const _SeriesSelection_ = styled.div`
