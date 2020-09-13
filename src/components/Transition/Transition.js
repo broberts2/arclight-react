@@ -105,11 +105,11 @@ const styles = (obj) => {
     },
     fadeIn: {
       anim: fadeIn,
-      custom: {},
+      custom: { opacity: 1 },
     },
     fadeOut: {
       anim: fadeOut,
-      custom: {},
+      custom: { opacity: 0 },
     },
     shake: {
       anim: shake,

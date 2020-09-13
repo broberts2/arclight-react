@@ -18,6 +18,7 @@ const _Modal_ = (props) => {
         theme={props.THEME}
         visible={modal}
         disableClickAway
+        title={<h1>I am a title!</h1>}
         crown={{
           position: "right",
           constrain: false,
@@ -70,6 +71,7 @@ export default (THEME) => ({
     theme={props.THEME}
     visible={modal}
     disableClickAway
+    title={<h1>I am a title!</h1>}
     crown={{
       position: "right",
       constrain: false,

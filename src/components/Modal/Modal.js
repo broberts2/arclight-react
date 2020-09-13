@@ -33,6 +33,14 @@ const CloseButton = styled.div`
   padding: -10px;
 `;
 
+const Title = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 15px;
+  margin-top: 0px;
+`;
+
 const Crown = styled.div`
   width: 150px;
   height: 150px;
@@ -103,6 +111,7 @@ export default React.memo((props) => {
             ) : null}
             <Children>{props.children}</Children>
           </_Modal>
+          {props.title ? <Title>{props.title}</Title> : null}
           <CloseButton>
             <Button
               pop
