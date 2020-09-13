@@ -4,14 +4,17 @@ import theme from "../components/themes";
 
 export default (THEME) => ({
   Component: (
-    <Button
-      trans={{ animation: "fadeInUpBig", delay: 1 }}
-      theme={theme[THEME].complement}
-      pop
-      onClick={() => console.log("I've been clicked!")}
-    >
-      Click Me!
-    </Button>
+    <React.Fragment>
+      <Button
+        trans={{ animation: "fadeInLeft", delay: 1 }}
+        theme={theme[THEME].complement}
+        pop
+        onClick={() => console.log("I've been clicked!")}
+      >
+        Click Me!
+      </Button>
+      <a href="https://animate.style/">All animations</a>
+    </React.Fragment>
   ),
   Example: `
   import { Transition } from "arclight-react";
@@ -23,7 +26,7 @@ export default (THEME) => ({
 
   // Example usage inside a arclight-react component
   <Button
-    trans={{ animation: "fadeInUpBig", delay: 1 }}
+    trans={{ animation: "fadeInLeft", delay: 1 }}
     theme={theme[THEME].complement}
     pop
     onClick={() => console.log("I've been clicked!")}
