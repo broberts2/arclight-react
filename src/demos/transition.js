@@ -13,7 +13,9 @@ export default (THEME) => ({
       >
         Click Me!
       </Button>
-      <a href="https://animate.style/">All animations</a>
+      <a href="https://animate.style/" target={"_blank"}>
+        <h1>All animations</h1>
+      </a>
     </React.Fragment>
   ),
   Example: `

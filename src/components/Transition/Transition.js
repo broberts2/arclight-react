@@ -105,9 +105,7 @@ const styles = (obj) => {
     },
     fadeIn: {
       anim: fadeIn,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeOut: {
       anim: fadeOut,
@@ -119,27 +117,19 @@ const styles = (obj) => {
     },
     swing: {
       anim: swing,
-      custom: {
-        animationFillMode: "none",
-      },
+      custom: {},
     },
     fadeInUpBig: {
       anim: fadeInUpBig,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeInLeft: {
       anim: fadeInLeft,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeInRight: {
       anim: fadeInRight,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     zoomIn: {
       anim: zoomIn,
@@ -151,399 +141,267 @@ const styles = (obj) => {
     },
     bounceInDown: {
       anim: bounceInDown,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     bounceInLeft: {
       anim: bounceInLeft,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     bounceInRight: {
       anim: bounceInRight,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     bounceInUp: {
       anim: bounceInUp,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     bounceOutDown: {
       anim: bounceOutDown,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     bounceOutLeft: {
       anim: bounceOutLeft,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     bounceOutRight: {
       anim: bounceOutRight,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     bounceOutUp: {
       anim: bounceOutUp,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeInDown: {
       anim: fadeInDown,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeInDownBig: {
       anim: fadeInDownBig,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeInLeftBig: {
       anim: fadeInLeftBig,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeInRight: {
       anim: fadeInRight,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeInRightBig: {
       anim: fadeInRightBig,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeInUp: {
       anim: fadeInUp,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeInUpBig: {
       anim: fadeInUpBig,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeOut: {
       anim: fadeOut,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeOutDown: {
       anim: fadeOutDown,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeOutDownBig: {
       anim: fadeOutDownBig,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeOutLeft: {
       anim: fadeOutLeft,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeOutLeftBig: {
       anim: fadeOutLeftBig,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeOutRight: {
       anim: fadeOutRight,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeOutRightBig: {
       anim: fadeOutRightBig,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeOutUp: {
       anim: fadeOutUp,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     fadeOutUpBig: {
       anim: fadeOutUpBig,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     flash: {
       anim: flash,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     flip: {
       anim: flip,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     flipInX: {
       anim: flipInX,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     flipInY: {
       anim: flipInY,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     flipOutX: {
       anim: flipOutX,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     flipOutY: {
       anim: flipOutY,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     headShake: {
       anim: headShake,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     hinge: {
       anim: hinge,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     jello: {
       anim: jello,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     lightSpeedIn: {
       anim: lightSpeedIn,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     lightSpeedOut: {
       anim: lightSpeedOut,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     pulse: {
       anim: pulse,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     rollIn: {
       anim: rollIn,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     rollOut: {
       anim: rollOut,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     rotateIn: {
       anim: rotateIn,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     rotateInDownLeft: {
       anim: rotateInDownLeft,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     rotateInDownRight: {
       anim: rotateInDownRight,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     rotateInUpLeft: {
       anim: rotateInUpLeft,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     rotateInUpRight: {
       anim: rotateInUpRight,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     rotateOut: {
       anim: rotateOut,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     rotateOutDownLeft: {
       anim: rotateOutDownLeft,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     rotateOutDownRight: {
       anim: rotateOutDownRight,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     rotateOutUpLeft: {
       anim: rotateOutUpLeft,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     rotateOutUpRight: {
       anim: rotateOutUpRight,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     rubberBand: {
       anim: rubberBand,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     slideInDown: {
       anim: slideInDown,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     slideInRight: {
       anim: slideInRight,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     slideInUp: {
       anim: slideInUp,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     slideOutDown: {
       anim: slideOutDown,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     slideOutLeft: {
       anim: slideOutLeft,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     slideOutRight: {
       anim: slideOutRight,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     slideOutUp: {
       anim: slideOutUp,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     tada: {
       anim: tada,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     wobble: {
       anim: wobble,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     zoomInDown: {
       anim: zoomInDown,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     zoomInLeft: {
       anim: zoomInLeft,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     zoomInRight: {
       anim: zoomInRight,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     zoomInUp: {
       anim: zoomInUp,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     zoomOutDown: {
       anim: zoomOutDown,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     zoomOutLeft: {
       anim: zoomOutLeft,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     zoomOutRight: {
       anim: zoomOutRight,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
     zoomOutUp: {
       anim: zoomOutUp,
-      custom: {
-        opacity: 0,
-      },
+      custom: {},
     },
   };
   for (let key in animations) {
