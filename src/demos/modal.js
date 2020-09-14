@@ -1,7 +1,23 @@
 import React, { useState } from "react";
-import { Modal, Button, Particles, TextArea } from "../components/index";
+import {
+  Modal,
+  Button,
+  Particles,
+  TextArea,
+  Grid,
+  Img,
+} from "../components/index";
 import theme from "../components/themes";
 import story from "../_story_";
+
+const DEMO_ARRAY = (THEME) => {
+  let hoverId = -1;
+  let arr = [];
+  for (let i = 0; i < 70; i++) {
+    arr.push(<img src={require("../Azir.png")} width={"100%"} />);
+  }
+  return arr;
+};
 
 const _Modal_ = (props) => {
   const [modal, showModal] = React.useState(false);
@@ -44,9 +60,43 @@ const _Modal_ = (props) => {
         }}
         setVisible={(a) => showModal(a)}
       >
-        <div
-          style={{ width: "100%", height: "100%", backgroundColor: "blue" }}
-        />
+        <div style={{ width: "100%", height: "100%" }}>
+          <Grid
+            theme={theme[props.THEME].complement}
+            search={true}
+            itemsPerRow={8}
+            height={"100%"}
+            filtersRight
+            filters={[
+              {
+                display: <Img src={require("../Position_Gold-Top.png")} />,
+                active: true,
+                onClick: (filter) => console.log(filter.active),
+              },
+              {
+                display: <Img src={require("../Position_Gold-Jungle.png")} />,
+                active: true,
+                onClick: (filter) => console.log(filter.active),
+              },
+              {
+                display: <Img src={require("../Position_Gold-Mid.png")} />,
+                active: true,
+                onClick: (filter) => console.log(filter.active),
+              },
+              {
+                display: <Img src={require("../Position_Gold-Bot.png")} />,
+                active: true,
+                onClick: (filter) => console.log(filter.active),
+              },
+              {
+                display: <Img src={require("../Position_Gold-Support.png")} />,
+                active: true,
+                onClick: (filter) => console.log(filter.active),
+              },
+            ]}
+            items={DEMO_ARRAY(props.THEME)}
+          />
+        </div>
       </Modal>
     </div>
   );
@@ -59,7 +109,7 @@ export default (THEME) => ({
 
   // const [modal, showModal] = React.useState(false);
   <Modal
-    theme={props.THEME}
+    theme={THEME}
     visible={modal}
     disableClickAway
     crown={{

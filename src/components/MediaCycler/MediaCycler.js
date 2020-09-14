@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { Transition } from "../index";
 import theme from "../themes";
 
@@ -125,7 +125,7 @@ export default class MediaCycler extends React.Component {
   render() {
     return (
       <Transition trans={this.props.trans}>
-        <ThemeProvider theme={theme}>
+        
           <_MediaCycler width={this.props.width} height={this.props.height}>
             <Element1>{this.state.element1}</Element1>
             <Element2>
@@ -134,7 +134,7 @@ export default class MediaCycler extends React.Component {
               </Transition>
             </Element2>
           </_MediaCycler>
-        </ThemeProvider>
+        
       </Transition>
     );
   }

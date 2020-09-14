@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { Transition } from "../index";
 import theme from "../themes";
@@ -13,7 +13,7 @@ const size = {
 
 export default React.memo((props) => (
   <Transition trans={props.trans}>
-    <ThemeProvider theme={theme}>
+    
       <Timer>
         <CountdownCircleTimer
           strokeLinecap={"round"}
@@ -59,6 +59,6 @@ export default React.memo((props) => (
           )}
         </CountdownCircleTimer>
       </Timer>
-    </ThemeProvider>
+    
   </Transition>
 ));

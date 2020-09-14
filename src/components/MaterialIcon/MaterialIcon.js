@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
 import LockIcon from "@material-ui/icons/Lock";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
@@ -33,11 +33,11 @@ export default React.memo((props) => {
   const classes = useStyles();
   return (
     <Transition trans={props.trans}>
-      <ThemeProvider theme={theme}>
+      
         <MaterialIcon size={props.size}>
           {filter(props.icon, classes)}
         </MaterialIcon>
-      </ThemeProvider>
+      
     </Transition>
   );
 });

@@ -5,7 +5,7 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import { makeStyles } from "@material-ui/core/styles";
 import Select from "@material-ui/core/Select";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { Transition } from "../index";
 import theme from "../themes";
 
@@ -21,7 +21,7 @@ export default React.memo((props) => {
   const [value, setValue] = React.useState(props.items[0].value);
   return (
     <Transition trans={props.trans}>
-      <ThemeProvider theme={theme}>
+      
         <Dropdown>
           <FormControl style={{ width: "100%" }} classes={useDropDownStyles}>
             <InputLabel>{props.id}</InputLabel>
@@ -52,7 +52,7 @@ export default React.memo((props) => {
             </Select>
           </FormControl>
         </Dropdown>
-      </ThemeProvider>
+      
     </Transition>
   );
 });

@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import Radium, { StyleRoot } from "radium";
 import {
   bounce,
@@ -89,6 +89,8 @@ const styles = (obj) => {
     animationDelay: `${obj.delay ? obj.delay : "0"}s`,
     animationName: Radium.keyframes(anim, name),
     animationFillMode: "forwards",
+    width: "inherit",
+    height: "inherit",
   });
   const animations = {
     bounce: {
@@ -185,10 +187,6 @@ const styles = (obj) => {
     },
     fadeInLeftBig: {
       anim: fadeInLeftBig,
-      custom: { opacity: 0 },
-    },
-    fadeInRight: {
-      anim: fadeInRight,
       custom: { opacity: 0 },
     },
     fadeInRightBig: {
@@ -414,13 +412,15 @@ const styles = (obj) => {
 };
 
 export default (props) => (
-  <ThemeProvider theme={theme}>
-    <StyleRoot>
-      <div
-        style={props.trans ? styles(props.trans)[props.trans.animation] : {}}
-      >
-        {props.children}
-      </div>
-    </StyleRoot>
-  </ThemeProvider>
+  <StyleRoot style={{ width: "inherit", height: "inherit" }}>
+    <div
+      style={
+        props.trans
+          ? styles(props.trans)[props.trans.animation]
+          : { width: "inherit", height: "inherit" }
+      }
+    >
+      {props.children}
+    </div>
+  </StyleRoot>
 );

@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import theme from "../themes";
 import builders from "./builders/builders";
 import animations from "./animations/index";
@@ -77,7 +77,7 @@ export default class Canvas extends React.Component {
   render() {
     return (
       <Transition trans={this.props.trans}>
-        <ThemeProvider theme={theme}>
+        
           <Particles ref={this.sizeRef}>
             <canvas
               ref={this.canvasRef}
@@ -101,7 +101,7 @@ export default class Canvas extends React.Component {
               }}
             />
           </Particles>
-        </ThemeProvider>
+        
       </Transition>
     );
   }

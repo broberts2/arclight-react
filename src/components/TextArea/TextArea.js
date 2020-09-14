@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { Button, Transition } from "../index";
 import theme from "../themes";
 
@@ -37,7 +37,7 @@ export default class TextArea extends React.Component {
   render() {
     return (
       <Transition trans={this.props.trans}>
-        <ThemeProvider theme={theme}>
+        
           <_TextArea props={this.props}>
             <textarea
               value={this.props.value ? this.props.value : null}
@@ -69,7 +69,7 @@ export default class TextArea extends React.Component {
               </tbody>
             </table>
           ) : null}
-        </ThemeProvider>
+        
       </Transition>
     );
   }

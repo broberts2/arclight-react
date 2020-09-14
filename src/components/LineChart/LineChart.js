@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import theme from "../themes";
 import {
   XYPlot,
@@ -238,7 +238,7 @@ class CustomLineChart extends React.Component {
     const marginOffset = 20;
     return (
       <Transition trans={this.props.trans}>
-        <ThemeProvider theme={theme}>
+        
           <LineChart>
             <table width={"100%"}>
               <tbody>
@@ -338,7 +338,7 @@ class CustomLineChart extends React.Component {
               dataTableColumns={this.props.dataTableColumns}
             />
           </LineChart>
-        </ThemeProvider>
+        
       </Transition>
     );
   }

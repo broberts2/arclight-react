@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import theme from "../../themes";
 
 const Container = styled.div`
@@ -53,7 +53,7 @@ export default class StylishCenter extends React.Component {
   render() {
     const marginMod = 10;
     return (
-      <ThemeProvider theme={theme}>
+      
         <Container
           theme={this.props.theme}
           width={this.props.width}
@@ -107,7 +107,7 @@ export default class StylishCenter extends React.Component {
             </div>
           ) : null}
         </Container>
-      </ThemeProvider>
+      
     );
   }
 }

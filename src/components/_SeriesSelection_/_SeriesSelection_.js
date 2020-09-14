@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { Checkbox, Img, Transition } from "../index";
 import theme from "../themes";
 
@@ -12,7 +12,7 @@ const _SeriesSelection_ = styled.div`
 
 export default React.memo((props) => (
   <Transition trans={props.trans}>
-    <ThemeProvider theme={theme}>
+    
       <_SeriesSelection_>
         <table width={"100%"}>
           <tbody>
@@ -44,6 +44,6 @@ export default React.memo((props) => (
           </tbody>
         </table>
       </_SeriesSelection_>
-    </ThemeProvider>
+    
   </Transition>
 ));

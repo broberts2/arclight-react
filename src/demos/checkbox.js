@@ -3,10 +3,10 @@ import { Checkbox } from "../components/index";
 import theme from "../components/themes";
 
 export default (THEME) => ({
-  Component: <Checkbox theme={THEME} onCheck={(e) => alert(`Checked: ${e}`)} />,
+  Component: <Checkbox theme={THEME} onCheck={(e) => alert("Hello!")} />,
   Example: `
   import { Checkbox } from "arclight-react";
 
-  <Checkbox theme={THEME} onCheck={(e) => alert("Checked!")} />
+  <Checkbox theme={THEME} onCheck={(e) => alert("Hello!")} />
   `,
 });

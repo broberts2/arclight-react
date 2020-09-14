@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { Transition } from "../index";
@@ -54,7 +54,7 @@ export default React.memo((props) => {
       : props.children;
   return (
     <Transition trans={props.trans}>
-      <ThemeProvider theme={theme}>
+      
         <ButtonWrapper props={props}>
           <ClickWrapper onClick={() => props.onClick()}>
             {props.pop ? (
@@ -73,7 +73,7 @@ export default React.memo((props) => {
             )}
           </ClickWrapper>
         </ButtonWrapper>
-      </ThemeProvider>
+      
     </Transition>
   );
 });

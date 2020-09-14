@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
 import { Transition } from "../index";
 import theme from "../themes";
@@ -8,7 +8,7 @@ export default class SearchBar extends React.Component {
   render() {
     return (
       <Transition trans={this.props.trans}>
-        <ThemeProvider theme={theme}>
+        
           <form
             noValidate
             autoComplete="off"
@@ -24,7 +24,7 @@ export default class SearchBar extends React.Component {
               style={{ width: "100%", fontFamily: "inherit" }}
             />
           </form>
-        </ThemeProvider>
+        
       </Transition>
     );
   }

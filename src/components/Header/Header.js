@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import theme from "../themes";
 import { Transition } from "../index";
 import StylishCenter from "./Headers/StylishCenter";
@@ -37,7 +37,7 @@ const router = (name, textDisplay, theme, info, controls) => {
 export default React.memo((props) => {
   return (
     <Transition trans={props.trans}>
-      <ThemeProvider theme={theme}>
+      
         <Header>
           {router(
             props.name,
@@ -47,7 +47,7 @@ export default React.memo((props) => {
             props.controls
           )}
         </Header>
-      </ThemeProvider>
+      
     </Transition>
   );
 });

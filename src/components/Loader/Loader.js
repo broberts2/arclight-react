@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
 import { Transition } from "../index";
@@ -20,7 +20,7 @@ export default React.memo((props) => {
   });
   return (
     <Transition trans={props.trans}>
-      <ThemeProvider theme={theme}>
+      
         {loaded ? (
           props.children
         ) : (
@@ -28,7 +28,7 @@ export default React.memo((props) => {
             <ClipLoader />
           </Loader>
         )}
-      </ThemeProvider>
+      
     </Transition>
   );
 });

@@ -25,7 +25,7 @@ import Collapse from "@material-ui/core/Collapse";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Grow from "@material-ui/core/Grow";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { _SearchBar_, Transition } from "../index";
 import theme from "../themes";
 import "../css-overwrites.css";
@@ -500,7 +500,7 @@ const EnhancedTable = (props) => {
 
 export default React.memo((props) => (
   <Transition trans={props.trans}>
-    <ThemeProvider theme={theme}>
+    
       <EnhancedTable
         title={props.title}
         filters={props.filters}
@@ -511,6 +511,6 @@ export default React.memo((props) => (
         themes={theme}
         animation={props.animation}
       />
-    </ThemeProvider>
+    
   </Transition>
 ));

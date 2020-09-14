@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { Transition } from "../index";
 import theme from "../themes";
 
@@ -138,7 +138,7 @@ const CalculateTable = (data, dec, rowCount, crosshairValue) => {
 
 export default (props) => (
   <Transition trans={props.trans}>
-    <ThemeProvider theme={theme}>
+    
       <_DataTable_ theme={props.theme}>
         <InfoBar>
           <table>
@@ -153,6 +153,6 @@ export default (props) => (
           </table>
         </InfoBar>
       </_DataTable_>
-    </ThemeProvider>
+    
   </Transition>
 );

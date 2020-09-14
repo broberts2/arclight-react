@@ -1,6 +1,6 @@
 import React from "react";
 import { RadialChart, Hint } from "react-vis";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import theme from "../themes";
 import Zoom from "@material-ui/core/Zoom";
 import { _SeriesSelection_, Img, Transition } from "../index";
@@ -62,7 +62,7 @@ export default class _Chart_ extends React.Component {
   render() {
     return (
       <Transition trans={this.props.trans}>
-        <ThemeProvider theme={theme}>
+        
           <table>
             <tbody>
               <tr>
@@ -177,7 +177,7 @@ export default class _Chart_ extends React.Component {
               </tr>
             </tbody>
           </table>
-        </ThemeProvider>
+        
       </Transition>
     );
   }

@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { Transition } from "../index";
 import theme from "../themes";
 
@@ -66,7 +66,7 @@ export default React.memo((props) => {
   });
   return (
     <Transition trans={props.trans}>
-      <ThemeProvider theme={theme}>
+      
         <HoverCard
           size={props.size}
           onClick={() => (props.onClick ? props.onClick(state.hovering) : null)}
@@ -89,7 +89,7 @@ export default React.memo((props) => {
             <FlipCardBack theme={props.theme}>{props.back}</FlipCardBack>
           </FlipCardInner>
         </HoverCard>
-      </ThemeProvider>
+      
     </Transition>
   );
 });
