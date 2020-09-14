@@ -2,21 +2,21 @@ import React, { useState } from "react";
 import { Transition, Button } from "../components/index";
 import theme from "../components/themes";
 
-export default (THEME) => ({
+export default (THEME, anim) => ({
   Component: (
-    <React.Fragment>
+    <div style={{ display: "inline-block" }}>
       <Button
-        trans={{ animation: "fadeInLeft", delay: 1 }}
+        trans={{ animation: anim, delay: 1 }}
         theme={theme[THEME].complement}
         pop
         onClick={() => console.log("I've been clicked!")}
       >
         Click Me!
       </Button>
-      <a href="https://animate.style/" target={"_blank"}>
-        <h1>All animations</h1>
+      <a href={"https://animate.style"} target={"_blank"}>
+        <h1>Courtesy of animate.style</h1>
       </a>
-    </React.Fragment>
+    </div>
   ),
   Example: `
   import { Transition } from "arclight-react";

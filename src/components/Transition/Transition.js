@@ -82,7 +82,7 @@ import {
 import theme from "../themes";
 
 const styles = (obj) => {
-  const defObject = (name, anim, obj) => ({
+  const defObject = (name, anim) => ({
     animation: `${obj.count ? `${obj.count}` : "1"} ${
       obj.duration ? `${obj.duration}` : "1"
     }s`,
@@ -105,12 +105,15 @@ const styles = (obj) => {
     },
     fadeIn: {
       anim: fadeIn,
+      custom: { opacity: 0 },
     },
     slideInLeft: {
       anim: slideInLeft,
+      custom: {},
     },
     fadeOut: {
       anim: fadeOut,
+      custom: { opacity: 1 },
     },
     shake: {
       anim: shake,
@@ -122,15 +125,15 @@ const styles = (obj) => {
     },
     fadeInUpBig: {
       anim: fadeInUpBig,
-      custom: {},
+      custom: { opacity: 0 },
     },
     fadeInLeft: {
       anim: fadeInLeft,
-      custom: {},
+      custom: { opacity: 0 },
     },
     fadeInRight: {
       anim: fadeInRight,
-      custom: {},
+      custom: { opacity: 0 },
     },
     zoomIn: {
       anim: zoomIn,
@@ -174,67 +177,63 @@ const styles = (obj) => {
     },
     fadeInDown: {
       anim: fadeInDown,
-      custom: {},
+      custom: { opacity: 0 },
     },
     fadeInDownBig: {
       anim: fadeInDownBig,
-      custom: {},
+      custom: { opacity: 0 },
     },
     fadeInLeftBig: {
       anim: fadeInLeftBig,
-      custom: {},
+      custom: { opacity: 0 },
     },
     fadeInRight: {
       anim: fadeInRight,
-      custom: {},
+      custom: { opacity: 0 },
     },
     fadeInRightBig: {
       anim: fadeInRightBig,
-      custom: {},
+      custom: { opacity: 0 },
     },
     fadeInUp: {
       anim: fadeInUp,
-      custom: {},
+      custom: { opacity: 0 },
     },
     fadeInUpBig: {
       anim: fadeInUpBig,
-      custom: {},
-    },
-    fadeOut: {
-      anim: fadeOut,
-      custom: {},
+      custom: { opacity: 0 },
     },
     fadeOutDown: {
       anim: fadeOutDown,
-      custom: {},
+      custom: { opacity: 1 },
     },
     fadeOutDownBig: {
       anim: fadeOutDownBig,
-      custom: {},
+      custom: { opacity: 1 },
     },
     fadeOutLeft: {
       anim: fadeOutLeft,
-      custom: {},
+      custom: { opacity: 1 },
     },
     fadeOutLeftBig: {
       anim: fadeOutLeftBig,
-      custom: {},
+      custom: { opacity: 1 },
     },
     fadeOutRight: {
       anim: fadeOutRight,
-      custom: {},
+      custom: { opacity: 1 },
     },
     fadeOutRightBig: {
       anim: fadeOutRightBig,
-      custom: {},
+      custom: { opacity: 1 },
     },
     fadeOutUp: {
       anim: fadeOutUp,
-      custom: {},
+      custom: { opacity: 1 },
     },
     fadeOutUpBig: {
       anim: fadeOutUpBig,
-      custom: {},
+      custom: { opacity: 1 },
     },
     flash: {
       anim: flash,
@@ -407,8 +406,8 @@ const styles = (obj) => {
   };
   for (let key in animations) {
     animations[key] = Object.assign(
-      animations[key].custom ? animations[key].custom : {},
-      defObject(key, animations[key].anim, obj)
+      defObject(key, animations[key].anim),
+      animations[key].custom
     );
   }
   return animations;

@@ -18,7 +18,6 @@ const _Modal_ = (props) => {
         theme={props.THEME}
         visible={modal}
         disableClickAway
-        title={<h1>I am a title!</h1>}
         crown={{
           position: "right",
           constrain: false,
@@ -45,16 +44,8 @@ const _Modal_ = (props) => {
         }}
         setVisible={(a) => showModal(a)}
       >
-        <h1 style={{ color: theme[props.THEME].textColor }}>
-          <i>Azir, Emperor of Shurima</i>
-        </h1>
-        <TextArea
-          readonly={true}
-          value={story}
-          height={"300px"}
-          theme={theme[props.THEME].complement}
-          placeholder={"Some sample text goes in here."}
-          onChange={(e) => console.log(e.target.value)}
+        <div
+          style={{ width: "100%", height: "100%", backgroundColor: "blue" }}
         />
       </Modal>
     </div>
@@ -71,7 +62,6 @@ export default (THEME) => ({
     theme={props.THEME}
     visible={modal}
     disableClickAway
-    title={<h1>I am a title!</h1>}
     crown={{
       position: "right",
       constrain: false,
@@ -98,16 +88,8 @@ export default (THEME) => ({
     }}
     setVisible={(a) => showModal(a)}
   >
-    <h1 style={{ color: theme[props.THEME].textColor }}>
-      <i>Azir, Emperor of Shurima</i>
-    </h1>
-    <TextArea
-      readonly={true}
-      value={story}
-      height={"300px"}
-      theme={theme[props.THEME].complement}
-      placeholder={"Some sample text goes in here."}
-      onChange={(e) => console.log(e.target.value)}
+    <div
+      style={{ width: "100%", height: "100%", backgroundColor: "blue" }}
     />
   </Modal>
   `,

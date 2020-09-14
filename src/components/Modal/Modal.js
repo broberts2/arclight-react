@@ -31,19 +31,12 @@ const CloseButton = styled.div`
   top: 0;
   margin: 15px;
   padding: -10px;
-`;
-
-const Title = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin: 15px;
-  margin-top: 0px;
+  z-index: 5;
 `;
 
 const Crown = styled.div`
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   border-radius: 50%;
   position: absolute;
   top: 25px;
@@ -61,7 +54,7 @@ const Crown = styled.div`
     -50%
   );
   background-color: inherit;
-  z-index: 0;
+  z-index: 2;
 `;
 
 const CrownChild = styled.div`
@@ -83,11 +76,10 @@ const CrownChild = styled.div`
 `;
 
 const Children = styled.div`
-  width: calc(100% - 30px);
+  width: 100%;
+  height: 100%;
+  position: relative;
   z-index: 1;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
 `;
 
 export default React.memo((props) => {
@@ -111,7 +103,6 @@ export default React.memo((props) => {
             ) : null}
             <Children>{props.children}</Children>
           </_Modal>
-          {props.title ? <Title>{props.title}</Title> : null}
           <CloseButton>
             <Button
               pop
