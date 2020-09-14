@@ -66,30 +66,26 @@ export default React.memo((props) => {
   });
   return (
     <Transition trans={props.trans}>
-      
-        <HoverCard
-          size={props.size}
-          onClick={() => (props.onClick ? props.onClick(state.hovering) : null)}
-          onMouseOver={() => {
-            setState({ hovering: true });
-            if (props.onHover) props.onHover();
-          }}
-          onMouseLeave={() => {
-            setState({ hovering: false });
-            if (props.onExit) props.onExit();
-          }}
+      <HoverCard
+        size={props.size}
+        onClick={() => (props.onClick ? props.onClick(state.hovering) : null)}
+        onMouseOver={() => {
+          setState({ hovering: true });
+          if (props.onHover) props.onHover();
+        }}
+        onMouseLeave={() => {
+          setState({ hovering: false });
+          if (props.onExit) props.onExit();
+        }}
+      >
+        <FlipCardInner
+          style={state.hovering ? { transform: "rotateY(180deg)" } : {}}
         >
-          <FlipCardInner
-            style={state.hovering ? { transform: "rotateY(180deg)" } : {}}
-          >
-            <FlipCardFront theme={props.theme}>{props.front}</FlipCardFront>
-            {props.showBorder ? (
-              <FlipCardBackBorder theme={props.theme} />
-            ) : null}
-            <FlipCardBack theme={props.theme}>{props.back}</FlipCardBack>
-          </FlipCardInner>
-        </HoverCard>
-      
+          <FlipCardFront theme={props.theme}>{props.front}</FlipCardFront>
+          {props.showBorder ? <FlipCardBackBorder theme={props.theme} /> : null}
+          <FlipCardBack theme={props.theme}>{props.back}</FlipCardBack>
+        </FlipCardInner>
+      </HoverCard>
     </Transition>
   );
 });

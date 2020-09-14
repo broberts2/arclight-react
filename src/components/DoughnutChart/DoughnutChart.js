@@ -62,122 +62,120 @@ export default class _Chart_ extends React.Component {
   render() {
     return (
       <Transition trans={this.props.trans}>
-        
-          <table>
-            <tbody>
-              <tr>
-                {!this.props.hideSeriesSelection ? (
-                  <td>
-                    <_SeriesSelection_
-                      compact
-                      theme={this.props.theme}
-                      data={this.state.data}
-                      cb={(el) => {
-                        const state = this.state;
-                        state.data[el].visible = !state.data[el].visible;
-                        this.setState(state);
-                      }}
-                    />
-                  </td>
-                ) : null}
+        <table>
+          <tbody>
+            <tr>
+              {!this.props.hideSeriesSelection ? (
                 <td>
-                  <DoughnutChart
-                    radius={this.props.radius}
+                  <_SeriesSelection_
+                    compact
+                    theme={this.props.theme}
+                    data={this.state.data}
+                    cb={(el) => {
+                      const state = this.state;
+                      state.data[el].visible = !state.data[el].visible;
+                      this.setState(state);
+                    }}
+                  />
+                </td>
+              ) : null}
+              <td>
+                <DoughnutChart
+                  radius={this.props.radius}
+                  style={{
+                    width: this.props.radius * 2,
+                    height: this.props.radius * 2,
+                    position: "relative",
+                  }}
+                >
+                  <RadialChart
+                    className={"DoughnutChart"}
+                    data={buildData(
+                      theme[this.props.theme].lineSeries,
+                      this.state.data,
+                      this.props.defaultUnit,
+                      this.props.uniform
+                    )}
+                    colorType={"literal"}
+                    width={this.props.radius * 2}
+                    height={this.props.radius * 2}
+                    animation={false}
+                    innerRadius={this.props.radius - this.props.width}
+                    radius={this.props.radius - 1}
+                    labelsAboveChildren={true}
+                    padAngle={this.props.padAngle / 50}
+                    showLabels={true}
+                    onValueMouseOver={(e) => {
+                      const data = this.state.data;
+                      data[e.name].className = "hover";
+                      this.setState({
+                        value: e.value,
+                        unit: e.unit,
+                        name: e.name,
+                        img: e.img,
+                        imgBorderColor: theme[this.props.theme].textColor,
+                        data,
+                      });
+                    }}
+                    onValueMouseOut={(e) => {
+                      const data = this.state.data;
+                      data[e.name].className = "no-hover";
+                      this.setState({
+                        value: null,
+                        unit: null,
+                        name: null,
+                        img: null,
+                        imgBorderColor: "transparent",
+                        data,
+                      });
+                    }}
+                  />
+                  <div
                     style={{
-                      width: this.props.radius * 2,
-                      height: this.props.radius * 2,
-                      position: "relative",
+                      position: "absolute",
+                      left: "50%",
+                      top: "50%",
+                      "-webkit-transform": "translate(-50%, -50%)",
+                      "-ms-transform": "translate(-50%, -50%)",
+                      transform: "translate(-50%, -50%)",
                     }}
                   >
-                    <RadialChart
-                      className={"DoughnutChart"}
-                      data={buildData(
-                        theme[this.props.theme].lineSeries,
-                        this.state.data,
-                        this.props.defaultUnit,
-                        this.props.uniform
-                      )}
-                      colorType={"literal"}
-                      width={this.props.radius * 2}
-                      height={this.props.radius * 2}
-                      animation={false}
-                      innerRadius={this.props.radius - this.props.width}
-                      radius={this.props.radius - 1}
-                      labelsAboveChildren={true}
-                      padAngle={this.props.padAngle / 50}
-                      showLabels={true}
-                      onValueMouseOver={(e) => {
-                        const data = this.state.data;
-                        data[e.name].className = "hover";
-                        this.setState({
-                          value: e.value,
-                          unit: e.unit,
-                          name: e.name,
-                          img: e.img,
-                          imgBorderColor: theme[this.props.theme].textColor,
-                          data,
-                        });
-                      }}
-                      onValueMouseOut={(e) => {
-                        const data = this.state.data;
-                        data[e.name].className = "no-hover";
-                        this.setState({
-                          value: null,
-                          unit: null,
-                          name: null,
-                          img: null,
-                          imgBorderColor: "transparent",
-                          data,
-                        });
-                      }}
-                    />
-                    <div
+                    <Zoom
+                      in={this.state.value}
                       style={{
-                        position: "absolute",
-                        left: "50%",
-                        top: "50%",
-                        "-webkit-transform": "translate(-50%, -50%)",
-                        "-ms-transform": "translate(-50%, -50%)",
-                        transform: "translate(-50%, -50%)",
+                        transitionDelay: "0ms",
                       }}
                     >
-                      <Zoom
-                        in={this.state.value}
-                        style={{
-                          transitionDelay: "0ms",
-                        }}
-                      >
-                        <div>
-                          {this.state.img ? (
-                            <InnerImgBorder color={this.state.imgBorderColor}>
-                              <Img src={this.state.img} />
-                            </InnerImgBorder>
-                          ) : null}
-                          {this.state.value &&
-                          this.state.unit &&
-                          this.state.name ? (
-                            <div
-                              style={{
-                                color: theme[this.props.theme].textColor,
-                              }}
-                            >
-                              <div className={"name"}>{this.state.name}</div>
-                              <div>
-                                {this.state.value} {this.state.unit}
-                              </div>
+                      <div>
+                        {this.state.img ? (
+                          <InnerImgBorder color={this.state.imgBorderColor}>
+                            <Img src={this.state.img} />
+                          </InnerImgBorder>
+                        ) : null}
+                        {this.state.value &&
+                        this.state.unit &&
+                        this.state.name ? (
+                          <div
+                            style={{
+                              color: theme[this.props.theme].textColor,
+                            }}
+                          >
+                            <div className={"name"}>{this.state.name}</div>
+                            <div>
+                              {this.state.value} {this.state.unit}
                             </div>
-                          ) : (
-                            <div />
-                          )}
-                        </div>
-                      </Zoom>
-                    </div>
-                  </DoughnutChart>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        
+                          </div>
+                        ) : (
+                          <div />
+                        )}
+                      </div>
+                    </Zoom>
+                  </div>
+                </DoughnutChart>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </Transition>
     );
   }

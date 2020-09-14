@@ -36,7 +36,7 @@ export default React.memo((props) => {
     setRow(row);
   }
   return (
-    <Transition trans={props.trans}>
+    <Transition inheritDimensions trans={props.trans}>
       <Grid>
         {props.search ? (
           <Search>

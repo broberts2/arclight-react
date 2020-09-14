@@ -43,7 +43,7 @@ const picker = (id, THEME, anim) =>
   id === "Transition" ? __Object__[id](THEME, anim) : __Object__[id](THEME);
 
 export default class App extends React.Component {
-  state = { item: "Modal", theme: "Dark", anim: null };
+  state = { item: "Timer", theme: "Dark", anim: null };
   render() {
     return (
       <div

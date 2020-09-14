@@ -412,7 +412,11 @@ const styles = (obj) => {
 };
 
 export default (props) => (
-  <StyleRoot style={{ width: "inherit", height: "inherit" }}>
+  <StyleRoot
+    style={
+      props.inheritDimensions ? { width: "inherit", height: "inherit" } : {}
+    }
+  >
     <div
       style={
         props.trans

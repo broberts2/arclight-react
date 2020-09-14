@@ -238,107 +238,105 @@ class CustomLineChart extends React.Component {
     const marginOffset = 20;
     return (
       <Transition trans={this.props.trans}>
-        
-          <LineChart>
-            <table width={"100%"}>
-              <tbody>
-                <tr>
-                  {!this.props.hideSeriesSelection ? (
-                    <td>
-                      <div
-                        style={{
-                          marginLeft: `-${marginOffset}px`,
-                          marginRight: `${marginOffset * 2}px`,
-                        }}
-                      >
-                        <_SeriesSelection_
-                          theme={this.props.theme}
-                          data={this.state.data}
-                          cb={(el) => {
-                            this.state.data[el].visible = !this.state.data[el]
-                              .visible;
-                            this.setState({
-                              crosshairValue: this.state.crosshairValue,
-                              locked: this.state.locked,
-                              data: this.state.data,
-                            });
-                          }}
-                        />
-                      </div>
-                    </td>
-                  ) : null}
-                  <td width={"85%"} align={"left"}>
-                    {this.state.data ? (
-                      <Lines
+        <LineChart>
+          <table width={"100%"}>
+            <tbody>
+              <tr>
+                {!this.props.hideSeriesSelection ? (
+                  <td>
+                    <div
+                      style={{
+                        marginLeft: `-${marginOffset}px`,
+                        marginRight: `${marginOffset * 2}px`,
+                      }}
+                    >
+                      <_SeriesSelection_
                         theme={this.props.theme}
-                        decimal={this.props.decimal}
-                        setCrosshairValue={(crosshairValue) =>
-                          this.setState({
-                            crosshairValue,
-                            locked: this.state.locked,
-                            data: this.state.data,
-                          })
-                        }
-                        setLocked={(locked) =>
+                        data={this.state.data}
+                        cb={(el) => {
+                          this.state.data[el].visible = !this.state.data[el]
+                            .visible;
                           this.setState({
                             crosshairValue: this.state.crosshairValue,
-                            locked,
+                            locked: this.state.locked,
                             data: this.state.data,
-                          })
-                        }
-                        locked={this.state.locked}
-                        crosshairValue={this.state.crosshairValue}
-                        data={this.state.data}
-                        showAxis={this.props.showAxis}
-                        showGridLines={this.props.showGridLines}
-                        height={this.props.height}
-                        verticalGridLineStyle={{ opacity: 0 }}
-                        horizontalGridLineStyle={{ opacity: 0.15 }}
-                        lineSeries={(() => {
-                          const _series_ = Object.values(this.state.data);
-                          let series = _series_.map((series, i) => (
-                            <LineMarkSeries
-                              curve={"curveMonotoneX"}
-                              opacity={1}
-                              color={
-                                theme[this.props.theme].lineSeries[
-                                  i % theme[this.props.theme].lineSeries.length
-                                ]
-                              }
-                              onNearestX={(value, { index }) =>
-                                !this.state.locked
-                                  ? this.setState({
-                                      crosshairValue: { value, index },
-                                      locked: this.state.locked,
-                                      data: this.state.data,
-                                    })
-                                  : null
-                              }
-                              data={series.data}
-                              animation={"wobbly"}
-                              fill={"transparent"}
-                              stroke={0}
-                            />
-                          ));
-                          return series.filter((el, i) =>
-                            _series_[i].visible ? el : null
-                          );
-                        })()}
+                          });
+                        }}
                       />
-                    ) : null}
+                    </div>
                   </td>
-                </tr>
-              </tbody>
-            </table>
-            <_DataTable_
-              theme={theme[this.props.theme].complement}
-              crosshairValue={this.state.crosshairValue}
-              data={this.state.data}
-              decimal={this.props.decimal}
-              dataTableColumns={this.props.dataTableColumns}
-            />
-          </LineChart>
-        
+                ) : null}
+                <td width={"85%"} align={"left"}>
+                  {this.state.data ? (
+                    <Lines
+                      theme={this.props.theme}
+                      decimal={this.props.decimal}
+                      setCrosshairValue={(crosshairValue) =>
+                        this.setState({
+                          crosshairValue,
+                          locked: this.state.locked,
+                          data: this.state.data,
+                        })
+                      }
+                      setLocked={(locked) =>
+                        this.setState({
+                          crosshairValue: this.state.crosshairValue,
+                          locked,
+                          data: this.state.data,
+                        })
+                      }
+                      locked={this.state.locked}
+                      crosshairValue={this.state.crosshairValue}
+                      data={this.state.data}
+                      showAxis={this.props.showAxis}
+                      showGridLines={this.props.showGridLines}
+                      height={this.props.height}
+                      verticalGridLineStyle={{ opacity: 0 }}
+                      horizontalGridLineStyle={{ opacity: 0.15 }}
+                      lineSeries={(() => {
+                        const _series_ = Object.values(this.state.data);
+                        let series = _series_.map((series, i) => (
+                          <LineMarkSeries
+                            curve={"curveMonotoneX"}
+                            opacity={1}
+                            color={
+                              theme[this.props.theme].lineSeries[
+                                i % theme[this.props.theme].lineSeries.length
+                              ]
+                            }
+                            onNearestX={(value, { index }) =>
+                              !this.state.locked
+                                ? this.setState({
+                                    crosshairValue: { value, index },
+                                    locked: this.state.locked,
+                                    data: this.state.data,
+                                  })
+                                : null
+                            }
+                            data={series.data}
+                            animation={"wobbly"}
+                            fill={"transparent"}
+                            stroke={0}
+                          />
+                        ));
+                        return series.filter((el, i) =>
+                          _series_[i].visible ? el : null
+                        );
+                      })()}
+                    />
+                  ) : null}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <_DataTable_
+            theme={theme[this.props.theme].complement}
+            crosshairValue={this.state.crosshairValue}
+            data={this.state.data}
+            decimal={this.props.decimal}
+            dataTableColumns={this.props.dataTableColumns}
+          />
+        </LineChart>
       </Transition>
     );
   }
