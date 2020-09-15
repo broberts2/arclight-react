@@ -6,7 +6,9 @@ const DEMO_ARRAY = (THEME) => {
   let hoverId = -1;
   let arr = [];
   for (let i = 0; i < 70; i++) {
-    arr.push(<img src={require("../Azir.png")} width={"100%"} />);
+    arr.push(
+      <div style={{ width: "50px", height: "60px", backgroundColor: "blue" }} />
+    );
   }
   return arr;
 };

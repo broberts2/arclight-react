@@ -6,15 +6,17 @@ import theme from "../themes";
 const Grid = styled.div`
   height: 100%;
   width: 100%;
-  & table {
-    width: 100%;
-  }
 `;
 
 const InnerTable = styled.div`
   height: ${(props) => (props.search ? "calc(100% - 77.5px)" : "100%")};
   width: 100%;
   overflow-y: auto;
+  & table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+  }
 `;
 
 const Search = styled.div`

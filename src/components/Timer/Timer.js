@@ -15,6 +15,11 @@ export default React.memo((props) => (
   <Transition trans={props.trans}>
     <Timer>
       <CountdownCircleTimer
+        initialRemainingTime={
+          props.initialRemainingTime
+            ? props.initialRemainingTime
+            : props.seconds
+        }
         strokeLinecap={"round"}
         size={props.size}
         isPlaying={props.isPlaying ? props.isPlaying : true}
@@ -23,6 +28,7 @@ export default React.memo((props) => (
         duration={props.seconds}
         colors={theme[props.theme].timerSeries}
         trailColor={"transparent"}
+        key={this.props.resetKey ? this.props.resetKey : null}
       >
         {({ remainingTime, elapsedTime }) => (
           <Transition
