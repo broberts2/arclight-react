@@ -12,6 +12,7 @@ const InnerTable = styled.div`
   height: ${(props) => (props.search ? "calc(100% - 77.5px)" : "100%")};
   width: 100%;
   overflow-y: auto;
+  overlow-x: hidden;
   & table {
     width: 100%;
     height: 100%;

@@ -34,42 +34,70 @@ const _TextArea = styled.div`
 `;
 
 export default class TextArea extends React.Component {
+  state = {
+    shifting: false,
+    entering: false,
+    value: "",
+  };
+
+  onEnterPressed() {
+    if (this.props.onChange) this.props.onChange({ target: { value: "" } });
+    if (this.props.onEnter)
+      this.props.onEnter(
+        this.props.value ? this.props.value : this.state.value
+      );
+    this.setState({ value: "" });
+  }
+
+  keyCheck(e) {
+    if (e.keyCode === 16) {
+      this.setState({ shifting: true });
+    } else if (e.keyCode === 13) {
+      this.setState({ entering: true });
+      if (!this.state.shifting) this.onEnterPressed();
+    }
+  }
+
   render() {
     return (
       <Transition trans={this.props.trans}>
-        
-          <_TextArea props={this.props}>
-            <textarea
-              value={this.props.value ? this.props.value : null}
-              placeholder={
-                this.props.placeholder ? this.props.placeholder : null
+        <_TextArea props={this.props}>
+          <textarea
+            value={this.props.value ? this.props.value : this.state.value}
+            placeholder={this.props.placeholder ? this.props.placeholder : null}
+            readonly={this.props.readonly}
+            onKeyDown={(e) => this.keyCheck(e)}
+            onChange={(e) => {
+              if (!this.state.entering || this.state.shifting) {
+                if (this.props.onChange) this.props.onChange(e);
+                if (!this.props.value) this.setState({ value: e.target.value });
               }
-              readonly={this.props.readonly}
-              onChange={(e) =>
-                this.props.onChange ? this.props.onChange(e) : null
-              }
-            />
-          </_TextArea>
-          {this.props.controls ? (
-            <table dir={"rtl"} style={{ float: "right", marginTop: "8px" }}>
-              <tbody>
-                <tr>
-                  {this.props.controls.map((el) => (
-                    <td>
-                      <Button
-                        pop
-                        theme={theme[this.props.theme].complement}
-                        onClick={() => el.operation()}
-                      >
-                        {el.name}
-                      </Button>
-                    </td>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
-          ) : null}
-        
+            }}
+            onKeyUp={(e) => {
+              if (e.keyCode === 16) this.setState({ shifting: false });
+              if (e.keyCode === 13) this.setState({ entering: false });
+            }}
+          />
+        </_TextArea>
+        {this.props.controls ? (
+          <table dir={"rtl"} style={{ float: "right", marginTop: "8px" }}>
+            <tbody>
+              <tr>
+                {this.props.controls.map((el) => (
+                  <td>
+                    <Button
+                      pop
+                      theme={theme[this.props.theme].complement}
+                      onClick={() => el.operation()}
+                    >
+                      {el.name}
+                    </Button>
+                  </td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        ) : null}
       </Transition>
     );
   }

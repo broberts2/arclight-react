@@ -6,6 +6,7 @@ export default (THEME) => ({
   Component: (
     <TextArea
       readonly={false}
+      onEnter={null}
       value={null}
       height={"150px"}
       theme={THEME}
@@ -14,7 +15,7 @@ export default (THEME) => ({
         { name: "Button2", operation: () => alert("Button2 was pressed!") },
       ]}
       placeholder={"Some sample text goes in here."}
-      onChange={(e) => console.log(e.target.value)}
+      onChange={null}
     />
   ),
   Example: `

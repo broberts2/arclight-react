@@ -43,7 +43,7 @@ const picker = (id, THEME, anim) =>
   id === "Transition" ? __Object__[id](THEME, anim) : __Object__[id](THEME);
 
 export default class App extends React.Component {
-  state = { item: "Grid", theme: "Dark", anim: null };
+  state = { item: "TextArea", theme: "Dark", anim: null };
   render() {
     return (
       <div
