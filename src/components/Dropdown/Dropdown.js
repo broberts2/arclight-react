@@ -21,38 +21,36 @@ export default React.memo((props) => {
   const [value, setValue] = React.useState(props.items[0].value);
   return (
     <Transition trans={props.trans}>
-      
-        <Dropdown>
-          <FormControl style={{ width: "100%" }} classes={useDropDownStyles}>
-            <InputLabel>{props.id}</InputLabel>
-            <Select
-              value={value}
-              onChange={(e) => {
-                setValue(e.target.value);
-                return props.onChange(e);
-              }}
-              style={{
-                backgroundColor: "white",
-                borderRadius: "4px",
-                paddingLeft: "0px",
-                overflow: "hidden",
-              }}
-            >
-              {props.items.map((el, i) => (
-                <MenuItem
-                  value={el.value}
-                  style={{
-                    color: theme[props.theme].textColor,
-                    backgroundColor: theme[props.theme].backgroundColor,
-                  }}
-                >
-                  <div style={{ marginLeft: "30px" }}>{el.component}</div>
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Dropdown>
-      
+      <Dropdown>
+        <FormControl style={{ width: "100%" }} classes={useDropDownStyles}>
+          <InputLabel>{props.id}</InputLabel>
+          <Select
+            value={value}
+            onChange={(e) => {
+              setValue(e.target.value);
+              return props.onChange(e);
+            }}
+            style={{
+              backgroundColor: "white",
+              borderRadius: "4px",
+              paddingLeft: "0px",
+              overflow: "hidden",
+            }}
+          >
+            {props.items.map((el, i) => (
+              <MenuItem
+                value={el.value}
+                style={{
+                  color: theme[props.theme].textColor,
+                  backgroundColor: theme[props.theme].backgroundColor,
+                }}
+              >
+                <div style={{ marginLeft: "30px" }}>{el.component}</div>
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Dropdown>
     </Transition>
   );
 });

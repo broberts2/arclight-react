@@ -1,7 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCoffee,
+  faSignOutAlt,
+  faEdit,
+  faWindowClose,
+  faCheckSquare,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faDiscord,
   faTwitch,
@@ -22,6 +28,9 @@ const FontAwesomeIndex = {
   youtube: <FontAwesomeIcon icon={faYoutube} />,
   twitter: <FontAwesomeIcon icon={faTwitter} />,
   facebook: <FontAwesomeIcon icon={faFacebook} />,
+  edit: <FontAwesomeIcon icon={faEdit} />,
+  checkmark: <FontAwesomeIcon icon={faCheckSquare} />,
+  cancel: <FontAwesomeIcon icon={faWindowClose} />,
 };
 
 const Container = styled.div`
@@ -33,11 +42,9 @@ const Container = styled.div`
 export default React.memo((props) => {
   return (
     <Transition trans={props.trans}>
-      
-        <Container theme={props.theme} size={props.size}>
-          {FontAwesomeIndex[props.icon]}
-        </Container>
-      
+      <Container theme={props.theme} size={props.size}>
+        {FontAwesomeIndex[props.icon]}
+      </Container>
     </Transition>
   );
 });

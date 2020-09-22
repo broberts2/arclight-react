@@ -16,6 +16,7 @@ import Timer from "./demos/timer";
 import MediaCycler from "./demos/mediacycler";
 import _TextArea from "./demos/textarea";
 import _Dropdown from "./demos/dropdown";
+import FontAwesomeIcon from "./demos/fontawesome";
 import { Dropdown, TextArea } from "./components/index";
 import theme from "./components/themes";
 
@@ -32,6 +33,7 @@ const __Object__ = {
   Particles,
   TextField,
   MediaCycler,
+  FontAwesomeIcon,
   ["Header - Stylish Center"]: HeaderStylishCenter,
   ["Header - Stylish Left"]: HeaderStylishLeft,
   Transition,
@@ -43,7 +45,7 @@ const picker = (id, THEME, anim) =>
   id === "Transition" ? __Object__[id](THEME, anim) : __Object__[id](THEME);
 
 export default class App extends React.Component {
-  state = { item: "TextArea", theme: "Dark", anim: null };
+  state = { item: "FontAwesomeIcon", theme: "Dark", anim: null };
   render() {
     return (
       <div
