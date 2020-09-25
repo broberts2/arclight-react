@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Transition } from "../index";
-import TextField from "@material-ui/core/TextField";
+import { Transition, TextField } from "../index";
 import theme from "../themes";
 
 const _SearchBar_ = styled.div`
@@ -25,21 +24,19 @@ export default class SearchBar extends React.Component {
   };
   render() {
     const search = (
-      <td width={"100%"} style={{ minWidth: "200px" }}>
-        <form
-          noValidate
-          autoComplete="on"
-          style={{ width: "100%", maxWidth: "500px", color: "white" }}
-        >
+      <td width={"100%"}>
+        <div style={{ width: "100%" }}>
           <TextField
+            theme={this.props.theme}
             value={this.props.value ? this.props.value : null}
-            label={this.props.placeholder}
+            readonly={this.props.readonly}
+            placeholder={this.props.placeholder}
             onChange={(e) =>
               this.props.onChange ? this.props.onChange(e) : null
             }
-            style={{ width: "100%", color: "white" }}
+            style={{ width: "100%", fontFamily: "inherit" }}
           />
-        </form>
+        </div>
       </td>
     );
     const _filters = this.state.filters ? (
@@ -69,27 +66,25 @@ export default class SearchBar extends React.Component {
     ) : null;
     return (
       <Transition trans={this.props.trans}>
-        
-          <_SearchBar_ width={this.props.width}>
-            <table width={"100%"}>
-              <tbody>
-                <tr>
-                  {this.props.filtersRight ? (
-                    <React.Fragment>
-                      {search}
-                      {_filters}
-                    </React.Fragment>
-                  ) : (
-                    <React.Fragment>
-                      {_filters}
-                      {search}
-                    </React.Fragment>
-                  )}
-                </tr>
-              </tbody>
-            </table>
-          </_SearchBar_>
-        
+        <_SearchBar_ width={this.props.width ? this.props.width : "50%"}>
+          <table width={"100%"}>
+            <tbody>
+              <tr>
+                {this.props.filtersRight ? (
+                  <React.Fragment>
+                    {search}
+                    {_filters}
+                  </React.Fragment>
+                ) : (
+                  <React.Fragment>
+                    {_filters}
+                    {search}
+                  </React.Fragment>
+                )}
+              </tr>
+            </tbody>
+          </table>
+        </_SearchBar_>
       </Transition>
     );
   }

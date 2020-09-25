@@ -63,7 +63,7 @@ const _Modal_ = (props) => {
         <div style={{ width: "100%", height: "100%" }}>
           <Grid
             theme={theme[props.THEME].complement}
-            search={true}
+            search={"75%"}
             itemsPerRow={8}
             height={"100%"}
             filtersRight

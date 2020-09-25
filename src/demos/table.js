@@ -6,6 +6,7 @@ import theme from "../components/themes";
 export default (THEME) => ({
   Component: (
     <Table
+      search={"75%"}
       animation={"fadeInLeft"}
       theme={theme[THEME].complement}
       title={"Game Statistics"}
@@ -202,6 +203,7 @@ export default (THEME) => ({
     theme={theme[THEME].complement}
     title={"Game Statistics"}
     filtersRight={false}
+    search={"75%"}
     filters={[
       {
         display: <Img src={require("../Position_Gold-Top.png")} />,

@@ -18,7 +18,7 @@ export default (THEME) => ({
     <div style={{ height: "400px" }}>
       <Grid
         theme={theme[THEME].complement}
-        search={true}
+        search={"75%"}
         itemsPerRow={15}
         height={"100%"}
         filtersRight
@@ -58,7 +58,7 @@ export default (THEME) => ({
 
   <Grid
     theme={theme[THEME].complement}
-    search={true}
+    search={"75%"}
     itemsPerRow={15}
     height={"100%"}
     filtersRight

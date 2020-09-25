@@ -14,7 +14,9 @@ const Dropdown = styled.div`
 `;
 
 const useDropDownStyles = makeStyles(() => ({
-  root: {},
+  root: {
+    border: "red",
+  },
 }));
 
 export default React.memo((props) => {
@@ -25,13 +27,20 @@ export default React.memo((props) => {
         <FormControl style={{ width: "100%" }} classes={useDropDownStyles}>
           <InputLabel>{props.id}</InputLabel>
           <Select
+            dropDownMenuProps={{
+              menuStyle: {
+                border: "1px solid black",
+                borderRadius: "5%",
+                backgroundColor: "blue",
+              },
+            }}
             value={value}
             onChange={(e) => {
               setValue(e.target.value);
               return props.onChange(e);
             }}
             style={{
-              backgroundColor: "white",
+              backgroundColor: theme[props.theme].backgroundColor,
               borderRadius: "4px",
               paddingLeft: "0px",
               overflow: "hidden",
@@ -41,11 +50,20 @@ export default React.memo((props) => {
               <MenuItem
                 value={el.value}
                 style={{
+                  fontFamily: "Kufam",
                   color: theme[props.theme].textColor,
                   backgroundColor: theme[props.theme].backgroundColor,
                 }}
               >
-                <div style={{ marginLeft: "30px" }}>{el.component}</div>
+                <div
+                  style={{
+                    fontFamily: "Kufam",
+                    marginLeft: "30px",
+                    color: theme[props.theme].textColor,
+                  }}
+                >
+                  {el.component}
+                </div>
               </MenuItem>
             ))}
           </Select>

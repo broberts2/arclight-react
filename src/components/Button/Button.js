@@ -20,9 +20,10 @@ const ButtonWrapper = styled.div`
     --button-hover-pressure: 1;
     --button-hover-darken-opacity: 0.1;
     --button-primary-border: transparent;
-
     --button-primary-color-light: ${(props) =>
-      theme[props.props.theme]
+      props.props.textColor
+        ? props.props.textColor
+        : theme[props.props.theme]
         ? theme[props.props.theme].textColor
         : "#079178"};
     --button-primary-color: ${(props) =>
@@ -54,26 +55,26 @@ export default React.memo((props) => {
       : props.children;
   return (
     <Transition trans={props.trans}>
-      
-        <ButtonWrapper props={props}>
-          <ClickWrapper onClick={() => props.onClick()}>
-            {props.pop ? (
-              <AwesomeButton type="primary">{Children}</AwesomeButton>
-            ) : (
-              <Button
-                className={classes.root}
-                style={{
-                  color: theme[props.theme].textColor,
-                  backgroundColor: theme[props.theme].backgroundColor,
-                }}
-                variant="contained"
-              >
-                {Children}
-              </Button>
-            )}
-          </ClickWrapper>
-        </ButtonWrapper>
-      
+      <ButtonWrapper
+        props={Object.assign({ textColor: props.textColor }, props)}
+      >
+        <ClickWrapper onClick={() => props.onClick()}>
+          {props.pop ? (
+            <AwesomeButton type="primary">{Children}</AwesomeButton>
+          ) : (
+            <Button
+              className={classes.root}
+              style={{
+                color: theme[props.theme].textColor,
+                backgroundColor: theme[props.theme].backgroundColor,
+              }}
+              variant="contained"
+            >
+              {Children}
+            </Button>
+          )}
+        </ClickWrapper>
+      </ButtonWrapper>
     </Transition>
   );
 });

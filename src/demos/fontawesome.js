@@ -13,8 +13,7 @@ const builder = (icon, THEME) => (
 export default (THEME) => ({
   Component: (
     <Grid
-      theme={theme[THEME]}
-      search={true}
+      theme={THEME}
       itemsPerRow={15}
       height={"100%"}
       items={[
@@ -29,6 +28,8 @@ export default (THEME) => ({
         "edit",
         "checkmark",
         "cancel",
+        "plus",
+        "minus",
       ].map((el) => builder(el, THEME))}
     />
   ),
@@ -36,6 +37,7 @@ export default (THEME) => ({
   import { FontAwesomeIcon } from "arclight-react";
 
   <FontAwesomeIcon
+    color={null} // #44d77a
     theme={theme[props.theme].complement}
     icon={"signOut"}
   />

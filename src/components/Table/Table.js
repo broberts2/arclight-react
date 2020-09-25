@@ -166,10 +166,11 @@ const EnhancedTableToolbar = (props) => {
         {props.title}
       </Typography>
       <_SearchBar_
+        theme={props.theme}
         placeholder={"Search"}
         filters={props.filters}
         filtersRight={props.filtersRight}
-        width={"100%"}
+        width={props.search}
       />
     </Toolbar>
   );
@@ -412,6 +413,8 @@ const EnhancedTable = (props) => {
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <EnhancedTableToolbar
+          width={props.width}
+          theme={props.theme}
           title={props.title}
           filters={props.filters}
           filtersRight={props.filtersRight}
@@ -500,17 +503,15 @@ const EnhancedTable = (props) => {
 
 export default React.memo((props) => (
   <Transition trans={props.trans}>
-    
-      <EnhancedTable
-        title={props.title}
-        filters={props.filters}
-        filtersRight={props.filtersRight}
-        headCells={props.headCells}
-        rows={props.rows}
-        theme={props.theme}
-        themes={theme}
-        animation={props.animation}
-      />
-    
+    <EnhancedTable
+      title={props.title}
+      filters={props.filters}
+      filtersRight={props.filtersRight}
+      headCells={props.headCells}
+      rows={props.rows}
+      theme={props.theme}
+      themes={theme}
+      animation={props.animation}
+    />
   </Transition>
 ));

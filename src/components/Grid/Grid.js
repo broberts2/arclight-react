@@ -44,10 +44,11 @@ export default React.memo((props) => {
         {props.search ? (
           <Search>
             <_SearchBar_
+              theme={theme[props.theme].complement}
               placeholder={"Search"}
               filters={props.filters}
               filtersRight={props.filtersRight}
-              width={"50%"}
+              width={props.search}
             />
           </Search>
         ) : null}

@@ -9,6 +9,7 @@ export default (THEME) => ({
         <tr>
           <td>
             <Button
+              textColor={null}
               theme={theme[THEME].complement}
               pop
               onClick={() => console.log("I've been clicked!")}
@@ -24,6 +25,7 @@ export default (THEME) => ({
   import { Button } from "arclight-react";
 
   <Button
+    textColor={"null"}
     theme={theme[THEME].complement}
     pop
     onClick={() => console.log("I've been clicked!")}
