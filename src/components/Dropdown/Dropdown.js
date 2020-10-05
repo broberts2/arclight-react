@@ -19,13 +19,29 @@ const useDropDownStyles = makeStyles(() => ({
   },
 }));
 
+const Label = styled.div`
+  font-size: 18px;
+  font-family: Kufam;
+  color: ${(props) => theme[props.theme].textColor};
+`;
+
 export default React.memo((props) => {
-  const [value, setValue] = React.useState(props.items[0].value);
+  const [value, setValue] = React.useState(
+    props.defaultValue
+      ? props.defaultValue
+      : props.allowNone
+      ? props.allowNone
+      : ""
+  );
   return (
     <Transition trans={props.trans}>
       <Dropdown>
         <FormControl style={{ width: "100%" }} classes={useDropDownStyles}>
-          <InputLabel>{props.id}</InputLabel>
+          {props.label ? (
+            <InputLabel>
+              <Label theme={props.theme}>{props.label}</Label>
+            </InputLabel>
+          ) : null}
           <Select
             dropDownMenuProps={{
               menuStyle: {
@@ -46,6 +62,28 @@ export default React.memo((props) => {
               overflow: "hidden",
             }}
           >
+            {props.allowNone ? (
+              <MenuItem
+                value={props.allowNone}
+                style={{
+                  fontFamily: "Kufam",
+                  color: theme[props.theme].textColor,
+                  backgroundColor: theme[props.theme].backgroundColor,
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: "Kufam",
+                    marginLeft: "30px",
+                    color: theme[props.theme].textColor,
+                  }}
+                >
+                  <div>
+                    <i>{props.allowNone}</i>
+                  </div>
+                </div>
+              </MenuItem>
+            ) : null}
             {props.items.map((el, i) => (
               <MenuItem
                 value={el.value}

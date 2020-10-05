@@ -14,6 +14,7 @@ import HeaderStylishLeft from "./demos/header-stylish-left";
 import Transition from "./demos/transition";
 import Timer from "./demos/timer";
 import MediaCycler from "./demos/mediacycler";
+import Loader from "./demos/loader";
 import _TextArea from "./demos/textarea";
 import _Dropdown from "./demos/dropdown";
 import FontAwesomeIcon from "./demos/fontawesome";
@@ -34,6 +35,7 @@ const __Object__ = {
   TextField,
   MediaCycler,
   FontAwesomeIcon,
+  Loader,
   ["Header - Stylish Center"]: HeaderStylishCenter,
   ["Header - Stylish Left"]: HeaderStylishLeft,
   Transition,
@@ -45,7 +47,7 @@ const picker = (id, THEME, anim) =>
   id === "Transition" ? __Object__[id](THEME, anim) : __Object__[id](THEME);
 
 export default class App extends React.Component {
-  state = { item: "FontAwesomeIcon", theme: "Dark", anim: null };
+  state = { item: "Button", theme: "Light", anim: null };
   render() {
     return (
       <div
@@ -61,6 +63,7 @@ export default class App extends React.Component {
             Select a Theme
           </h1>
           <Dropdown
+            defaultValue={this.state.theme}
             theme={this.state.theme}
             onChange={(e) =>
               this.setState({ theme: e.target.value, item: this.state.item })
@@ -68,7 +71,7 @@ export default class App extends React.Component {
             items={Object.keys(theme)
               .map((el) => ({
                 component: <div>{el}</div>,
-                value: el,
+                value: theme[el].complement,
               }))
               .sort((a, b) => (a.value < b.value ? -1 : 1))}
           />
@@ -76,6 +79,7 @@ export default class App extends React.Component {
             Select a Component
           </h1>
           <Dropdown
+            defaultValue={this.state.item}
             theme={this.state.theme}
             onChange={(e) =>
               this.setState({ item: e.target.value, theme: this.state.theme })

@@ -42,6 +42,7 @@ export default class _ extends React.Component {
       <Transition trans={this.props.trans}>
         <div style={{ width: "100%", fontFamily: "inherit" }}>
           <this.state.Component
+            type={this.props.password ? "password" : ""}
             classes={classes.root}
             variant={this.state.variant} // filled, outlined, standard
             error={false}

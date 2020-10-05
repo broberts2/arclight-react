@@ -15,6 +15,16 @@ export default (THEME) => ({
       />
       <div style={{ height: "15px" }} />
       <TextField
+        password
+        theme={THEME}
+        onEnter={(e) => console.log(e)}
+        readonly={false}
+        value={null}
+        placeholder={"Password Field"}
+        onChange={(e) => console.log(e.target.value)}
+      />
+      <div style={{ height: "15px" }} />
+      <TextField
         variant={"filled"}
         theme={THEME}
         onEnter={(e) => console.log(e)}
@@ -39,6 +49,7 @@ export default (THEME) => ({
   import { TextField } from "arclight-react";
 
   <TextField
+    password={false}
     variant={"filled"} // optional: standard, outlined, filled
     theme={THEME}
     textSize={null} // Default 18

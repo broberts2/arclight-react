@@ -154,25 +154,36 @@ const useToolbarStyles = makeStyles((theme) => ({
 const EnhancedTableToolbar = (props) => {
   const classes = useToolbarStyles();
   const { numSelected } = props;
-
   return (
-    <Toolbar>
-      <Typography
-        className={classes.title}
-        variant="h6"
-        id="tableTitle"
-        component="div"
-      >
-        {props.title}
-      </Typography>
-      <_SearchBar_
-        theme={props.theme}
-        placeholder={"Search"}
-        filters={props.filters}
-        filtersRight={props.filtersRight}
-        width={props.search}
-      />
-    </Toolbar>
+    <table width={"100%"}>
+      <tbody>
+        <tr>
+          <td>
+            <div style={{ marginLeft: "15px" }}>
+              <Typography
+                className={classes.title}
+                variant="h6"
+                id="tableTitle"
+                component="div"
+              >
+                {props.title}
+              </Typography>
+            </div>
+          </td>
+          <td align={"right"}>
+            <div style={{ marginRight: "15px" }}>
+              <_SearchBar_
+                theme={props.theme}
+                placeholder={"Search"}
+                filters={props.filters}
+                filtersRight={props.filtersRight}
+                width={props.search}
+              />
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
@@ -413,7 +424,7 @@ const EnhancedTable = (props) => {
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <EnhancedTableToolbar
-          width={props.width}
+          search={props.search}
           theme={props.theme}
           title={props.title}
           filters={props.filters}
@@ -504,6 +515,7 @@ const EnhancedTable = (props) => {
 export default React.memo((props) => (
   <Transition trans={props.trans}>
     <EnhancedTable
+      search={props.search}
       title={props.title}
       filters={props.filters}
       filtersRight={props.filtersRight}
