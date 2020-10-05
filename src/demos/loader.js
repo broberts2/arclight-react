@@ -48,7 +48,7 @@ class _LOADER_ extends React.Component {
                     theme={this.props.theme}
                   >
                     <Transition trans={{ animation: "bounceInDown" }}>
-                      <p>Loaded Content</p>
+                      <p>Content</p>
                     </Transition>
                   </Loader>
                 </div>

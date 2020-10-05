@@ -65,6 +65,12 @@ const Loader = styled.div`
   -webkit-transform: translate(-50%, -50%);
 `;
 
+const Wrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`;
+
 export default React.memo((props) => {
   const [loaded, setLoaded] = React.useState(
     props.loaded ? props.loaded : false
@@ -78,8 +84,10 @@ export default React.memo((props) => {
     setLoaded(props.loaded);
   }, [props.loaded]);
   return (
-    <Transition trans={props.trans}>
-      <Loader>{loaded ? props.children : _INDEX_(props)[props.type]}</Loader>
+    <Transition inheritDimensions trans={props.trans}>
+      <Wrapper>
+        <Loader>{loaded ? props.children : _INDEX_(props)[props.type]}</Loader>
+      </Wrapper>
     </Transition>
   );
 });
