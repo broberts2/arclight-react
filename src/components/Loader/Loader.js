@@ -24,7 +24,6 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 import SkewLoader from "react-spinners/SkewLoader";
 import SquareLoader from "react-spinners/SquareLoader";
 import SyncLoader from "react-spinners/SyncLoader";
-
 import { Transition } from "../index";
 import theme from "../themes";
 
@@ -67,15 +66,20 @@ const Loader = styled.div`
 `;
 
 export default React.memo((props) => {
-  const [loaded, setLoaded] = React.useState(false);
+  const [loaded, setLoaded] = React.useState(
+    props.loaded ? props.loaded : false
+  );
   if (props.loaded === undefined) {
     React.useEffect(() => {
       setLoaded(true);
     });
   }
+  React.useEffect(() => {
+    setLoaded(props.loaded);
+  }, [props.loaded]);
   return (
     <Transition trans={props.trans}>
-      {loaded ? props.children : <Loader>{_INDEX_(props)[props.type]}</Loader>}
+      <Loader>{loaded ? props.children : _INDEX_(props)[props.type]}</Loader>
     </Transition>
   );
 });
