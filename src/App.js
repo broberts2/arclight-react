@@ -18,6 +18,7 @@ import Loader from "./demos/loader";
 import _TextArea from "./demos/textarea";
 import _Dropdown from "./demos/dropdown";
 import FontAwesomeIcon from "./demos/fontawesome";
+import Utils_Cookies from "./demos/utils_cookies";
 import { Dropdown, TextArea } from "./components/index";
 import theme from "./components/themes";
 
@@ -41,6 +42,7 @@ const __Object__ = {
   Transition,
   Timer,
   TextArea: _TextArea,
+  Utils_Cookies,
 };
 
 const picker = (id, THEME, anim) =>
@@ -91,129 +93,6 @@ export default class App extends React.Component {
               }))
               .sort((a, b) => (a.value < b.value ? -1 : 1))}
           />
-          {this.state.item === "Transition" ? (
-            <Dropdown
-              theme={this.state.theme}
-              onChange={(e) => this.setState({ anim: e.target.value })}
-              items={[
-                { component: <div>bounce</div>, value: "bounce" },
-                { component: <div>bounceOut</div>, value: "bounceOut" },
-                { component: <div>bounceIn</div>, value: "bounceIn" },
-                { component: <div>fadeIn</div>, value: "fadeIn" },
-                { component: <div>fadeOut</div>, value: "fadeOut" },
-                { component: <div>shake</div>, value: "shake" },
-                { component: <div>swing</div>, value: "swing" },
-                { component: <div>slideInLeft</div>, value: "slideInLeft" },
-                { component: <div>fadeInUpBig</div>, value: "fadeInUpBig" },
-                { component: <div>fadeInLeft</div>, value: "fadeInLeft" },
-                { component: <div>fadeInRight</div>, value: "fadeInRight" },
-                { component: <div>zoomIn</div>, value: "zoomIn" },
-                { component: <div>zoomOut</div>, value: "zoomOut" },
-                { component: <div>bounceInDown</div>, value: "bounceInDown" },
-                { component: <div>bounceInLeft</div>, value: "bounceInLeft" },
-                { component: <div>bounceInRight</div>, value: "bounceInRight" },
-                { component: <div>bounceInUp</div>, value: "bounceInUp" },
-                { component: <div>bounceOutDown</div>, value: "bounceOutDown" },
-                { component: <div>bounceOutLeft</div>, value: "bounceOutLeft" },
-                {
-                  component: <div>bounceOutRight</div>,
-                  value: "bounceOutRight",
-                },
-                { component: <div>bounceOutUp</div>, value: "bounceOutUp" },
-                { component: <div>fadeInDown</div>, value: "fadeInDown" },
-                { component: <div>fadeInDownBig</div>, value: "fadeInDownBig" },
-                { component: <div>fadeInLeftBig</div>, value: "fadeInLeftBig" },
-                {
-                  component: <div>fadeInRightBig</div>,
-                  value: "fadeInRightBig",
-                },
-                { component: <div>fadeInUp</div>, value: "fadeInUp" },
-                { component: <div>fadeOutDown</div>, value: "fadeOutDown" },
-                {
-                  component: <div>fadeOutDownBig</div>,
-                  value: "fadeOutDownBig",
-                },
-                { component: <div>fadeOutLeft</div>, value: "fadeOutLeft" },
-                {
-                  component: <div>fadeOutLeftBig</div>,
-                  value: "fadeOutLeftBig",
-                },
-                { component: <div>fadeOutRight</div>, value: "fadeOutRight" },
-                {
-                  component: <div>fadeOutRightBig</div>,
-                  value: "fadeOutRightBig",
-                },
-                { component: <div>fadeOutUp</div>, value: "fadeOutUp" },
-                { component: <div>fadeOutUpBig</div>, value: "fadeOutUpBig" },
-                { component: <div>flash</div>, value: "flash" },
-                { component: <div>flip</div>, value: "flip" },
-                { component: <div>flipInX</div>, value: "flipInX" },
-                { component: <div>flipInY</div>, value: "flipInY" },
-                { component: <div>flipOutX</div>, value: "flipOutX" },
-                { component: <div>flipOutY</div>, value: "flipOutY" },
-                { component: <div>headShake</div>, value: "headShake" },
-                { component: <div>hinge</div>, value: "hinge" },
-                { component: <div>jello</div>, value: "jello" },
-                { component: <div>lightSpeedIn</div>, value: "lightSpeedIn" },
-                { component: <div>lightSpeedOut</div>, value: "lightSpeedOut" },
-                { component: <div>pulse</div>, value: "pulse" },
-                { component: <div>rollIn</div>, value: "rollIn" },
-                { component: <div>rollOut</div>, value: "rollOut" },
-                { component: <div>rotateIn</div>, value: "rotateIn" },
-                {
-                  component: <div>rotateInDownLeft</div>,
-                  value: "rotateInDownLeft",
-                },
-                {
-                  component: <div>rotateInDownRight</div>,
-                  value: "rotateInDownRight",
-                },
-                {
-                  component: <div>rotateInUpLeft</div>,
-                  value: "rotateInUpLeft",
-                },
-                {
-                  component: <div>rotateInUpRight</div>,
-                  value: "rotateInUpRight",
-                },
-                { component: <div>rotateOut</div>, value: "rotateOut" },
-                {
-                  component: <div>rotateOutDownLeft</div>,
-                  value: "rotateOutDownLeft",
-                },
-                {
-                  component: <div>rotateOutDownRight</div>,
-                  value: "rotateOutDownRight",
-                },
-                {
-                  component: <div>rotateOutUpLeft</div>,
-                  value: "rotateOutUpLeft",
-                },
-                {
-                  component: <div>rotateOutUpRight</div>,
-                  value: "rotateOutUpRight",
-                },
-                { component: <div>rubberBand</div>, value: "rubberBand" },
-                { component: <div>slideInDown</div>, value: "slideInDown" },
-                { component: <div>slideInRight</div>, value: "slideInRight" },
-                { component: <div>slideInUp</div>, value: "slideInUp" },
-                { component: <div>slideOutDown</div>, value: "slideOutDown" },
-                { component: <div>slideOutLeft</div>, value: "slideOutLeft" },
-                { component: <div>slideOutRight</div>, value: "slideOutRight" },
-                { component: <div>slideOutUp</div>, value: "slideOutUp" },
-                { component: <div>tada</div>, value: "tada" },
-                { component: <div>wobble</div>, value: "wobble" },
-                { component: <div>zoomInDown</div>, value: "zoomInDown" },
-                { component: <div>zoomInLeft</div>, value: "zoomInLeft" },
-                { component: <div>zoomInRight</div>, value: "zoomInRight" },
-                { component: <div>zoomInUp</div>, value: "zoomInUp" },
-                { component: <div>zoomOutDown</div>, value: "zoomOutDown" },
-                { component: <div>zoomOutLeft</div>, value: "zoomOutLeft" },
-                { component: <div>zoomOutRight</div>, value: "zoomOutRight" },
-                { component: <div>zoomOutUp</div>, value: "zoomOutUp" },
-              ].sort((a, b) => (a.value < b.value ? -1 : 1))}
-            />
-          ) : null}
         </div>
         {this.state.item ? (
           <div style={{ marginTop: "10px" }}>
