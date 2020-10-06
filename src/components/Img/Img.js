@@ -5,8 +5,6 @@ import theme from "../themes";
 
 export default React.memo((props) => (
   <Transition trans={props.trans}>
-    <Loader size={30} color={"red"} type={"ClipLoader"} theme={props.theme}>
-      <img {...props} />
-    </Loader>
+    <img {...props} />
   </Transition>
 ));

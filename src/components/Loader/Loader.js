@@ -67,8 +67,8 @@ const Loader = styled.div`
 
 const Wrapper = styled.div`
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: inherit;
+  height: inherit;
 `;
 
 export default React.memo((props) => {
