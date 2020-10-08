@@ -19,6 +19,7 @@ import _TextArea from "./demos/textarea";
 import _Dropdown from "./demos/dropdown";
 import FontAwesomeIcon from "./demos/fontawesome";
 import Utils_Cookies from "./demos/utils_cookies";
+import Utils_SFX from "./demos/utils_sfx";
 import { Dropdown, TextArea } from "./components/index";
 import theme from "./components/themes";
 
@@ -43,10 +44,10 @@ const __Object__ = {
   Timer,
   TextArea: _TextArea,
   Utils_Cookies,
+  Utils_SFX,
 };
 
-const picker = (id, THEME, anim) =>
-  id === "Transition" ? __Object__[id](THEME, anim) : __Object__[id](THEME);
+const picker = (id, THEME, anim) => __Object__[id](THEME);
 
 export default class App extends React.Component {
   state = { item: "Button", theme: "Light", anim: null };

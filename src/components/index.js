@@ -25,11 +25,13 @@ import _DataTable_ from "./_DataTable_/_DataTable_";
 import _SeriesSelection_ from "./_SeriesSelection_/_SeriesSelection_";
 import _SearchBar_ from "./_SearchBar_/_SearchBar_";
 import Cookies from "./Utils_Cookies/Utils_Cookies";
+import SFX from "./Utils_SFX/Utils_SFX";
 import "react-vis/dist/style.css";
 import "./css-overwrites.css";
 
 const Utils = {
   Cookies,
+  SFX,
 };
 
 export {

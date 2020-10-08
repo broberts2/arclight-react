@@ -30,6 +30,8 @@ export default (THEME) => ({
         "cancel",
         "plus",
         "minus",
+        "exclamation",
+        "music",
       ].map((el) => builder(el, THEME))}
     />
   ),

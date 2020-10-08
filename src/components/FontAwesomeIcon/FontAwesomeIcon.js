@@ -9,6 +9,8 @@ import {
   faCheckSquare,
   faPlusSquare,
   faMinusSquare,
+  faExclamation,
+  faMusic,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faDiscord,
@@ -35,6 +37,8 @@ const FontAwesomeIndex = {
   cancel: <FontAwesomeIcon icon={faWindowClose} />,
   plus: <FontAwesomeIcon icon={faPlusSquare} />,
   minus: <FontAwesomeIcon icon={faMinusSquare} />,
+  exclamation: <FontAwesomeIcon icon={faExclamation} />,
+  music: <FontAwesomeIcon icon={faMusic} />,
 };
 
 const Container = styled.div`
