@@ -420,7 +420,9 @@ export default (props) => (
     <div
       style={
         props.trans
-          ? styles(props.trans)[props.trans.animation]
+          ? styles(Object.assign({ count: props.trans.count }, props.trans))[
+              props.trans.animation
+            ]
           : { width: "inherit", height: "inherit" }
       }
     >

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Transition, Button } from "../components/index";
+import { Transition, Button, FontAwesomeIcon } from "../components/index";
 import theme from "../components/themes";
 
 export default (THEME, anim) => ({
@@ -8,6 +8,15 @@ export default (THEME, anim) => ({
       <a href={"https://animate.style"} target={"_blank"}>
         <h1>Courtesy of animate.style</h1>
       </a>
+      <div style={{ display: "inline-flex" }}>
+        <FontAwesomeIcon
+          size={"60px"}
+          color={"red"}
+          trans={{ animation: "pulse", count: "infinite" }}
+          theme={THEME}
+          icon={"exclamation"}
+        />
+      </div>
     </div>
   ),
   Example: `
@@ -24,13 +33,11 @@ export default (THEME, anim) => ({
     <h1>Hey There!</h1>
   </Transition>
 
-  <Button
-    trans={{ animation: "fadeInLeft", delay: 1 }}
-    theme={theme[THEME].complement}
-    pop
-    onClick={() => console.log("I've been clicked!")}
-  >
-    Click Me!
-  </Button>
+  <FontAwesomeIcon
+    color={"red"}
+    trans={{ animation: "pulse", count: "infinite" }}
+    theme={THEME}
+    icon={"exclamation"}
+  />
   `,
 });
