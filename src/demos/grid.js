@@ -5,7 +5,7 @@ import theme from "../components/themes";
 const DEMO_ARRAY = (THEME) => {
   let hoverId = -1;
   let arr = [];
-  for (let i = 0; i < 70; i++) {
+  for (let i = 0; i < 50; i++) {
     arr.push(<img src={require("../tile.png")} width={"100%"} />);
   }
   return arr;
@@ -16,6 +16,7 @@ export default (THEME) => ({
     <div style={{ height: "400px" }}>
       <Grid
         theme={theme[THEME].complement}
+        fixed={true}
         search={"75%"}
         itemsPerRow={15}
         height={"100%"}
@@ -56,6 +57,7 @@ export default (THEME) => ({
 
   <Grid
     theme={theme[THEME].complement}
+    fixed={true}
     search={"75%"}
     itemsPerRow={15}
     height={"100%"}

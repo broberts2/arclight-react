@@ -6,6 +6,7 @@ import theme from "../themes";
 const Grid = styled.div`
   height: 100%;
   width: 100%;
+  overflow: hidden;
 `;
 
 const InnerTable = styled.div`
@@ -14,7 +15,6 @@ const InnerTable = styled.div`
   overflow-y: auto;
   overlow-x: hidden;
   & table {
-    table-layout: fixed;
     width: 100%;
     height: 100%;
     border-collapse: collapse;
@@ -25,18 +25,28 @@ const Search = styled.div`
   margin-bottom: 20px;
 `;
 
+const Td = styled.td`
+  ${(props) => (props.width ? `width: calc(100% / ${props.width});` : null)}
+`;
+
 export default React.memo((props) => {
   let row = [];
   let rows = [];
   const setRow = (row) => rows.push(<tr>{row}</tr>);
   props.items.map((item, i) => {
-    row.push(<td>{item}</td>);
+    row.push(<Td width={props.fixed ? props.itemsPerRow : null}>{item}</Td>);
     if ((i + 1) % props.itemsPerRow === 0) {
       setRow(row);
       row = [];
     }
   });
   if (row.length > 0) {
+    if (props.fixed) {
+      const n = props.itemsPerRow - row.length;
+      for (let i = 0; i < n; i++) {
+        row.push(<Td width={props.itemsPerRow} />);
+      }
+    }
     setRow(row);
   }
   return (
@@ -58,9 +68,7 @@ export default React.memo((props) => {
         ) : null}
         <InnerTable theme={props.theme} search={props.search}>
           <table>
-            <tbody>
-              <tr>{rows}</tr>
-            </tbody>
+            <tbody>{rows}</tbody>
           </table>
         </InnerTable>
       </Grid>
