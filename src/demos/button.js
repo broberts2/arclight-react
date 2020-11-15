@@ -17,6 +17,16 @@ export default (THEME) => ({
               Click Me!
             </Button>
           </td>
+          <td>
+            <Button
+              textColor={null}
+              theme={theme[THEME].complement}
+              pop
+              onClick={() => console.log("I've been clicked!")}
+            >
+              Click Me!
+            </Button>
+          </td>
         </tr>
       </tbody>
     </table>

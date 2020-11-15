@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Table, Img, DoughnutChart, LineChart } from "../components/index";
+import {
+  Table,
+  Img,
+  DoughnutChart,
+  LineChart,
+  MediaCycler,
+} from "../components/index";
 import _dummydatagen_ from "../_dummydatagen_";
 import theme from "../components/themes";
 
@@ -9,7 +15,45 @@ export default (THEME) => ({
       search={"75%"}
       animation={"fadeInLeft"}
       theme={theme[THEME].complement}
-      title={"Game Statistics"}
+      title={
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <MediaCycler
+                  randomize={true}
+                  trans={null}
+                  width={"75px"}
+                  height={"75px"}
+                  type={"img"}
+                  elements={[
+                    require("../planet1.png"),
+                    require("../planet2.png"),
+                    require("../planet3.png"),
+                    require("../planet4.png"),
+                    require("../planet5.png"),
+                    require("../planet6.png"),
+                    require("../planet7.png"),
+                    require("../planet8.png"),
+                    require("../planet9.png"),
+                    require("../planet10.png"),
+                  ]}
+                  interval={3}
+                  elementTransition={{
+                    transIn: { animation: "fadeIn", duration: 2 },
+                    transOut: { animation: "fadeOut", duration: 2 },
+                  }}
+                />
+              </td>
+              <td>
+                <h2>
+                  <i>Solar System Data</i>
+                </h2>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      }
       filtersRight={false}
       filters={[
         {
@@ -43,116 +87,94 @@ export default (THEME) => ({
           id: "name",
           numeric: false,
           disablePadding: true,
-          label: "Summoner",
+          label: "Celestial Body",
         },
         {
-          id: "kills",
+          id: "diameter",
           numeric: true,
           disablePadding: false,
-          label: "Kills",
-        },
-        { id: "deaths", numeric: true, disablePadding: false, label: "Deaths" },
-        {
-          id: "assists",
-          numeric: true,
-          disablePadding: false,
-          label: "Assists",
+          label: "Diameter (mi)",
         },
         {
-          id: "creepscore",
+          id: "mass",
           numeric: true,
           disablePadding: false,
-          label: "Creep Score",
+          label: "Mass (kg)",
         },
         {
-          id: "cspm",
+          id: "distance",
           numeric: true,
           disablePadding: false,
-          label: "CS Per Minute",
+          label: "Distance from Sun (million km)",
+        },
+        {
+          id: "albedo",
+          numeric: true,
+          disablePadding: false,
+          label: "Albedo",
+        },
+        {
+          id: "gravity",
+          numeric: true,
+          disablePadding: false,
+          label: "Gravitational Pull (m/s^2)",
         },
       ]}
       rows={[
         {
-          name: "Jetgorilla",
-          kills: 11,
-          deaths: 1,
-          assists: 9,
-          creepscore: 310,
-          cspm: 8.1,
+          name: "Earth",
+          mass: 5.97219,
+          diameter: 7917.5,
+          distance: 9.27,
+          albedo: 0.3,
+          gravity: 9.807,
           __collapse__: (
             <table width={"100%"}>
               <tbody>
                 <tr>
                   <td>
+                    <h3>Total Mass Distribution by Body (M)</h3>
                     <DoughnutChart
                       hideSeriesSelection={false}
                       theme={theme[THEME].complement}
-                      defaultUnit={"cspm"}
+                      defaultUnit={"M"}
                       data={{
-                        "Masterful Jetgorilla": {
-                          value: 100,
-                          img: require("../Azir.png"),
-                          unit: "units",
+                        Mercury: {
+                          value: 0.055,
+                          img: require("../planet1.png"),
                         },
-                        Khyroe: {
-                          value: 10,
-                          img: require("../Blitzcrank.png"),
+                        Venus: {
+                          value: 0.815,
+                          img: require("../planet2.png"),
                         },
-                        Major: { value: 25, img: require("../Malzahar.png") },
-                        Braer: { value: 50, img: require("../Yorick.png") },
-                        Phortwenty: {
-                          value: 90,
-                          img: require("../JarvanIV.png"),
+                        Earth: {
+                          value: 1,
+                          img: require("../planet3.png"),
+                        },
+                        Mars: {
+                          value: 0.107,
+                          img: require("../planet4.png"),
+                        },
+                        Jupiter: {
+                          value: 317.8,
+                          img: require("../planet5.png"),
+                        },
+                        Saturn: {
+                          value: 95.16,
+                          img: require("../planet6.png"),
+                        },
+                        Uranus: {
+                          value: 14.54,
+                          img: require("../planet7.png"),
+                        },
+                        Neptune: {
+                          value: 17.15,
+                          img: require("../planet8.png"),
                         },
                       }}
-                      radius={125}
+                      radius={150}
                       width={22.5}
                       padAngle={2}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <LineChart
-                      theme={THEME}
-                      hideSeriesSelection={false}
-                      decimal={1}
-                      showAxis={true}
-                      showGridLines={false}
-                      height={325}
-                      dataTableColumns={4}
-                      data={{
-                        Jetgorilla: {
-                          img: require("../Azir.png"),
-                          yAxis: "Creep Score",
-                          xAxis: "Minutes",
-                          data: _dummydatagen_.linear(60),
-                        },
-                        Phortwenty: {
-                          img: require("../JarvanIV.png"),
-                          yAxis: "Creep Score",
-                          xAxis: "Minutes",
-                          data: _dummydatagen_.linear(60),
-                        },
-                        Major: {
-                          img: require("../Malzahar.png"),
-                          yAxis: "Creep Score",
-                          xAxis: "Minutes",
-                          data: _dummydatagen_.linear(60),
-                        },
-                        Braer: {
-                          img: require("../Yorick.png"),
-                          yAxis: "Creep Score",
-                          xAxis: "Minutes",
-                          data: _dummydatagen_.linear(60),
-                        },
-                        Khyroe: {
-                          img: require("../Blitzcrank.png"),
-                          yAxis: "Creep Score",
-                          xAxis: "Minutes",
-                          data: _dummydatagen_.linear(60),
-                        },
-                      }}
                     />
                   </td>
                 </tr>
@@ -161,36 +183,52 @@ export default (THEME) => ({
           ),
         },
         {
-          name: "Phortwenty",
-          kills: 4,
-          deaths: 3,
-          assists: 14,
-          creepscore: 240,
-          cspm: 6.7,
+          name: "Juptiter",
+          mass: 5.97219,
+          diameter: 7917.5,
+          distance: 9.27,
+          albedo: 0.3,
+          gravity: 9.807,
         },
         {
-          name: "Major",
-          kills: 4,
-          deaths: 8,
-          assists: 6,
-          creepscore: 205,
-          cspm: 5.9,
+          name: "Pluto",
+          mass: 5.97219,
+          diameter: 7917.5,
+          distance: 9.27,
+          albedo: 0.3,
+          gravity: 9.807,
         },
         {
-          name: "Braer",
-          kills: 2,
-          deaths: 5,
-          assists: 2,
-          creepscore: 187,
-          cspm: 7,
+          name: "Saturn",
+          mass: 5.97219,
+          diameter: 7917.5,
+          distance: 9.27,
+          albedo: 0.3,
+          gravity: 9.807,
         },
         {
-          name: "Khyroe",
-          kills: 0,
-          deaths: 7,
-          assists: 16,
-          creepscore: 49,
-          cspm: 4.1,
+          name: "Mercury",
+          mass: 5.97219,
+          diameter: 7917.5,
+          distance: 9.27,
+          albedo: 0.3,
+          gravity: 9.807,
+        },
+        {
+          name: "Venus",
+          mass: 5.97219,
+          diameter: 7917.5,
+          distance: 9.27,
+          albedo: 0.3,
+          gravity: 9.807,
+        },
+        {
+          name: "Mars",
+          mass: 5.97219,
+          diameter: 7917.5,
+          distance: 9.27,
+          albedo: 0.3,
+          gravity: 9.807,
         },
       ]}
     />
@@ -199,11 +237,49 @@ export default (THEME) => ({
   import { Table } from "arclight-react";
 
   <Table
+    search={"75%"}
     animation={"fadeInLeft"}
     theme={theme[THEME].complement}
-    title={"Game Statistics"}
+    title={
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <MediaCycler
+                randomize={true}
+                trans={null}
+                width={"75px"}
+                height={"75px"}
+                type={"img"}
+                elements={[
+                  require("../planet1.png"),
+                  require("../planet2.png"),
+                  require("../planet3.png"),
+                  require("../planet4.png"),
+                  require("../planet5.png"),
+                  require("../planet6.png"),
+                  require("../planet7.png"),
+                  require("../planet8.png"),
+                  require("../planet9.png"),
+                  require("../planet10.png"),
+                ]}
+                interval={3}
+                elementTransition={{
+                  transIn: { animation: "fadeIn", duration: 2 },
+                  transOut: { animation: "fadeOut", duration: 2 },
+                }}
+              />
+            </td>
+            <td>
+              <h2>
+                <i>Solar System Data</i>
+              </h2>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    }
     filtersRight={false}
-    search={"75%"}
     filters={[
       {
         display: <Img src={require("../Position_Gold-Top.png")} />,
@@ -236,47 +312,53 @@ export default (THEME) => ({
         id: "name",
         numeric: false,
         disablePadding: true,
-        label: "Summoner",
+        label: "Celestial Body",
       },
       {
-        id: "kills",
+        id: "diameter",
         numeric: true,
         disablePadding: false,
-        label: "Kills",
-      },
-      { id: "deaths", numeric: true, disablePadding: false, label: "Deaths" },
-      {
-        id: "assists",
-        numeric: true,
-        disablePadding: false,
-        label: "Assists",
+        label: "Diameter (mi)",
       },
       {
-        id: "creepscore",
+        id: "mass",
         numeric: true,
         disablePadding: false,
-        label: "Creep Score",
+        label: "Mass (kg)",
       },
       {
-        id: "cspm",
+        id: "distance",
         numeric: true,
         disablePadding: false,
-        label: "CS Per Minute",
+        label: "Distance from Sun (million km)",
+      },
+      {
+        id: "albedo",
+        numeric: true,
+        disablePadding: false,
+        label: "Albedo",
+      },
+      {
+        id: "gravity",
+        numeric: true,
+        disablePadding: false,
+        label: "Gravitational Pull (m/s^2)",
       },
     ]}
     rows={[
       {
-        name: "Jetgorilla",
-        kills: 11,
-        deaths: 1,
-        assists: 9,
-        creepscore: 310,
-        cspm: 8.1,
+        name: "Earth",
+        mass: 5.97219,
+        diameter: 7917.5,
+        distance: 9.27,
+        albedo: 0.3,
+        gravity: 9.807,
         __collapse__: (
           <table width={"100%"}>
             <tbody>
               <tr>
                 <td>
+                  <h3>Total Mass by Body</h3>
                   <DoughnutChart
                     hideSeriesSelection={false}
                     theme={theme[THEME].complement}
@@ -304,86 +386,57 @@ export default (THEME) => ({
                   />
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <LineChart
-                    theme={THEME}
-                    hideSeriesSelection={false}
-                    decimal={1}
-                    showAxis={true}
-                    showGridLines={false}
-                    height={325}
-                    dataTableColumns={4}
-                    data={{
-                      Jetgorilla: {
-                        img: require("../Azir.png"),
-                        yAxis: "Creep Score",
-                        xAxis: "Minutes",
-                        data: _dummydatagen_.linear(60),
-                      },
-                      Phortwenty: {
-                        img: require("../JarvanIV.png"),
-                        yAxis: "Creep Score",
-                        xAxis: "Minutes",
-                        data: _dummydatagen_.linear(60),
-                      },
-                      Major: {
-                        img: require("../Malzahar.png"),
-                        yAxis: "Creep Score",
-                        xAxis: "Minutes",
-                        data: _dummydatagen_.linear(60),
-                      },
-                      Braer: {
-                        img: require("../Yorick.png"),
-                        yAxis: "Creep Score",
-                        xAxis: "Minutes",
-                        data: _dummydatagen_.linear(60),
-                      },
-                      Khyroe: {
-                        img: require("../Blitzcrank.png"),
-                        yAxis: "Creep Score",
-                        xAxis: "Minutes",
-                        data: _dummydatagen_.linear(60),
-                      },
-                    }}
-                  />
-                </td>
-              </tr>
             </tbody>
           </table>
         ),
       },
       {
-        name: "Phortwenty",
-        kills: 4,
-        deaths: 3,
-        assists: 14,
-        creepscore: 240,
-        cspm: 6.7,
+        name: "Juptiter",
+        mass: 5.97219,
+        diameter: 7917.5,
+        distance: 9.27,
+        albedo: 0.3,
+        gravity: 9.807,
       },
       {
-        name: "Major",
-        kills: 4,
-        deaths: 8,
-        assists: 6,
-        creepscore: 205,
-        cspm: 5.9,
+        name: "Pluto",
+        mass: 5.97219,
+        diameter: 7917.5,
+        distance: 9.27,
+        albedo: 0.3,
+        gravity: 9.807,
       },
       {
-        name: "Braer",
-        kills: 2,
-        deaths: 5,
-        assists: 2,
-        creepscore: 187,
-        cspm: 7,
+        name: "Saturn",
+        mass: 5.97219,
+        diameter: 7917.5,
+        distance: 9.27,
+        albedo: 0.3,
+        gravity: 9.807,
       },
       {
-        name: "Khyroe",
-        kills: 0,
-        deaths: 7,
-        assists: 16,
-        creepscore: 49,
-        cspm: 4.1,
+        name: "Mercury",
+        mass: 5.97219,
+        diameter: 7917.5,
+        distance: 9.27,
+        albedo: 0.3,
+        gravity: 9.807,
+      },
+      {
+        name: "Venus",
+        mass: 5.97219,
+        diameter: 7917.5,
+        distance: 9.27,
+        albedo: 0.3,
+        gravity: 9.807,
+      },
+      {
+        name: "Mars",
+        mass: 5.97219,
+        diameter: 7917.5,
+        distance: 9.27,
+        albedo: 0.3,
+        gravity: 9.807,
       },
     ]}
   />

@@ -10,11 +10,14 @@ import CheckBox from "./demos/checkbox";
 import Particles from "./demos/particles";
 import TextField from "./demos/textfield";
 import HeaderStylishCenter from "./demos/header-stylish-center";
+import Panel from "./demos/panel";
 import HeaderStylishLeft from "./demos/header-stylish-left";
 import Transition from "./demos/transition";
 import Timer from "./demos/timer";
 import MediaCycler from "./demos/mediacycler";
 import Loader from "./demos/loader";
+import VideoHover from "./demos/videohover";
+import Shape from "./demos/shape";
 import _TextArea from "./demos/textarea";
 import _Dropdown from "./demos/dropdown";
 import FontAwesomeIcon from "./demos/fontawesome";
@@ -36,8 +39,11 @@ const __Object__ = {
   Particles,
   TextField,
   MediaCycler,
+  Panel,
   FontAwesomeIcon,
+  VideoHover,
   Loader,
+  Shape,
   ["Header - Stylish Center"]: HeaderStylishCenter,
   ["Header - Stylish Left"]: HeaderStylishLeft,
   Transition,
@@ -50,7 +56,7 @@ const __Object__ = {
 const picker = (id, THEME, anim) => __Object__[id](THEME);
 
 export default class App extends React.Component {
-  state = { item: "Button", theme: "Light", anim: null };
+  state = { item: "Shape", theme: "Dark", anim: null };
   render() {
     return (
       <div

@@ -11,7 +11,6 @@ const render = (
 ) => {
   canvas.beginPath();
   canvas.moveTo(coordsFrom.x, coordsFrom.y);
-  console.log(controls);
   canvas.bezierCurveTo(
     controls.p1.x,
     controls.p1.y,

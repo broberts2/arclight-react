@@ -17,6 +17,10 @@ const Element1 = styled.div`
     width: 100%;
     height: 100%;
   }
+  & img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const Element2 = styled.div`
@@ -26,6 +30,10 @@ const Element2 = styled.div`
   left: 0;
   top: 0;
   & video {
+    width: 100%;
+    height: 100%;
+  }
+  & img {
     width: 100%;
     height: 100%;
   }

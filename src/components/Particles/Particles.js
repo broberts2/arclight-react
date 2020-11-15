@@ -76,32 +76,29 @@ export default class Canvas extends React.Component {
 
   render() {
     return (
-      <Transition trans={this.props.trans}>
-        
-          <Particles ref={this.sizeRef}>
-            <canvas
-              ref={this.canvasRef}
-              onClick={(e) => {
-                if (this.props.onClickAnimation) {
-                  this.addAnimation(
-                    this.props.onClickAnimation.name,
-                    {
-                      x: this.props.onClickAnimation.x
-                        ? this.state.width *
-                          (this.props.onClickAnimation.x / 100)
-                        : e.clientX - this.Offset.left,
-                      y: this.props.onClickAnimation.y
-                        ? this.state.height *
-                          (this.props.onClickAnimation.y / 100)
-                        : e.clientY - this.Offset.top,
-                    },
-                    this.props.onClickAnimation.particleColor
-                  );
-                }
-              }}
-            />
-          </Particles>
-        
+      <Transition inheritDimensions trans={this.props.trans}>
+        <Particles ref={this.sizeRef}>
+          <canvas
+            ref={this.canvasRef}
+            onClick={(e) => {
+              if (this.props.onClickAnimation) {
+                this.addAnimation(
+                  this.props.onClickAnimation.name,
+                  {
+                    x: this.props.onClickAnimation.x
+                      ? this.state.width * (this.props.onClickAnimation.x / 100)
+                      : e.clientX - this.Offset.left,
+                    y: this.props.onClickAnimation.y
+                      ? this.state.height *
+                        (this.props.onClickAnimation.y / 100)
+                      : e.clientY - this.Offset.top,
+                  },
+                  this.props.onClickAnimation.particleColor
+                );
+              }
+            }}
+          />
+        </Particles>
       </Transition>
     );
   }

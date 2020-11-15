@@ -5,7 +5,7 @@ export default (canvas, object, render) =>
         canvas,
         (object.coordsFrom = coordsFrom),
         (object.coordsTo = coordsTo),
-        "controls",
+        controls,
         (object.style = style),
         (object.opacity = opacity)
       ),

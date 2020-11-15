@@ -7,6 +7,6 @@ export default (THEME) => ({
   Example: `
   import { Checkbox } from "arclight-react";
 
-  <Checkbox theme={THEME} onCheck={(e) => alert("Hello!")} />
+  <Checkbox theme={THEME} color={null} onCheck={(e) => alert("Hello!")} />
   `,
 });

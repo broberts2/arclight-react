@@ -12,6 +12,7 @@ import Button from "./Button/Button";
 import Loader from "./Loader/Loader";
 import Img from "./Img/Img";
 import Modal from "./Modal/Modal";
+import Shape from "./Shape/Shape";
 import Timer from "./Timer/Timer";
 import Dropdown from "./Dropdown/Dropdown";
 import Particles from "./Particles/Particles";
@@ -20,6 +21,8 @@ import TextArea from "./TextArea/TextArea";
 import Header from "./Header/Header";
 import Transition from "./Transition/Transition";
 import MediaCycler from "./MediaCycler/MediaCycler";
+import VideoHover from "./VideoHover/VideoHover";
+import Panel from "./Panel/Panel";
 import imgColorFilter from "./imgColorFilter/imgColorFilter";
 import _DataTable_ from "./_DataTable_/_DataTable_";
 import _SeriesSelection_ from "./_SeriesSelection_/_SeriesSelection_";
@@ -35,6 +38,7 @@ const Utils = {
 };
 
 export {
+  Panel,
   Template,
   HoverCard,
   Table,
@@ -51,11 +55,13 @@ export {
   Dropdown,
   Particles,
   TextField,
+  VideoHover,
   TextArea,
   Header,
   FontAwesomeIcon,
   Transition,
   MediaCycler,
+  Shape,
   imgColorFilter,
   _SeriesSelection_,
   _DataTable_,

@@ -251,7 +251,8 @@ class CustomLineChart extends React.Component {
                       }}
                     >
                       <_SeriesSelection_
-                        theme={this.props.theme}
+                        compact
+                        theme={theme[this.props.theme].complement}
                         data={this.state.data}
                         cb={(el) => {
                           this.state.data[el].visible = !this.state.data[el]

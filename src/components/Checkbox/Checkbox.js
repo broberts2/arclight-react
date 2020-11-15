@@ -1,6 +1,7 @@
 import React from "react";
 import Checkbox from "@material-ui/core/Checkbox";
 import { Transition } from "../index";
+import theme from "../themes";
 
 export default React.memo((props) => {
   const [checked, setChecked] = React.useState(true);
@@ -14,7 +15,9 @@ export default React.memo((props) => {
             props.onCheck(!checked);
           }
         }}
-        inputProps={{ "aria-label": "primary checkbox" }}
+        style={{
+          color: props.color ? props.color : theme[props.theme].textColor,
+        }}
       />
     </Transition>
   );

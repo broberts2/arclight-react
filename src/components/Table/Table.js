@@ -173,6 +173,11 @@ const EnhancedTableToolbar = (props) => {
           <td align={"right"}>
             <div style={{ marginRight: "15px" }}>
               <_SearchBar_
+                onChange={
+                  this.props.onSearchChange
+                    ? (e) => this.props.onSearchChange(e)
+                    : null
+                }
                 theme={props.theme}
                 placeholder={"Search"}
                 filters={props.filters}

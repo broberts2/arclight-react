@@ -44,6 +44,11 @@ export default React.memo((props) => {
         {props.search ? (
           <Search>
             <_SearchBar_
+              onChange={
+                this.props.onSearchChange
+                  ? (e) => this.props.onSearchChange(e)
+                  : null
+              }
               theme={theme[props.theme].complement}
               placeholder={"Search"}
               filters={props.filters}
