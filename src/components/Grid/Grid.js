@@ -14,6 +14,7 @@ const InnerTable = styled.div`
   overflow-y: auto;
   overlow-x: hidden;
   & table {
+    table-layout: fixed;
     width: 100%;
     height: 100%;
     border-collapse: collapse;
