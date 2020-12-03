@@ -4,11 +4,10 @@ import theme from "../components/themes";
 
 export default (THEME) => ({
   Component: (
-    <div style={{ width: "50%", height: "30vw" }}>
+    <div style={{ width: "100%", height: "100%" }}>
       <MediaCycler
         randomize={true}
         trans={null}
-        width={"100%"}
         type={"video"}
         elements={[
           require("../video1.mp4"),
@@ -29,7 +28,6 @@ export default (THEME) => ({
   <MediaCycler
     randomize={true}
     trans={null}
-    width={"100%"}
     type={"video"} // Can also be "img"
     elements={[
       require("../video1.mp4"),

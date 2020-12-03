@@ -136,11 +136,11 @@ export default class MediaCycler extends React.Component {
 
   render() {
     return (
-      <Transition trans={this.props.trans}>
-        <_MediaCycler width={this.props.width} height={this.props.height}>
+      <Transition inheritDimensions trans={this.props.trans}>
+        <_MediaCycler width={"100%"} height={"100%"}>
           <Element1>{this.state.element1}</Element1>
           <Element2>
-            <Transition inheritDimensions trans={this.state.transElement2}>
+            <Transition trans={this.state.transElement2}>
               {this.state.element2}
             </Transition>
           </Element2>
