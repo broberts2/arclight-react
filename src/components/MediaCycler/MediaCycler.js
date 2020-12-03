@@ -4,8 +4,8 @@ import { Transition } from "../index";
 import theme from "../themes";
 
 const _MediaCycler = styled.div`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
+  width: 100%;
+  height: 100%;
   position: relative;
   pointer-events: none;
 `;
@@ -16,12 +16,12 @@ const Element1 = styled.div`
   & video {
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: cover;
   }
   & img {
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: cover;
   }
 `;
 
@@ -137,7 +137,7 @@ export default class MediaCycler extends React.Component {
   render() {
     return (
       <Transition inheritDimensions trans={this.props.trans}>
-        <_MediaCycler width={"100%"} height={"100%"}>
+        <_MediaCycler>
           <Element1>{this.state.element1}</Element1>
           <Element2>
             <Transition trans={this.state.transElement2}>
