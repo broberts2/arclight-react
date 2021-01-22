@@ -174,8 +174,8 @@ const EnhancedTableToolbar = (props) => {
             <div style={{ marginRight: "15px" }}>
               <_SearchBar_
                 onChange={
-                  this.props.onSearchChange
-                    ? (e) => this.props.onSearchChange(e)
+                  props.onSearchChange
+                    ? (e) => props.onSearchChange(e)
                     : null
                 }
                 theme={props.theme}
@@ -519,6 +519,7 @@ const EnhancedTable = (props) => {
 
 export default React.memo((props) => (
   <Transition trans={props.trans}>
+    {console.log(props)}
     <EnhancedTable
       search={props.search}
       title={props.title}

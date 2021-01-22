@@ -7,8 +7,6 @@ const Template = styled.div``;
 
 export default React.memo((props) => (
   <Transition trans={props.trans}>
-    
       <Template>Stuff goes in here</Template>
-    
   </Transition>
 ));

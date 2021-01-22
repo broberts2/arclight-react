@@ -17,9 +17,11 @@ import Timer from "./demos/timer";
 import MediaCycler from "./demos/mediacycler";
 import Loader from "./demos/loader";
 import VideoHover from "./demos/videohover";
+import TechDivider from "./demos/techdivider";
 import Shape from "./demos/shape";
 import _TextArea from "./demos/textarea";
 import _Dropdown from "./demos/dropdown";
+import VerticalDividerSemiCircle from "./demos/vertical-divider-semi-circle";
 import FontAwesomeIcon from "./demos/fontawesome";
 import Utils_Cookies from "./demos/utils_cookies";
 import Utils_SFX from "./demos/utils_sfx";
@@ -42,6 +44,7 @@ const __Object__ = {
   Panel,
   FontAwesomeIcon,
   VideoHover,
+  TechDivider,
   Loader,
   Shape,
   ["Header - Stylish Center"]: HeaderStylishCenter,
@@ -51,12 +54,13 @@ const __Object__ = {
   TextArea: _TextArea,
   Utils_Cookies,
   Utils_SFX,
+  VerticalDividerSemiCircle
 };
 
 const picker = (id, THEME, anim) => __Object__[id](THEME);
 
 export default class App extends React.Component {
-  state = { item: "Shape", theme: "Dark", anim: null };
+  state = { item: "TechDivider", theme: "Dark", anim: null };
   render() {
     return (
       <div

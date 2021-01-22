@@ -8,6 +8,7 @@ const _MediaCycler = styled.div`
   height: 100%;
   position: relative;
   pointer-events: none;
+  background-color: blue;
 `;
 
 const Element1 = styled.div`
@@ -16,12 +17,12 @@ const Element1 = styled.div`
   & video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: ${props => !props.preserve ? "fill" : "cover"};
   }
   & img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: ${props => !props.preserve ? "fill" : "cover"};
   }
 `;
 
@@ -34,12 +35,12 @@ const Element2 = styled.div`
   & video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: ${props => !props.preserve ? "fill" : "cover"};
   }
   & img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: ${props => !props.preserve ? "fill" : "cover"};
   }
 `;
 
@@ -138,9 +139,9 @@ export default class MediaCycler extends React.Component {
     return (
       <Transition inheritDimensions trans={this.props.trans}>
         <_MediaCycler>
-          <Element1>{this.state.element1}</Element1>
-          <Element2>
-            <Transition trans={this.state.transElement2}>
+          <Element1 preserve={this.props.preserve} >{this.state.element1}</Element1>
+          <Element2 preserve={this.props.preserve} >
+            <Transition inheritDimensions trans={this.state.transElement2}>
               {this.state.element2}
             </Transition>
           </Element2>
