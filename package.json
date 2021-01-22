@@ -42,7 +42,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "publish": "git add .; git commit -am 'new publish'; git push origin master; rm -rf dist && mkdir dist && babel src/components -d dist --copy-files; npm publish"
+    "publish": "npm publish"
   },
   "eslintConfig": {
     "extends": "react-app"
