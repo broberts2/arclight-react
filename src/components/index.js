@@ -23,6 +23,7 @@ import Transition from "./Transition/Transition";
 import MediaCycler from "./MediaCycler/MediaCycler";
 import VideoHover from "./VideoHover/VideoHover";
 import Panel from "./Panel/Panel";
+import Text from "./Text/Text";
 import TechDivider from "./TechDivider/TechDivider";
 import imgColorFilter from "./imgColorFilter/imgColorFilter";
 import _DataTable_ from "./_DataTable_/_DataTable_";
@@ -60,6 +61,7 @@ export {
   TextField,
   VideoHover,
   TextArea,
+  Text,
   Header,
   FontAwesomeIcon,
   Transition,

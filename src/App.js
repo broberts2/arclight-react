@@ -19,6 +19,7 @@ import Loader from "./demos/loader";
 import VideoHover from "./demos/videohover";
 import TechDivider from "./demos/techdivider";
 import Shape from "./demos/shape";
+import Text from "./demos/text";
 import _TextArea from "./demos/textarea";
 import _Dropdown from "./demos/dropdown";
 import VerticalDividerSemiCircle from "./demos/vertical-divider-semi-circle";
@@ -31,6 +32,7 @@ import theme from "./components/themes";
 const __Object__ = {
   Table,
   Grid,
+  Text,
   Dropdown: _Dropdown,
   LineChart,
   DoughnutChart,
