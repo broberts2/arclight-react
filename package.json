@@ -93,7 +93,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "win-npm-publish": "git add . & git commit -am \"npm publish\" & git push origin master & rmdir /Q /S dist & mkdir dist & set NODE_ENV=production babel src\\components -d dist --copy-files & npm publish"
+    "win-npm-publish": "git add . & git commit -am \"npm publish\" & git push origin master & rmdir /Q /S dist & mkdir dist & babel .\\src\\components -d .\\dist --copy-files & npm publish"
   },
   "eslintConfig": {
     "extends": "react-app"
