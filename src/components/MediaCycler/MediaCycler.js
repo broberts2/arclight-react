@@ -8,7 +8,6 @@ const _MediaCycler = styled.div`
   height: 100%;
   position: relative;
   pointer-events: none;
-  background-color: blue;
 `;
 
 const Element1 = styled.div`
