@@ -19,6 +19,7 @@
     "babel-plugin-transform-require-default": "^0.1.6",
     "file-loader": "^4.2.0",
     "font-awesome": "^4.7.0",
+    "npm-assets": "^0.1.2",
     "radium": "^0.26.0",
     "react": "^16.13.0",
     "react-animations": "^1.0.0",

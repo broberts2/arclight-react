@@ -4,7 +4,7 @@ import { Transition } from "../index";
 import theme from "../themes";
 
 const TechDivider = styled.div`
-  pointer-events: none;
+  pointer-events: all;
   margin-top: -7.15vw;
   margin-bottom: -7.15vw;
   & img {
