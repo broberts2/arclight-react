@@ -62,7 +62,7 @@ const __Object__ = {
 const picker = (id, THEME, anim) => __Object__[id](THEME);
 
 export default class App extends React.Component {
-  state = { item: "Text", theme: "Dark", anim: null };
+  state = { item: "TechDivider", theme: "Dark", anim: null };
   render() {
     return (
       <div
