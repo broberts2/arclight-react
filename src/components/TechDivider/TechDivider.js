@@ -15,6 +15,6 @@ const TechDivider = styled.div`
 
 export default React.memo((props) => (
   <Transition trans={props.trans}>
-      <TechDivider filter={props.filter}><img src={require("./img.svg")} /></TechDivider>
+      <TechDivider filter={props.filter}><img src={require("./img.png")} /></TechDivider>
   </Transition>
 ));
