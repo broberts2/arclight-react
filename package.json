@@ -66,7 +66,7 @@
     "react-bootstrap": "^1.0.0-beta.16",
     "react-calendar": "^2.19.2",
     "react-countdown-circle-timer": "^2.3.7",
-    "react-dev-utils": "^10.2.1",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.12.0",
     "react-full-screen": "^0.2.4",
     "react-particles-js": "^2.7.1",
